@@ -1,22 +1,17 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GroundPlatform : MonoBehaviour
 {
-    private static GroundPlatform instance;
-    // Add last created platform into instance to spawn new platform right after
-
     [SerializeField]
     private GameObject groundPlatform;
+
+    private static GroundPlatform instance;
 
     private bool spawned;
 
     private void Awake()
     {
-        if (instance == null)
-            instance = this;
-
-        print(instance);
+        instance = this;
     }
 
     void Update()
@@ -26,7 +21,10 @@ public class GroundPlatform : MonoBehaviour
         if (transform.position.x <= 0 && !spawned)
         {
             spawned = true;
-            Instantiate(groundPlatform, new Vector3(transform.position.x + 20f, transform.position.y, 0f), Quaternion.identity);
+            Instantiate(groundPlatform, new Vector3(instance.transform.position.x + 20f, transform.position.y, 0f), Quaternion.identity);
         }
+
+        if (transform.position.x <= -20)
+            Destroy(this.gameObject);
     }
 }
