@@ -1,12 +1,13 @@
 using UnityEngine;
+using Zenject;
 
 public class GroundPlatform : MonoBehaviour
 {
-    [SerializeField]
-    private float speed;
+    [Inject]
+    private Launcher launcher;
 
     void Update()
     {
-        transform.Translate(speed * Time.deltaTime * Vector2.left);
+        transform.Translate(launcher.platformSpeed * Time.deltaTime * Vector2.left);
     }
 }

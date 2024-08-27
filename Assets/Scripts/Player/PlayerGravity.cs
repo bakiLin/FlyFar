@@ -1,36 +1,35 @@
 using UnityEngine;
 
-public class LaunchPlayer : MonoBehaviour
+public class PlayerGravity : MonoBehaviour
 {
     [SerializeField]
-    private float jumpHeight, timeToMaxHeight;
+    private float negativeJumpHeight, timeToMaxHeight;
 
     private Vector2 moveDirection;
-
-    private float velocity, gravity;
+    private float gravity;
 
     private void Start()
     {
-        float temp = jumpHeight * 2;
-        velocity = temp / timeToMaxHeight;
-        gravity = -temp / Mathf.Pow(timeToMaxHeight, 2f);
+        gravity = (negativeJumpHeight * 2) / Mathf.Pow(timeToMaxHeight, 2f);
     }
 
     private void Update()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1f);
 
-        if (!hit)
+        if (hit)
+        {
+            if (moveDirection.y < 0f)
+                moveDirection.y = 0f;
+        }
+        else
         {
             if (moveDirection.y > gravity)
                 moveDirection.y += gravity * Time.deltaTime;
         }
-        else
-            moveDirection.y = 0f;
-
-        if (Input.GetKeyDown(KeyCode.Space))
-            moveDirection.y = velocity;
 
         transform.Translate(Time.deltaTime * moveDirection, Space.World);
     }
+
+    public void Launch(float power) => moveDirection.y = power; 
 }
