@@ -4,12 +4,12 @@ using Zenject;
 
 public class Pooler : MonoBehaviour
 {
+    [Inject]
+    private DiContainer diContainer;
+
     public List<Pool> pools;
 
     private Dictionary<string, Queue<GameObject>> dict = new();
-
-    [Inject]
-    private DiContainer diContainer;
 
     private void Awake()
     {
