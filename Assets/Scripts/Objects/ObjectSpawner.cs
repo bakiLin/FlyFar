@@ -14,8 +14,6 @@ public class ObjectSpawner : ObjectParent
 
     private float time;
 
-    private void Start() => time = RandomValue(timeToSpawn);
-
     private void Update()
     {
         if (config.platformSpeed > 0)
@@ -24,8 +22,8 @@ public class ObjectSpawner : ObjectParent
                 time -= Time.deltaTime;
             else
             {
-                float Y = RandomValue(spawnBorderY);
-                pooler.Spawn(objectName, new Vector2(12f, Y));
+                Vector2 position = new(12f, RandomValue(spawnBorderY));
+                pooler.Spawn(objectName, position);
                 time = RandomValue(timeToSpawn);
             }
         }

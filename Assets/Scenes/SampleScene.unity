@@ -941,10 +941,10 @@ MonoBehaviour:
   objectName: pink ball
   timeToSpawn:
   - 0.5
-  - 2
+  - 1
   spawnBorderY:
-  - -3.5
-  - 4.2
+  - -3
+  - 6
 --- !u!1 &1267996237
 GameObject:
   m_ObjectHideFlags: 0
@@ -1215,13 +1215,14 @@ GameObject:
   - component: {fileID: 1817044095}
   - component: {fileID: 1817044096}
   - component: {fileID: 1817044094}
+  - component: {fileID: 1817044097}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1817044092
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1264,7 +1265,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.78431374, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1301,11 +1302,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ea0c97361236bc4e99410e748eeb8e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  negativeJumpHeight: -5
-  timeToMaxHeight: 1
+  jumpHeight: 5
+  timeToMaxHeight: 0.8
 --- !u!70 &1817044095
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1367,7 +1365,19 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 5
+--- !u!114 &1817044097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817044091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10346c3ea3521484cb874ebccb3de5e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1840632166
 GameObject:
   m_ObjectHideFlags: 0
@@ -1488,7 +1498,7 @@ MonoBehaviour:
     prefab: {fileID: 1426860005646312250, guid: a9ac95073f1842142af644fa06cf0be9, type: 3}
     parent: {fileID: 1267996237}
   - tag: pink ball
-    size: 7
+    size: 10
     prefab: {fileID: 6599220491108797818, guid: a8f30a508f5b5a948be39b65e87a42ea, type: 3}
     parent: {fileID: 1334417584}
 --- !u!114 &2121241070

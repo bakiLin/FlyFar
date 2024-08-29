@@ -6,6 +6,9 @@ public class LaunchBar : MonoBehaviour
     [Inject]
     private Config config;
 
+    [Inject]
+    private PlayerGravity playerGravity;
+
     [SerializeField]
     private Transform pointer;
 
@@ -21,9 +24,9 @@ public class LaunchBar : MonoBehaviour
         {
             RaycastHit2D hit = Physics2D.Raycast(pointer.position, Vector2.up, 1f);
 
-            if (hit.transform.name == "Green") SetBarValue(5f);
-            else if (hit.transform.name == "Yellow") SetBarValue(10f);
-            else if (hit.transform.name == "Red") SetBarValue(15f);
+            if (hit.transform.name == "Green") SetBarValue(5f, 10f);
+            else if (hit.transform.name == "Yellow") SetBarValue(10f, 15f);
+            else if (hit.transform.name == "Red") SetBarValue(15f, 20f);
 
             gameObject.SetActive(false);
         }
@@ -37,8 +40,9 @@ public class LaunchBar : MonoBehaviour
         }
     }
 
-    private void SetBarValue(float platformSpeed)
+    private void SetBarValue(float platformSpeed, float jumpPower)
     {
         config.platformSpeed = platformSpeed;
+        playerGravity.SetUpForce(jumpPower);
     }
 }

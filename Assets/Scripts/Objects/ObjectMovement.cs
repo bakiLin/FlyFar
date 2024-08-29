@@ -19,11 +19,15 @@ public class ObjectMovement : ObjectParent
     private void Start()
     {
         if (objectType == ObjectType.Object)
-            addSpeed = RandomValue(speedDifference);
+        {
+            addSpeed = (float)random.NextDouble();
+            addSpeed = Mathf.Clamp(addSpeed, 0.15f, 0.5f);
+        }
     }
 
     void Update()
     {
-        transform.Translate((config.platformSpeed - addSpeed) * Time.deltaTime * Vector2.left);
+        float speed = config.platformSpeed - config.platformSpeed * addSpeed;
+        transform.Translate(speed * Time.deltaTime * Vector2.left);
     }
 }

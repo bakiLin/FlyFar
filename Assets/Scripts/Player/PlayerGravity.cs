@@ -3,56 +3,28 @@ using UnityEngine;
 public class PlayerGravity : MonoBehaviour
 {
     [SerializeField]
-    private LayerMask groundLayer;
+    private float jumpHeight, timeToMaxHeight;
 
-    [SerializeField]
-    private float negativeJumpHeight, timeToMaxHeight;
-
+    private Rigidbody2D rb;
     private Vector2 moveDirection;
     private float gravity;
     private int colls;
-    private Rigidbody2D rb;
 
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
+    private void Awake() => rb = GetComponent<Rigidbody2D>();
 
-    private void Start()
-    {
-        gravity = (negativeJumpHeight * 2) / Mathf.Pow(timeToMaxHeight, 2f);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        colls++;
-
-        //if (collision.collider.IsTouchingLayers(groundLayer - 1))
-        //{
-        //    moveDirection.y = 10f;
-        //}
-    }
-
-    private void OnCollisionExit2D(Collision2D collision) => colls--;
+    private void Start() => gravity -= (jumpHeight * 2) / Mathf.Pow(timeToMaxHeight, 2f);
 
     private void Update()
     {
-        if (colls > 0)
-        {
-            if (moveDirection.y < 0f)
-                moveDirection.y = 0f;
-        }
-        else
-        {
-            if (moveDirection.y > gravity)
-                moveDirection.y += gravity * Time.deltaTime;
-        }
+        if (colls < 1 && moveDirection.y > gravity)
+            moveDirection.y += gravity * Time.deltaTime;
+        else if (colls > 0 && moveDirection.y < 0f)
+            moveDirection.y = 0f;
     }
 
-    private void FixedUpdate()
-    {
-        rb.velocity = moveDirection;
-    }
+    private void FixedUpdate() => rb.velocity = moveDirection;
 
-    public void Launch(float power) => moveDirection.y = power; 
+    public void SetUpForce(float power) => moveDirection.y = power;
+
+    public void SetColls(int num) => colls += num;
 }
