@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 7636680529636181450}
   - component: {fileID: 7124860110415471248}
   - component: {fileID: -2468087031070041915}
-  - component: {fileID: 3995929138920314593}
+  - component: {fileID: 850707400345543573}
   m_Layer: 0
-  m_Name: Ground
+  m_Name: Platform
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,7 +134,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &3995929138920314593
+--- !u!114 &850707400345543573
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,11 +143,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1426860005646312250}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b25cc7b59730def47a98ba8f08616b4d, type: 3}
+  m_Script: {fileID: 11500000, guid: a774f042794da3541991cbe4416ee428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectType: 0
-  speedDifference: []
 --- !u!1 &5260451663778145252
 GameObject:
   m_ObjectHideFlags: 0

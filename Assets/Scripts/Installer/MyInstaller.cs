@@ -10,12 +10,14 @@ public class MyInstaller : MonoInstaller
     private PlayerGravity playerGravity;
 
     [SerializeField]
-    private Config config;
+    private PlatformSpeed platformSpeed;
 
     public override void InstallBindings()
     {
         Container.Bind<Pooler>().FromInstance(pooler).AsSingle().NonLazy();
+
         Container.Bind<PlayerGravity>().FromInstance(playerGravity).AsSingle().NonLazy();
-        Container.Bind<Config>().FromInstance(config).AsSingle().NonLazy();
+
+        Container.Bind<PlatformSpeed>().FromInstance(platformSpeed).AsSingle().NonLazy();
     }
 }

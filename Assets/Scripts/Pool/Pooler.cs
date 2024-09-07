@@ -7,7 +7,8 @@ public class Pooler : MonoBehaviour
     [Inject]
     private DiContainer diContainer;
 
-    public List<Pool> pools;
+    [SerializeField]
+    private List<Pool> pools;
 
     private Dictionary<string, Queue<GameObject>> dict = new();
 
@@ -19,7 +20,7 @@ public class Pooler : MonoBehaviour
 
             for (int i = 0; i < pool.size; i++)
             {
-                GameObject obj = diContainer.InstantiatePrefab(pool.prefab, pool.parent.transform);
+                GameObject obj = diContainer.InstantiatePrefab(pool.prefab);
                 obj.SetActive(false);
                 q.Enqueue(obj);
             }
@@ -28,12 +29,13 @@ public class Pooler : MonoBehaviour
         }
     }
 
-    public GameObject Spawn(string tag, Vector3 position)
+    public GameObject Spawn(string tag, Vector3 position, Transform parent)
     {
         GameObject obj = dict[tag].Dequeue();
 
         obj.SetActive(true);
         obj.transform.position = position;
+        obj.transform.parent = parent;
 
         dict[tag].Enqueue(obj);
 

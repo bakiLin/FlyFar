@@ -3,28 +3,25 @@ using UnityEngine;
 public class PlayerGravity : MonoBehaviour
 {
     [SerializeField]
-    private float jumpHeight, timeToMaxHeight;
+    private float gravity;
 
     private Rigidbody2D rb;
     private Vector2 moveDirection;
-    private float gravity;
-    private int colls;
+    private bool grounded;
 
     private void Awake() => rb = GetComponent<Rigidbody2D>();
 
-    private void Start() => gravity -= (jumpHeight * 2) / Mathf.Pow(timeToMaxHeight, 2f);
-
     private void Update()
     {
-        if (colls < 1 && moveDirection.y > gravity)
+        if (!grounded && moveDirection.y > gravity )
             moveDirection.y += gravity * Time.deltaTime;
-        else if (colls > 0 && moveDirection.y < 0f)
+        else if (grounded && moveDirection.y < 0f)
             moveDirection.y = 0f;
     }
 
     private void FixedUpdate() => rb.velocity = moveDirection;
 
-    public void SetUpForce(float power) => moveDirection.y = power;
+    public void Jump(float power) => moveDirection.y = power;
 
-    public void SetColls(int num) => colls += num;
+    public void IsGrounded(bool state) => grounded = state;
 }
