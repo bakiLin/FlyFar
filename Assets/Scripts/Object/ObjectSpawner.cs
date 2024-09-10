@@ -7,6 +7,9 @@ public class ObjectSpawner : MonoBehaviour
     [Inject]
     private Pooler pooler;
 
+    [Inject]
+    private Launcher launcher;
+
     [SerializeField]
     private string itemName;
 
@@ -32,7 +35,15 @@ public class ObjectSpawner : MonoBehaviour
         }
     }
 
-    public void IsSpawn(bool state) => spawn = state;
+    private void OnEnable()
+    {
+        launcher.onStart += (() => spawn = !spawn);
+    }
+
+    private void OnDisable()
+    {
+        launcher.onStart -= (() => spawn = !spawn);
+    }
 
     private float RandomValue(float[] arr) => (float) random.NextDouble() * (arr[1] - arr[0]) + arr[0];
 }

@@ -370,6 +370,7 @@ MonoBehaviour:
   pooler: {fileID: 647343856}
   playerGravity: {fileID: 1817044094}
   platformSpeed: {fileID: 896471709}
+  launcher: {fileID: 309155985}
 --- !u!1 &513834209
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,7 +800,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platfSpeed: 5
-  jumpPower: 5
+  jumpPower: 7
 --- !u!61 &630663783
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1039,7 +1040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e9cd3315e0727428bd534136fa5b16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platfSpeed: 12
+  platfSpeed: 10
   jumpPower: 10
 --- !u!1 &896471707
 GameObject:
@@ -1163,7 +1164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae8a65a8f28ec244897f5b45505271e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPosition: {x: 0, y: -5}
+  spawnPosition: {x: 0, y: -4.5}
 --- !u!1 &1326435636
 GameObject:
   m_ObjectHideFlags: 0
@@ -1354,8 +1355,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: pink ball
-  timeToSpawn: []
-  spawnBorder: []
+  timeToSpawn:
+  - 1
+  - 3
+  spawnBorder:
+  - -3
+  - 4
 --- !u!1 &1484184416
 GameObject:
   m_ObjectHideFlags: 0

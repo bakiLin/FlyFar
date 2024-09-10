@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -11,6 +12,8 @@ public class Launcher : MonoBehaviour
 
     [SerializeField]
     private float speed;
+
+    public Action onStart;
 
     private Vector2 moveDirection;
     private float offset;
@@ -30,15 +33,12 @@ public class Launcher : MonoBehaviour
     private void StopPointer()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, 1f);
+        LaunchPower launchPower = hit.collider.GetComponent<LaunchPower>();
 
-        if (hit)
-        {
-            LaunchPower launchPower = hit.collider.GetComponent<LaunchPower>();
+        platformSpeed.speed = launchPower.platfSpeed;
+        playerGravity.Jump(launchPower.jumpPower);
+        onStart?.Invoke();
 
-            platformSpeed.speed = launchPower.platfSpeed;
-            playerGravity.Jump(launchPower.jumpPower);
-
-            gameObject.SetActive(false);
-        }
+        transform.parent.gameObject.SetActive(false);
     }
 }

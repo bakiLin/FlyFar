@@ -1,30 +1,24 @@
 using UnityEngine;
+using Zenject;
+using Random = System.Random;
 
 public class ObjectMovement : MonoBehaviour
 {
-    private enum ObjectType
-    {
-        Ground,
-        Object
-    }
+    [Inject]
+    private PlatformSpeed platformSpeed;
 
-    [SerializeField]
-    private ObjectType objectType;
-
-    private float multiply, speed;
+    private Random random = new Random();
+    private float multiplier, speed;
 
     private void Start()
     {
-        if (objectType == ObjectType.Object)
-        {
-            //multiply = (float) random.NextDouble();
-            multiply = Mathf.Clamp(multiply, 0.2f, 0.4f);
-        }
+        multiplier = (float) random.NextDouble();
+        multiplier = Mathf.Clamp(multiplier, 0.6f, 0.7f);
     }
 
-    //void Update()
-    //{
-    //    speed = config.platformSpeed - config.platformSpeed * multiply;
-    //    transform.Translate(speed * Time.deltaTime * Vector2.left);
-    //}
+    void Update()
+    {
+        speed = platformSpeed.speed * multiplier;
+        transform.Translate(Time.deltaTime * speed * Vector2.left);
+    }
 }

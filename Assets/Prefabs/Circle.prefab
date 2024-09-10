@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1837451822325016987}
   - component: {fileID: 5054457900066942833}
   m_Layer: 0
-  m_Name: Pink Ball
+  m_Name: Circle
   m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.754717, g: 0, b: 0.71624106, a: 1}
+  m_Color: {r: 0, g: 0, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -133,7 +133,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25cc7b59730def47a98ba8f08616b4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectType: 1
-  speedDifference:
-  - 2
-  - 6

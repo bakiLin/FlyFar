@@ -10,19 +10,17 @@ public class PlatformSpawner : MonoBehaviour
     private Vector2 spawnPosition;
 
     private Transform lastPlatform;
-    private float xScale;
 
     private void Start()
     {
         lastPlatform = pooler.Spawn("platform", spawnPosition, transform).transform;
-        xScale = lastPlatform.localScale.x - 0.1f;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if (lastPlatform.position.x <= -1f)
+        if (lastPlatform.position.x < -1f)
         {
-            spawnPosition.x = lastPlatform.position.x + xScale;
+            spawnPosition.x = lastPlatform.position.x + lastPlatform.localScale.x;
             lastPlatform = pooler.Spawn("platform", spawnPosition, transform).transform;
         }
     }
