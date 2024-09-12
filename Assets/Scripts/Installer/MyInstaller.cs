@@ -13,7 +13,7 @@ public class MyInstaller : MonoInstaller
     private PlatformSpeed platformSpeed;
 
     [SerializeField]
-    private Launcher launcher;
+    private SpawnerState spawnerState;
 
     public override void InstallBindings()
     {
@@ -23,6 +23,6 @@ public class MyInstaller : MonoInstaller
 
         Container.Bind<PlatformSpeed>().FromInstance(platformSpeed).AsSingle().NonLazy();
 
-        Container.Bind<Launcher>().FromInstance(launcher).AsSingle().NonLazy();
+        Container.Bind<SpawnerState>().FromInstance(spawnerState).AsSingle().NonLazy();
     }
 }

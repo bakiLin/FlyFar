@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 9095342724696988580}
   - component: {fileID: 1837451822325016987}
   - component: {fileID: 5054457900066942833}
+  - component: {fileID: -4374558370292185825}
   m_Layer: 0
   m_Name: Circle
-  m_TagString: Ball
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,5 +132,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b25cc7b59730def47a98ba8f08616b4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-4374558370292185825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6599220491108797818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a61053662060eb54bacb60b7a567c2a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

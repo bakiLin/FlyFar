@@ -10,22 +10,23 @@ public class Launcher : MonoBehaviour
     [Inject]
     private PlayerGravity playerGravity;
 
+    [Inject]
+    private SpawnerState spawnerState;
+
+    [SerializeField]
+    private float[] xBorder;
+
     [SerializeField]
     private float speed;
 
-    public Action onStart;
-
     private Vector2 moveDirection;
-    private float offset;
-
-    private void Start() => offset -= transform.position.x;
 
     private void Update()
     {
         if (Input.GetButtonDown("Jump")) StopPointer();
         
-        if (transform.position.x <= -offset) moveDirection.x = speed;
-        else if (transform.position.x >= offset) moveDirection.x = -speed;
+        if (transform.position.x <= xBorder[0]) moveDirection.x = speed;
+        else if (transform.position.x >= xBorder[1]) moveDirection.x = -speed;
 
         transform.Translate(Time.deltaTime * moveDirection, Space.World);
     }
@@ -36,9 +37,9 @@ public class Launcher : MonoBehaviour
         LaunchPower launchPower = hit.collider.GetComponent<LaunchPower>();
 
         platformSpeed.speed = launchPower.platfSpeed;
-        playerGravity.Jump(launchPower.jumpPower);
-        onStart?.Invoke();
-
+        playerGravity.enabled = true;
+        playerGravity.SetGravity(launchPower.jumpPower);
+        spawnerState.ChangeRunState();
         transform.parent.gameObject.SetActive(false);
     }
 }

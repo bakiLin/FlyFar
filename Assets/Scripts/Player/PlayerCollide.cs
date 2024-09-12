@@ -1,20 +1,29 @@
+using System;
 using UnityEngine;
+using Zenject;
 
 public class PlayerCollide : MonoBehaviour
 {
+    [Inject]
+    private SpawnerState spawnerState;
+
     private PlayerGravity playerGravity;
+    private bool checkCollisions;
 
     private void Awake() => playerGravity = GetComponent<PlayerGravity>();
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Ground")) 
-            playerGravity.IsGrounded(true);
+        if (checkCollisions)
+        {
+            var temp = collision?.collider.GetComponent<ICollideable>();
+            if (temp != null) playerGravity.SetGravity(temp.Collide());
+        }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("Ground"))
-            playerGravity.IsGrounded(false);
-    }
+    private void OnEnable() => spawnerState.OnChangeRunState += ChangeCollisionState;
+
+    private void OnDisable() => spawnerState.OnChangeRunState -= ChangeCollisionState;
+
+    private void ChangeCollisionState() => checkCollisions = !checkCollisions;
 }

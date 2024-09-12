@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using Zenject;
 using Random = System.Random;
@@ -7,18 +8,27 @@ public class ObjectMovement : MonoBehaviour
     [Inject]
     private PlatformSpeed platformSpeed;
 
+    [Inject]
+    private SpawnerState spawnerState;
+
     private Random random = new Random();
-    private float multiplier, speed;
+    private float multiplier, startSpeed, currentSpeed;
 
-    private void Start()
+    void Update() => transform.Translate(Time.deltaTime * currentSpeed * Vector2.left);
+
+    private void OnEnable()
     {
-        multiplier = (float) random.NextDouble();
-        multiplier = Mathf.Clamp(multiplier, 0.6f, 0.7f);
+        multiplier = (float)random.NextDouble();
+        multiplier = Mathf.Clamp(multiplier, 0.4f, 0.6f);
+        startSpeed = Mathf.Clamp(platformSpeed.speed * multiplier, 0f, 20f);
+
+        spawnerState.OnSpeedChange += ChangeCurrentSpeed;
     }
 
-    void Update()
+    private void OnDisable()
     {
-        speed = platformSpeed.speed * multiplier;
-        transform.Translate(Time.deltaTime * speed * Vector2.left);
+        spawnerState.OnSpeedChange -= ChangeCurrentSpeed;
     }
+
+    private void ChangeCurrentSpeed() => /*currentSpeed = platformSpeed.speed - startSpeed;*/ print("slow down");
 }

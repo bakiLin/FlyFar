@@ -18,7 +18,7 @@ public class PlatformSpawner : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (lastPlatform.position.x < -1f)
+        if (lastPlatform.position.x < 6f)
         {
             spawnPosition.x = lastPlatform.position.x + lastPlatform.localScale.x;
             lastPlatform = pooler.Spawn("platform", spawnPosition, transform).transform;

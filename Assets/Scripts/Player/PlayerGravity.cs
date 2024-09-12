@@ -13,15 +13,21 @@ public class PlayerGravity : MonoBehaviour
 
     private void Update()
     {
-        if (!grounded && moveDirection.y > gravity )
-            moveDirection.y += gravity * Time.deltaTime;
-        else if (grounded && moveDirection.y < 0f)
-            moveDirection.y = 0f;
+        if (!grounded)
+        {
+            if (moveDirection.y > gravity)
+                moveDirection.y += gravity * Time.deltaTime;
+        }
+        else
+        {
+            if (moveDirection.y < 0f)
+                moveDirection.y = 0f;
+        }
     }
 
     private void FixedUpdate() => rb.velocity = moveDirection;
 
-    public void Jump(float power) => moveDirection.y = power;
-
     public void IsGrounded(bool state) => grounded = state;
+
+    public void SetGravity(float value) => moveDirection.y = value;
 }

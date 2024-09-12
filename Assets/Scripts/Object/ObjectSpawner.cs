@@ -8,7 +8,7 @@ public class ObjectSpawner : MonoBehaviour
     private Pooler pooler;
 
     [Inject]
-    private Launcher launcher;
+    private SpawnerState spawnerState;
 
     [SerializeField]
     private string itemName;
@@ -28,22 +28,18 @@ public class ObjectSpawner : MonoBehaviour
                 time -= Time.deltaTime;
             else
             {
-                Vector2 position = new Vector2 (12f, RandomValue(spawnBorder));
+                Vector2 position = new Vector2 (20f, RandomValue(spawnBorder));
                 pooler.Spawn(itemName, position, transform);
                 time = RandomValue(timeToSpawn);
             }
         }
     }
 
-    private void OnEnable()
-    {
-        launcher.onStart += (() => spawn = !spawn);
-    }
+    private void OnEnable() => spawnerState.OnChangeRunState += ChangeSpawnState;
 
-    private void OnDisable()
-    {
-        launcher.onStart -= (() => spawn = !spawn);
-    }
+    private void OnDisable() => spawnerState.OnChangeRunState -= ChangeSpawnState;
+
+    private void ChangeSpawnState() => spawn = !spawn;
 
     private float RandomValue(float[] arr) => (float) random.NextDouble() * (arr[1] - arr[0]) + arr[0];
 }
