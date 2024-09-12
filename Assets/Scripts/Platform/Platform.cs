@@ -20,7 +20,6 @@ public class Platform : MonoBehaviour, ICollideable
     public float Collide()
     {
         float jumpForce = platformSpeed.speed / 2;
-        spawnerState.ChangeSpeed();
 
         if (platformSpeed.speed > 2f) platformSpeed.speed -= platformSpeed.speed / 5;
         else
