@@ -4,7 +4,7 @@ using Zenject;
 public class PlayerCollide : MonoBehaviour
 {
     [Inject]
-    private SpawnerState spawnerState;
+    private ActionHolder spawnerState;
 
     private PlayerGravity playerGravity;
     private bool checkCollisions;

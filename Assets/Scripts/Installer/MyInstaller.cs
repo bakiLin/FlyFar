@@ -13,7 +13,10 @@ public class MyInstaller : MonoInstaller
     private PlatformSpeed platformSpeed;
 
     [SerializeField]
-    private SpawnerState spawnerState;
+    private ActionHolder actionHolder;
+
+    [SerializeField]
+    private PlayerAbility playerAbility;
 
     public override void InstallBindings()
     {
@@ -23,6 +26,8 @@ public class MyInstaller : MonoInstaller
 
         Container.Bind<PlatformSpeed>().FromInstance(platformSpeed).AsSingle().NonLazy();
 
-        Container.Bind<SpawnerState>().FromInstance(spawnerState).AsSingle().NonLazy();
+        Container.Bind<ActionHolder>().FromInstance(actionHolder).AsSingle().NonLazy();
+
+        Container.Bind<PlayerAbility>().FromInstance(playerAbility).AsSingle().NonLazy();
     }
 }

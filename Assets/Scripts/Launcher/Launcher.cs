@@ -11,7 +11,7 @@ public class Launcher : MonoBehaviour
     private PlayerGravity playerGravity;
 
     [Inject]
-    private SpawnerState spawnerState;
+    private ActionHolder spawnerState;
 
     [SerializeField]
     private float[] xBorder;

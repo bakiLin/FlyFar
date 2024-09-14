@@ -10,7 +10,7 @@ public class Platform : MonoBehaviour, ICollideable
     private PlayerGravity playerGravity;
 
     [Inject]
-    private SpawnerState spawnerState;
+    private ActionHolder actionHolder;
 
     private void Update()
     {
@@ -21,12 +21,15 @@ public class Platform : MonoBehaviour, ICollideable
     {
         float jumpForce = platformSpeed.speed / 2;
 
-        if (platformSpeed.speed > 2f) platformSpeed.speed -= platformSpeed.speed / 5;
+        actionHolder.ChangePlatformSpeed();
+
+        if (platformSpeed.speed > 2f) 
+            platformSpeed.speed -= platformSpeed.speed / 5;
         else
         {
             platformSpeed.speed = 0f;
             playerGravity.enabled = false;
-            spawnerState.ChangeRunState();
+            actionHolder.ChangeRunState();
         }
 
         return jumpForce;

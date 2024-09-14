@@ -8,7 +8,7 @@ public class ObjectSpawner : MonoBehaviour
     private Pooler pooler;
 
     [Inject]
-    private SpawnerState spawnerState;
+    private ActionHolder spawnerState;
 
     [SerializeField]
     private string itemName;

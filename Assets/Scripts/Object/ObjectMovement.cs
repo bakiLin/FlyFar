@@ -8,7 +8,7 @@ public class ObjectMovement : MonoBehaviour
     private PlatformSpeed platformSpeed;
 
     [Inject]
-    private SpawnerState spawnerState;
+    private ActionHolder spawnerState;
 
     private Random random = new Random();
     private float multiplier, startSpeed, currentSpeed;
@@ -16,7 +16,7 @@ public class ObjectMovement : MonoBehaviour
     private void OnEnable()
     {
         multiplier = (float)random.NextDouble();
-        multiplier = Mathf.Clamp(multiplier, 0.4f, 0.6f);
+        multiplier = Mathf.Clamp(multiplier, 0.4f, 0.7f);
         startSpeed = Mathf.Clamp(platformSpeed.speed * multiplier, 0f, 20f);
     }
 
