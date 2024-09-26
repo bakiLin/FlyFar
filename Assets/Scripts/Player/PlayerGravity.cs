@@ -41,13 +41,13 @@ public class PlayerGravity : MonoBehaviour
 
     public void SetGravity(float value) => moveDirection.y = value;
 
-    private void OnEnable() => actionHolder.OnChangeSpeed += ChangeGravity;
-
-    private void OnDisable() => actionHolder.OnChangeSpeed -= ChangeGravity;
-
     private void ChangeGravity()
     {
         multiplier = 1 - ((platformSpeed.speed - 10f) / (25f - 10f) * 0.4f);
         multiplier = Mathf.Clamp(multiplier, 0.6f, 1f);
     }
+
+    private void OnEnable() => actionHolder.OnHitGround += ChangeGravity;
+
+    private void OnDisable() => actionHolder.OnHitGround -= ChangeGravity;
 }

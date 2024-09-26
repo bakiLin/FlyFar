@@ -21,7 +21,7 @@ public class Platform : MonoBehaviour, ICollideable
     {
         float jumpForce = platformSpeed.speed / 2;
 
-        actionHolder.ChangePlatformSpeed();
+        actionHolder.HitGround();
 
         if (platformSpeed.speed > 2f) 
             platformSpeed.speed -= platformSpeed.speed / 5;

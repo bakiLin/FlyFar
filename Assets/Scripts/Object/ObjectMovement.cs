@@ -7,22 +7,20 @@ public class ObjectMovement : MonoBehaviour
     [Inject]
     private PlatformSpeed platformSpeed;
 
-    [Inject]
-    private ActionHolder spawnerState;
-
     private Random random = new Random();
     private float multiplier, startSpeed, currentSpeed;
 
-    private void OnEnable()
+    private void Start()
     {
-        multiplier = (float)random.NextDouble();
-        multiplier = Mathf.Clamp(multiplier, 0.4f, 0.7f);
-        startSpeed = Mathf.Clamp(platformSpeed.speed * multiplier, 0f, 20f);
+        multiplier = (float) random.NextDouble();
+        multiplier = Mathf.Clamp(multiplier, 0.5f, 0.7f);
     }
 
-    void Update()
+    private void Update()
     {
         currentSpeed = platformSpeed.speed - startSpeed;
         transform.Translate(Time.deltaTime * currentSpeed * Vector2.left);
     }
+
+    private void OnEnable() => startSpeed = Mathf.Clamp(platformSpeed.speed * multiplier, 5f, 20f);
 }

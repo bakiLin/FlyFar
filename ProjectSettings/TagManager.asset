@@ -44,3 +44,6 @@ TagManager:
   - name: Power Scale Bar
     uniqueID: 2515243819
     locked: 0
+  - name: Object
+    uniqueID: 846834049
+    locked: 0
