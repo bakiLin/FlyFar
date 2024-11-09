@@ -17,7 +17,7 @@ public class Platform : MonoBehaviour, ICollideable
         transform.Translate(platformSpeed.speed * Time.deltaTime * Vector2.left, Space.World);
     }
 
-    public float Collide()
+    public void Collide()
     {
         float jumpForce = platformSpeed.speed / 2;
 
@@ -32,6 +32,6 @@ public class Platform : MonoBehaviour, ICollideable
             actionHolder.ChangeRunState();
         }
 
-        return jumpForce;
+        playerGravity.SetGravity(jumpForce);
     }
 }

@@ -4,7 +4,7 @@ using Zenject;
 public class PlayerCollide : MonoBehaviour
 {
     [Inject]
-    private ActionHolder spawnerState;
+    private ActionHolder actionHolder;
 
     private PlayerGravity playerGravity;
     private bool checkCollisions;
@@ -15,14 +15,14 @@ public class PlayerCollide : MonoBehaviour
     {
         if (checkCollisions)
         {
-            var temp = collision?.collider.GetComponent<ICollideable>();
-            if (temp != null) playerGravity.SetGravity(temp.Collide());
+            var hitObject = collision?.collider.GetComponent<ICollideable>();
+            if (hitObject != null) hitObject.Collide();
         }
     }
 
-    private void OnEnable() => spawnerState.OnChangeRunState += ChangeCollisionState;
+    private void OnEnable() => actionHolder.OnChangeRunState += ChangeCollisionState;
 
-    private void OnDisable() => spawnerState.OnChangeRunState -= ChangeCollisionState;
+    private void OnDisable() => actionHolder.OnChangeRunState -= ChangeCollisionState;
 
     private void ChangeCollisionState() => checkCollisions = !checkCollisions;
 }

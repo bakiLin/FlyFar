@@ -1,4 +1,4 @@
 public interface ICollideable 
 {
-    float Collide();
+    void Collide();
 }
