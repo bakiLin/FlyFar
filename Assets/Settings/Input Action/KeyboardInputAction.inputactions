@@ -1,5 +1,34 @@
 {
     "name": "KeyboardInputAction",
-    "maps": [],
+    "maps": [
+        {
+            "name": "Keyboard",
+            "id": "dcb747ef-be40-4278-ba88-69544ebd1e9d",
+            "actions": [
+                {
+                    "name": "Power Bar",
+                    "type": "Button",
+                    "id": "9609612a-e6ec-4819-b13d-a00d64df2646",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a6fd5bf0-1761-44ce-8e84-47da619b65db",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Power Bar",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
     "controlSchemes": []
 }
