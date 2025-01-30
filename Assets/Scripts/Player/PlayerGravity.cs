@@ -12,10 +12,15 @@ public class PlayerGravity : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public void Jump(float powerBarValue)
+    public void Jump(float value)
     {
-        if (powerBarValue <= 0.5f) rb.linearVelocityY = minForce;
-        else if (powerBarValue <= 0.8f) rb.linearVelocityY = midForce;
+        if (value <= 0.5f) rb.linearVelocityY = minForce;
+        else if (value <= 0.8f) rb.linearVelocityY = midForce;
         else rb.linearVelocityY = maxForce;
+    }
+
+    public void AddGravity(float value)
+    {
+        rb.linearVelocityY = value;
     }
 }

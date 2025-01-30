@@ -14,7 +14,10 @@ public class InputScript : MonoBehaviour
     private PlayerSpeed playerSpeed;
 
     [Inject]
-    private EnemySpawner enemySpawner;
+    private SkyEnemySpawner skyEnemySpawner;
+
+    [Inject]
+    private GroundEnemySpawner groundEnemySpawner;
 
     private KeyboardInputAction keyboardInputAction;
 
@@ -41,7 +44,9 @@ public class InputScript : MonoBehaviour
 
         playerGravity.Jump(powerBarValue);
         playerSpeed.Jump(powerBarValue);
-        enemySpawner.StartSpawn();
+
+        skyEnemySpawner.StartSpawn();
+        groundEnemySpawner.StartSpawn();
 
         keyboardInputAction.Keyboard.PowerBar.started -= StopArrow;
     }

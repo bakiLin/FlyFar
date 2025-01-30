@@ -29,17 +29,11 @@ public class PlayerSpeed : MonoBehaviour
         else speedProperty.Value = maxSpeed;
     }
 
-    public void SetSpeed(float value)
-    {
-        speedProperty.Value = value;
-    }
+    public void SetSpeed(float value) => speedProperty.Value = value;
 
-    public float GetSpeed()
-    {
-        return speedProperty.Value;
-    }
+    public float GetSpeed() => speedProperty.Value;
 
-    private void OnDisable()
+    private void OnDisable() 
     {
         disposable.Clear();
     }

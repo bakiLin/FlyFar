@@ -1,50 +1,34 @@
 using System.Collections;
 using UnityEngine;
 using Zenject;
-using Random = System.Random;
 
-public class EnemySpawner : MonoBehaviour
+public abstract class EnemySpawner : MonoBehaviour
 {
     [Inject]
-    private ObjectPooler objectPooler;
+    protected ObjectPooler objectPooler;
+
+    [Inject]
+    protected PlayerSpeed playerSpeed;
 
     [SerializeField]
-    private int minY, maxY;
+    protected string enemyTag;
 
     [SerializeField]
-    private float spawnDelay;
+    protected float enemyDistance;
 
-    private Random random = new Random();
+    protected virtual IEnumerator SpawnCoroutine() { yield return null; }
 
-    public void StartSpawn()
+    public void StartSpawn() => StartCoroutine(SpawnCoroutine());
+
+    protected void Spawn(Vector3 position)
     {
-        StartCoroutine(SpawnCoroutine());
-    }
-
-    private IEnumerator SpawnCoroutine()
-    {
-        yield return new WaitForSeconds(1f);
-
-        while (true)
+        if (objectPooler.poolDictionary.ContainsKey(enemyTag))
         {
-            Vector3 spawnPosition = new Vector3(15f, random.Next(minY, maxY));
-            Spawn(spawnPosition);
-
-            yield return new WaitForSeconds(spawnDelay);
-        }
-    }
-
-    private void Spawn(Vector3 position)
-    {
-        string tag = "enemy";
-
-        if (objectPooler.poolDictionary.ContainsKey(tag))
-        {
-            GameObject obj = objectPooler.poolDictionary[tag].Dequeue();
+            GameObject obj = objectPooler.poolDictionary[enemyTag].Dequeue();
             obj.SetActive(false);
             obj.transform.position = position;
             obj.SetActive(true);
-            objectPooler.poolDictionary[tag].Enqueue(obj);
+            objectPooler.poolDictionary[enemyTag].Enqueue(obj);
         }
     }
 }

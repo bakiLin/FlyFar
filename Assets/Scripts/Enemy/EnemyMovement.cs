@@ -26,6 +26,8 @@ public class EnemyMovement : MonoBehaviour
     private void ChangeSpeed()
     {
         tween.Kill();
+
+        Move();
     }
 
     private void OnEnable()
