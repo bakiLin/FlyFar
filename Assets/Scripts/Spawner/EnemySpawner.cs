@@ -11,22 +11,26 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private int minY, maxY;
 
+    [SerializeField]
+    private float spawnDelay;
+
     private Random random = new Random();
 
-    private void Start()
+    public void StartSpawn()
     {
         StartCoroutine(SpawnCoroutine());
     }
 
     private IEnumerator SpawnCoroutine()
     {
+        yield return new WaitForSeconds(1f);
+
         while (true)
         {
             Vector3 spawnPosition = new Vector3(15f, random.Next(minY, maxY));
-
             Spawn(spawnPosition);
 
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(spawnDelay);
         }
     }
 
@@ -37,6 +41,7 @@ public class EnemySpawner : MonoBehaviour
         if (objectPooler.poolDictionary.ContainsKey(tag))
         {
             GameObject obj = objectPooler.poolDictionary[tag].Dequeue();
+            obj.SetActive(false);
             obj.transform.position = position;
             obj.SetActive(true);
             objectPooler.poolDictionary[tag].Enqueue(obj);

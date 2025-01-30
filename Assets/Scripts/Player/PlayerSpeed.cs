@@ -1,3 +1,5 @@
+using System;
+using UniRx;
 using UnityEngine;
 
 public class PlayerSpeed : MonoBehaviour
@@ -5,14 +7,40 @@ public class PlayerSpeed : MonoBehaviour
     [SerializeField]
     private float minSpeed, midSpeed, maxSpeed;
 
-    private float speed;
+    [HideInInspector]
+    public FloatReactiveProperty speedProperty;
 
-    public void Jump(float powerBarValue)
+    private CompositeDisposable disposable = new CompositeDisposable();
+
+    public Action onChanged;
+
+    private void Awake()
     {
-        if (powerBarValue <= 0.5f) speed = minSpeed;
-        else if (powerBarValue <= 0.8f) speed = midSpeed;
-        else speed = maxSpeed;
+        speedProperty.Subscribe(_ =>
+        {
+            onChanged?.Invoke();
+        }).AddTo(disposable);
     }
 
-    public float GetSpeed() => speed;
+    public void Jump(float value)
+    {
+        if (value <= 0.5f) speedProperty.Value = minSpeed;
+        else if (value <= 0.8f) speedProperty.Value = midSpeed;
+        else speedProperty.Value = maxSpeed;
+    }
+
+    public void SetSpeed(float value)
+    {
+        speedProperty.Value = value;
+    }
+
+    public float GetSpeed()
+    {
+        return speedProperty.Value;
+    }
+
+    private void OnDisable()
+    {
+        disposable.Clear();
+    }
 }

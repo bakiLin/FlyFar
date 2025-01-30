@@ -14,12 +14,8 @@ public class PlayerGravity : MonoBehaviour
 
     public void Jump(float powerBarValue)
     {
-        float jumpForce;
-
-        if (powerBarValue <= 0.5f) jumpForce = minForce;
-        else if (powerBarValue <= 0.8f) jumpForce = midForce;
-        else jumpForce = maxForce;
-
-        rb.linearVelocityY = jumpForce;
+        if (powerBarValue <= 0.5f) rb.linearVelocityY = minForce;
+        else if (powerBarValue <= 0.8f) rb.linearVelocityY = midForce;
+        else rb.linearVelocityY = maxForce;
     }
 }

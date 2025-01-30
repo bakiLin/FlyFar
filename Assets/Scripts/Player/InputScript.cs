@@ -13,6 +13,9 @@ public class InputScript : MonoBehaviour
     [Inject]
     private PlayerSpeed playerSpeed;
 
+    [Inject]
+    private EnemySpawner enemySpawner;
+
     private KeyboardInputAction keyboardInputAction;
 
     private void Awake()
@@ -38,6 +41,7 @@ public class InputScript : MonoBehaviour
 
         playerGravity.Jump(powerBarValue);
         playerSpeed.Jump(powerBarValue);
+        enemySpawner.StartSpawn();
 
         keyboardInputAction.Keyboard.PowerBar.started -= StopArrow;
     }
