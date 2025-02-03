@@ -5,19 +5,7 @@ using UnityEngine.InputSystem;
 public class InputScript : MonoBehaviour
 {
     [Inject]
-    private PowerBarArrow powerBarArrow;
-
-    [Inject]
-    private PlayerGravity playerGravity;
-
-    [Inject]
-    private PlayerSpeed playerSpeed;
-
-    [Inject]
-    private SkyEnemySpawner skyEnemySpawner;
-
-    [Inject]
-    private GroundEnemySpawner groundEnemySpawner;
+    private GameManage gameManage;
 
     private KeyboardInputAction keyboardInputAction;
 
@@ -40,13 +28,7 @@ public class InputScript : MonoBehaviour
 
     private void StopArrow(InputAction.CallbackContext context)
     {
-        float powerBarValue = powerBarArrow.StopArrow();
-
-        playerGravity.Jump(powerBarValue);
-        playerSpeed.Jump(powerBarValue);
-
-        skyEnemySpawner.StartSpawn();
-        groundEnemySpawner.StartSpawn();
+        gameManage.StartGame();
 
         keyboardInputAction.Keyboard.PowerBar.started -= StopArrow;
     }

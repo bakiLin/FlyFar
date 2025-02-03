@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -1156348644380771244}
   m_Layer: 0
   m_Name: Sky Enemy
-  m_TagString: sky enemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9b1e90875cb0aa4f94438faa2f43de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 10
+  jumpForce: 15
 --- !u!1 &7314285571383407992
 GameObject:
   m_ObjectHideFlags: 0

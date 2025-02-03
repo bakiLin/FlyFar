@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using Zenject;
+using Random = System.Random;
 
 public abstract class EnemySpawner : MonoBehaviour
 {
@@ -14,7 +15,9 @@ public abstract class EnemySpawner : MonoBehaviour
     protected string enemyTag;
 
     [SerializeField]
-    protected float enemyDistance;
+    protected int distanceMin, distanceMax;
+
+    protected Random random = new Random();
 
     protected virtual IEnumerator SpawnCoroutine() { yield return null; }
 

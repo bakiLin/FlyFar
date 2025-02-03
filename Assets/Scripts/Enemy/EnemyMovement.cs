@@ -1,6 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 using Zenject;
+using Random = System.Random;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -9,12 +10,16 @@ public class EnemyMovement : MonoBehaviour
 
     private Tween tween;
 
+    private Random random = new Random();
+
     private void Move()
     {
         Vector3 position = new Vector3(-15f, transform.position.y);
 
+        float multiply = ((float)random.Next(4, 12)) / 10;
+
         tween.Kill();
-        tween = transform.DOMove(position, playerSpeed.GetSpeed())
+        tween = transform.DOMove(position, playerSpeed.GetSpeed() * multiply)
             .SetSpeedBased()
             .SetEase(Ease.Linear)
             .OnComplete(() =>

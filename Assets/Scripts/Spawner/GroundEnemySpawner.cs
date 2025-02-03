@@ -14,7 +14,9 @@ public class GroundEnemySpawner : EnemySpawner
         {
             Spawn(new Vector3(15f, positionY));
 
-            float delay = enemyDistance / playerSpeed.GetSpeed();
+            int distance = random.Next(distanceMin, distanceMax);
+
+            float delay = distance / playerSpeed.GetSpeed();
 
             yield return new WaitForSeconds(delay);
         }

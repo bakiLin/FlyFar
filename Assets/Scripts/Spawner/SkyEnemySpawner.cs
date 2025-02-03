@@ -1,13 +1,10 @@
 using System.Collections;
 using UnityEngine;
-using Random = System.Random;
 
 public class SkyEnemySpawner : EnemySpawner
 {
     [SerializeField]
     private int minY, maxY;
-
-    private Random random = new Random();
 
     protected override IEnumerator SpawnCoroutine()
     {
@@ -19,7 +16,9 @@ public class SkyEnemySpawner : EnemySpawner
 
             Spawn(spawnPosition);
 
-            float delay = enemyDistance / playerSpeed.GetSpeed();
+            int distance = random.Next(distanceMin, distanceMax);
+
+            float delay = distance / playerSpeed.GetSpeed();
 
             yield return new WaitForSeconds(delay);
         }
