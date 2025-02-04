@@ -1,9 +1,19 @@
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using Zenject;
 
 public class PowerBarArrow : MonoBehaviour
 {
+    [Inject]
+    private PlayerGravity playerGravity;
+
+    [Inject]
+    private PlayerSpeed playerSpeed;
+
+    [Inject]
+    private InputScript inputScript;
+
     [SerializeField]
     private Slider slider;
 
@@ -20,11 +30,22 @@ public class PowerBarArrow : MonoBehaviour
             .SetLoops(-1);
     }
 
-    public float StopArrow()
+    public void StopArrow()
     {
         sequence.Kill();
         powerBar.SetActive(false);
 
-        return slider.value;
+        playerGravity.Jump(slider.value);
+        playerSpeed.Jump(slider.value);
+    }
+
+    private void OnEnable()
+    {
+        inputScript.onStart += StopArrow;
+    }
+
+    private void OnDisable()
+    {
+        inputScript.onStart -= StopArrow;
     }
 }

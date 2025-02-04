@@ -1,11 +1,10 @@
 using UnityEngine;
-using Zenject;
 using UnityEngine.InputSystem;
+using System;
 
 public class InputScript : MonoBehaviour
 {
-    [Inject]
-    private GameManage gameManage;
+    public Action onStart;
 
     private KeyboardInputAction keyboardInputAction;
 
@@ -28,7 +27,7 @@ public class InputScript : MonoBehaviour
 
     private void StopArrow(InputAction.CallbackContext context)
     {
-        gameManage.StartGame();
+        onStart?.Invoke();
 
         keyboardInputAction.Keyboard.PowerBar.started -= StopArrow;
     }
