@@ -14,6 +14,9 @@ public class PlayerCollision : MonoBehaviour
     [Inject]
     private PlayerGravity playerGravity;
 
+    [Inject]
+    private ScoreManager scoreManager;
+
     [SerializeField]
     private float speedLoss, groundForce;
     
@@ -48,8 +51,12 @@ public class PlayerCollision : MonoBehaviour
             .Where(x => x.gameObject.CompareTag("Enemy"))
             .Subscribe(_ =>
             {
-                var collisionBehavior = _.GetComponent<IEnemyCollisionBehavior>();
+                var collisionBehavior = _.GetComponent<IEnemyCollision>();
                 playerGravity.AddGravity(collisionBehavior.CollisionBehavior());
+
+                var enemyScore = _.GetComponent<EnemyScore>();
+                scoreManager.SetScore(enemyScore.GetScore());
+
             }).AddTo(disposable);
     }
 

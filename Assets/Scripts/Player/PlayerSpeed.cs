@@ -12,13 +12,18 @@ public class PlayerSpeed : MonoBehaviour
 
     private CompositeDisposable disposable = new CompositeDisposable();
 
-    public Action onChanged;
+    public Action onChanged, onStop;
 
     private void Awake()
     {
         speedProperty.Subscribe(_ =>
         {
             onChanged?.Invoke();
+
+            if (speedProperty.Value == 0f)
+            {
+                onStop?.Invoke();
+            }
         }).AddTo(disposable);
     }
 

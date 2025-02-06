@@ -8,42 +8,42 @@ public class EnemyMovement : MonoBehaviour
     [Inject]
     private PlayerSpeed playerSpeed;
 
+    [SerializeField]
+    private int minSpeed, maxSpeed;
+
+    private Vector3 position;
+
     private Tween tween;
 
     private Random random = new Random();
 
     private void Move()
     {
-        Vector3 position = new Vector3(-15f, transform.position.y);
-
-        float multiply = ((float)random.Next(4, 12)) / 10;
+        if (playerSpeed.GetSpeed() > 0f)
+            position = new Vector3(-20f, transform.position.y);
+        else
+            position = new Vector3(20f, transform.position.y);
 
         tween.Kill();
-        tween = transform.DOMove(position, playerSpeed.GetSpeed() * multiply)
+
+        tween = transform.DOMove(position, random.Next(minSpeed, maxSpeed))
             .SetSpeedBased()
             .SetEase(Ease.Linear)
-            .OnComplete(() =>
-            {
-                gameObject.SetActive(false);
+            .OnComplete(() => 
+            { 
+                gameObject.SetActive(false); 
             });
-    }
-
-    private void ChangeSpeed()
-    {
-        tween.Kill();
-
-        Move();
     }
 
     private void OnEnable()
     {
         Move();
 
-        playerSpeed.onChanged += ChangeSpeed;
+        playerSpeed.onChanged += Move;
     }
 
     private void OnDisable()
     {
-        playerSpeed.onChanged -= ChangeSpeed;
+        playerSpeed.onChanged -= Move;
     }
 }

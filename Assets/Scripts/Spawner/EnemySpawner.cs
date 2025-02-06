@@ -11,6 +11,9 @@ public abstract class EnemySpawner : MonoBehaviour
     [Inject]
     protected PlayerSpeed playerSpeed;
 
+    [Inject]
+    protected InputScript inputScript;
+
     [SerializeField]
     protected string enemyTag;
 
@@ -21,7 +24,9 @@ public abstract class EnemySpawner : MonoBehaviour
 
     protected virtual IEnumerator SpawnCoroutine() { yield return null; }
 
-    public void StartSpawn() => StartCoroutine(SpawnCoroutine());
+    protected void StartSpawn() => StartCoroutine(SpawnCoroutine());
+
+    protected void StopSpawn() => StopAllCoroutines();
 
     protected void Spawn(Vector3 position)
     {
@@ -33,5 +38,17 @@ public abstract class EnemySpawner : MonoBehaviour
             obj.SetActive(true);
             objectPooler.poolDictionary[enemyTag].Enqueue(obj);
         }
+    }
+
+    protected void OnEnable()
+    {
+        inputScript.onStart += StartSpawn;
+        playerSpeed.onStop += StopSpawn;
+    }
+
+    protected void OnDisable()
+    {
+        inputScript.onStart -= StartSpawn;
+        playerSpeed.onStop -= StopSpawn;
     }
 }
