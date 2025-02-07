@@ -15,7 +15,7 @@ public class PlayerCollision : MonoBehaviour
     private PlayerGravity playerGravity;
 
     [Inject]
-    private ScoreManager scoreManager;
+    private UITextManager uiTextManager;
 
     [SerializeField]
     private float speedLoss, groundForce;
@@ -55,7 +55,7 @@ public class PlayerCollision : MonoBehaviour
                 playerGravity.AddGravity(collisionBehavior.CollisionBehavior());
 
                 var enemyScore = _.GetComponent<EnemyScore>();
-                scoreManager.SetScore(enemyScore.GetScore());
+                uiTextManager.SetCoin(enemyScore.GetScore());
 
             }).AddTo(disposable);
     }

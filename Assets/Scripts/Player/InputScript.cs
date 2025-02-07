@@ -1,9 +1,13 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
+using Zenject;
 
 public class InputScript : MonoBehaviour
 {
+    [Inject]
+    private PlayerPower playerPower;
+
     public Action onStart;
 
     private KeyboardInputAction keyboardInputAction;
@@ -30,5 +34,12 @@ public class InputScript : MonoBehaviour
         onStart?.Invoke();
 
         keyboardInputAction.Keyboard.PowerBar.started -= StopArrow;
+
+        keyboardInputAction.Keyboard.PowerBar.started += FlyPower;
+    }
+
+    private void FlyPower(InputAction.CallbackContext context)
+    {
+        playerPower.FlyPower();
     }
 }

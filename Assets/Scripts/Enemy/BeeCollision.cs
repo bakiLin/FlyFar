@@ -34,4 +34,9 @@ public class BeeCollision : MonoBehaviour, IEnemyCollision
     {
         gameObject.SetActive(false);
     }
+
+    private void OnEnable()
+    {
+        enemyMovement.enabled = true;
+    }
 }

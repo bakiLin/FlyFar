@@ -16,10 +16,6 @@ public class SkyEnemySpawner : EnemySpawner
 
             Spawn(spawnPosition);
 
-            int distance = random.Next(distanceMin, distanceMax);
-
-            float delay = distance / playerSpeed.GetSpeed();
-
             yield return new WaitForSeconds(delay);
         }
     }
