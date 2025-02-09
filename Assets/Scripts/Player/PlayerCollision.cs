@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
@@ -18,7 +19,7 @@ public class PlayerCollision : MonoBehaviour
     private UITextManager uiTextManager;
 
     [SerializeField]
-    private float speedLoss, groundForce;
+    private int speedLoss, groundForce;
     
     private CompositeDisposable disposable = new CompositeDisposable();
 
@@ -42,9 +43,11 @@ public class PlayerCollision : MonoBehaviour
                 }
                 else
                 {
-                    playerSpeed.SetSpeed(0f);
+                    playerSpeed.SetSpeed(0);
                     disposable.Clear();
                 }
+
+                uiTextManager.SetSpeed(playerSpeed.GetSpeed());
             }).AddTo(disposable);
 
         playerCollider.OnTriggerEnter2DAsObservable()

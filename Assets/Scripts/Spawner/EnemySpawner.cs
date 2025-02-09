@@ -18,7 +18,7 @@ public abstract class EnemySpawner : MonoBehaviour
     protected string enemyTag;
 
     [SerializeField]
-    protected float delay;
+    protected float minDelay, maxDelay;
 
     protected Random random = new Random();
 

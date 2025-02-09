@@ -14,7 +14,11 @@ public class GroundEnemySpawner : EnemySpawner
         {
             Spawn(new Vector3(15f, positionY));
 
-            yield return new WaitForSeconds(delay);
+            double range = (double) maxDelay - (double) minDelay;
+            double value = random.NextDouble();
+            double delay = (value * range) + minDelay;
+
+            yield return new WaitForSeconds((float)delay);
         }
     }
 }
