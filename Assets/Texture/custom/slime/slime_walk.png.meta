@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1ca6f6339618bab42a914717e7393b4e
+guid: a7aef61f38b77b44182894507271c75a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 368543389579951487
-    second: slime_0
+      213: -7363343868056314269
+    second: slime_walk_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -13,7 +13,7 @@ TextureImporter:
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
-    borderMipMap: 1
+    borderMipMap: 0
     mipMapsPreserveCoverage: 0
     alphaTestReferenceValue: 0.5
     mipMapFadeDistanceStart: 1
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: slime_0
+      name: slime_walk_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 49
-        height: 34
+        width: 340
+        height: 179
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f7d3b3c92445d1500800000000000000
-      internalID: 368543389579951487
+      spriteID: 36ed371c3c520d990800000000000000
+      internalID: -7363343868056314269
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      slime_0: 368543389579951487
+      slime_walk_0: -7363343868056314269
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

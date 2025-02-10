@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
@@ -16,7 +15,7 @@ public class PlayerCollision : MonoBehaviour
     private PlayerGravity playerGravity;
 
     [Inject]
-    private UITextManager uiTextManager;
+    private UITextManager textManager;
 
     [SerializeField]
     private int speedLoss, groundForce;
@@ -47,7 +46,7 @@ public class PlayerCollision : MonoBehaviour
                     disposable.Clear();
                 }
 
-                uiTextManager.SetSpeed(playerSpeed.GetSpeed());
+                textManager.SetSpeed(playerSpeed.GetSpeed());
             }).AddTo(disposable);
 
         playerCollider.OnTriggerEnter2DAsObservable()
@@ -58,7 +57,7 @@ public class PlayerCollision : MonoBehaviour
                 playerGravity.AddGravity(collisionBehavior.CollisionBehavior());
 
                 var enemyScore = _.GetComponent<EnemyScore>();
-                uiTextManager.SetCoin(enemyScore.GetScore());
+                textManager.SetCoin(enemyScore.GetScore());
 
             }).AddTo(disposable);
     }

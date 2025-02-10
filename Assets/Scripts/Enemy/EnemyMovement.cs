@@ -19,7 +19,7 @@ public class EnemyMovement : MonoBehaviour
     {
         playerSpeed.onChanged += ChangeSpeed;
 
-        Move(new Vector3(-20f, transform.position.y));
+        Move(-20f);
     }
 
     private void OnDisable()
@@ -27,7 +27,7 @@ public class EnemyMovement : MonoBehaviour
         playerSpeed.onChanged -= ChangeSpeed;
     }
 
-    private void Move(Vector3 position)
+    private void Move(float x)
     {
         double value = random.NextDouble();
         double range = (double)(maxSpeed - minSpeed);
@@ -35,7 +35,7 @@ public class EnemyMovement : MonoBehaviour
 
         tween.Kill();
 
-        tween = transform.DOMove(position, (float) speed)
+        tween = transform.DOMoveX(x, (float) speed)
             .SetSpeedBased()
             .SetEase(Ease.Linear)
             .OnComplete(() => { gameObject.SetActive(false); });
@@ -43,9 +43,12 @@ public class EnemyMovement : MonoBehaviour
 
     private void ChangeSpeed()
     {
-        if (playerSpeed.GetSpeed() < 1f) 
-        {
-            Move(new Vector3(20f, transform.position.y));
-        }
+        if (playerSpeed.GetSpeed() < 1f) Move(20f);
+    }
+
+    public void StopMovement()
+    {
+        tween.Kill();
+        enabled = false;
     }
 }
