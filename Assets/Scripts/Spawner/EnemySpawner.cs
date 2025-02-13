@@ -18,15 +18,16 @@ public abstract class EnemySpawner : MonoBehaviour
     protected string enemyTag;
 
     [SerializeField]
-    protected float minDelay, maxDelay;
+    protected double minDistance, maxDistance;
 
     protected Random random = new Random();
 
     protected virtual IEnumerator SpawnCoroutine() { yield return null; }
 
-    protected void StartSpawn() => StartCoroutine(SpawnCoroutine());
-
-    protected void StopSpawn() => StopAllCoroutines();
+    protected void StartSpawn()
+    {
+        StartCoroutine(SpawnCoroutine());
+    }
 
     protected void Spawn(Vector3 position)
     {
@@ -43,12 +44,12 @@ public abstract class EnemySpawner : MonoBehaviour
     protected void OnEnable()
     {
         inputScript.onStart += StartSpawn;
-        playerSpeed.onStop += StopSpawn;
+        playerSpeed.onStop += StopAllCoroutines;
     }
 
     protected void OnDisable()
     {
         inputScript.onStart -= StartSpawn;
-        playerSpeed.onStop -= StopSpawn;
+        playerSpeed.onStop -= StopAllCoroutines;
     }
 }

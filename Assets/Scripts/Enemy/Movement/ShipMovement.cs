@@ -7,16 +7,14 @@ public class ShipMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        sequence.Kill();
         sequence = DOTween.Sequence()
             .Append(transform.DOMoveY(transform.position.y + 1f, 1f).SetEase(Ease.Linear))
             .Append(transform.DOMoveY(transform.position.y, 1f).SetEase(Ease.Linear))
             .SetLoops(-1);
     }
 
-    public void StopMovement()
+    private void OnDisable()
     {
         sequence.Kill();
-        enabled = false;
     }
 }

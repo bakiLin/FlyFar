@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 using Zenject;
 
-public class PowerBarArrow : MonoBehaviour
+public class PowerBar : MonoBehaviour
 {
     [Inject]
     private PlayerGravity playerGravity;
@@ -17,9 +17,6 @@ public class PowerBarArrow : MonoBehaviour
     [SerializeField]
     private Slider slider;
 
-    [SerializeField]
-    private GameObject powerBar;
-
     private Sequence sequence;
 
     private void Awake()
@@ -30,22 +27,27 @@ public class PowerBarArrow : MonoBehaviour
             .SetLoops(-1);
     }
 
-    public void StopArrow()
+    private void Stop()
     {
         sequence.Kill();
-        powerBar.SetActive(false);
 
-        playerGravity.Jump(slider.value);
-        playerSpeed.Jump(slider.value);
+        slider.transform.parent.gameObject.SetActive(false);
+
+        float value = slider.value * 25f;
+        value = Mathf.Clamp(value, 10f, 1000f);
+        value = Mathf.RoundToInt(value);
+
+        playerGravity.AddGravity(value);
+        playerSpeed.AddSpeed(value);
     }
 
     private void OnEnable()
     {
-        inputScript.onStart += StopArrow;
+        inputScript.onStart += Stop;
     }
 
     private void OnDisable()
     {
-        inputScript.onStart -= StopArrow;
+        inputScript.onStart -= Stop;
     }
 }

@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 2980255828282774401}
   - component: {fileID: 4266763093484121615}
   - component: {fileID: 2991630370583437394}
-  - component: {fileID: 5687769243327656569}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Enemy
@@ -177,16 +176,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 20
---- !u!114 &5687769243327656569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5297841520325394218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c28c91eafce5184ba7e4d9daccbf0ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  score: 10

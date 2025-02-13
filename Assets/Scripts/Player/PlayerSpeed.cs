@@ -4,42 +4,27 @@ using UnityEngine;
 
 public class PlayerSpeed : MonoBehaviour
 {
-    [SerializeField]
-    private float minSpeed, midSpeed, maxSpeed;
-
-    [HideInInspector]
-    public FloatReactiveProperty speedProperty;
+    public Action onChange, onStop;
 
     private CompositeDisposable disposable = new CompositeDisposable();
 
-    public Action onChanged, onStop;
+    private float speed;
 
-    private void Awake()
+    public void AddSpeed(float value)
     {
-        speedProperty.Subscribe(_ =>
+        speed += value;
+        speed = Mathf.RoundToInt(speed);
+        
+        if (speed < 7f)
         {
-            onChanged?.Invoke();
+            speed = 0f;
+            onStop?.Invoke();
+        }
 
-            if (speedProperty.Value == 0f)
-            {
-                onStop?.Invoke();
-            }
-        }).AddTo(disposable);
+        onChange?.Invoke();
     }
 
-    public void Jump(float value)
-    {
-        if (value <= 0.5f) speedProperty.Value = minSpeed;
-        else if (value <= 0.8f) speedProperty.Value = midSpeed;
-        else speedProperty.Value = maxSpeed;
-    }
+    public float GetSpeed() => speed;
 
-    public void SetSpeed(float value) => speedProperty.Value = value;
-
-    public float GetSpeed() => speedProperty.Value;
-
-    private void OnDisable() 
-    {
-        disposable.Clear();
-    }
+    private void OnDisable() => disposable.Clear();
 }

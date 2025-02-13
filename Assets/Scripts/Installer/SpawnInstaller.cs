@@ -4,15 +4,15 @@ using Zenject;
 public class SpawnInstaller : MonoInstaller
 {
     [SerializeField]
-    private SkyEnemySpawner skyEnemySpawner;
+    private SkySpawner skySpawner;
 
     [SerializeField]
-    private GroundEnemySpawner groundEnemySpawner;
+    private GroundSpawner groundSpawner;
 
     public override void InstallBindings()
     {
-        Container.Bind<SkyEnemySpawner>().FromInstance(skyEnemySpawner).AsSingle().NonLazy();
+        Container.Bind<SkySpawner>().FromInstance(skySpawner).AsSingle().NonLazy();
 
-        Container.Bind<GroundEnemySpawner>().FromInstance(groundEnemySpawner).AsSingle().NonLazy();
+        Container.Bind<GroundSpawner>().FromInstance(groundSpawner).AsSingle().NonLazy();
     }
 }

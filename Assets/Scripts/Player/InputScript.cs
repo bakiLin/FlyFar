@@ -6,7 +6,7 @@ using Zenject;
 public class InputScript : MonoBehaviour
 {
     [Inject]
-    private PlayerPower playerPower;
+    private FlyPower playerPower;
 
     public Action onStart;
 
@@ -40,6 +40,12 @@ public class InputScript : MonoBehaviour
 
     private void FlyPower(InputAction.CallbackContext context)
     {
-        playerPower.FlyPower();
+        playerPower.Fly();
+    }
+
+    public void SwitchFly(bool state)
+    {
+        if (state) keyboardInputAction.Keyboard.PowerBar.started += FlyPower;
+        else keyboardInputAction.Keyboard.PowerBar.started -= FlyPower;
     }
 }
