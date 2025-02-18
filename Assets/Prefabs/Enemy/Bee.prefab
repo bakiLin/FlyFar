@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 6929386150398420593}
   - component: {fileID: 3384459591022754722}
   - component: {fileID: 6472078584283157178}
-  - component: {fileID: 5057622619580528726}
   m_Layer: 0
   m_Name: Bee
   m_TagString: Enemy
@@ -78,9 +77,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1716433635
+  m_SortingLayer: 1
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 538a9a6596d80eb47a94fc4140c8e708, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -162,8 +161,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82fabea9680b92b409f9e4c99a8f4372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpeed: 5
-  maxSpeed: 10
+  minSpeed: 7
+  maxSpeed: 11
 --- !u!114 &6472078584283157178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,16 +176,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 10
---- !u!114 &5057622619580528726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8693390588954621477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c28c91eafce5184ba7e4d9daccbf0ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   score: 5

@@ -1,54 +1,67 @@
-using System.Collections;
+using Cysharp.Threading.Tasks;
+using System.Threading;
 using UnityEngine;
 using Zenject;
 using Random = System.Random;
 
-public abstract class EnemySpawner : MonoBehaviour
+public class EnemySpawner : MonoBehaviour
 {
     [Inject]
-    protected ObjectPooler objectPooler;
+    private ObjectPooler objectPooler;
 
     [Inject]
-    protected PlayerSpeed playerSpeed;
+    private PlayerSpeed playerSpeed;
 
     [Inject]
-    protected InputScript inputScript;
+    private InputScript inputScript;
 
     [SerializeField]
-    protected string enemyTag;
+    private string enemyTag;
 
     [SerializeField]
-    protected int distanceMin, distanceMax;
+    private float[] distance;
 
-    protected Random random = new Random();
+    [SerializeField]
+    private float[] yPosition;
 
-    protected virtual IEnumerator SpawnCoroutine() { yield return null; }
+    private Random random = new Random();
 
-    protected void StartSpawn() => StartCoroutine(SpawnCoroutine());
+    private CancellationTokenSource cts;
 
-    protected void StopSpawn() => StopAllCoroutines();
+    private void Awake() => cts = new CancellationTokenSource();
 
-    protected void Spawn(Vector3 position)
+    private async void SpawnAsync()
     {
-        if (objectPooler.poolDictionary.ContainsKey(enemyTag))
+        while (playerSpeed.speed < 1f) await UniTask.DelayFrame(1);
+
+        while (!cts.IsCancellationRequested)
         {
-            GameObject obj = objectPooler.poolDictionary[enemyTag].Dequeue();
-            obj.SetActive(false);
-            obj.transform.position = position;
-            obj.SetActive(true);
-            objectPooler.poolDictionary[enemyTag].Enqueue(obj);
+            double delay = GetRandom(distance[1], distance[0]) / playerSpeed.speed * 1000;
+
+            await UniTask.Delay((int)delay);
+
+            if (yPosition.Length > 1)
+                objectPooler.Spawn(enemyTag, new Vector3(15f, GetRandom(yPosition[0], yPosition[1])));
+            else
+                objectPooler.Spawn(enemyTag, new Vector3(15f, yPosition[0]));
         }
     }
 
-    protected void OnEnable()
+    private float GetRandom(float min, float max)
     {
-        inputScript.onStart += StartSpawn;
-        playerSpeed.onStop += StopSpawn;
+        double range = max - min;
+        double value = (random.NextDouble() * range) + min;
+        return (float)value;
     }
 
-    protected void OnDisable()
+    private void OnEnable()
     {
-        inputScript.onStart -= StartSpawn;
-        playerSpeed.onStop -= StopSpawn;
+        inputScript.onStart += SpawnAsync;
+        playerSpeed.onStop += () => { cts?.Cancel(); };
+    }
+
+    private void OnDisable()
+    {
+        inputScript.onStart -= SpawnAsync;
     }
 }

@@ -10,7 +10,7 @@ public class PlayerInstaller : MonoInstaller
     private PlayerSpeed playerSpeed;
 
     [SerializeField]
-    private PlayerCollision playerCollision;
+    private FlyPower flyPower;
 
     public override void InstallBindings()
     {
@@ -18,6 +18,6 @@ public class PlayerInstaller : MonoInstaller
 
         Container.Bind<PlayerSpeed>().FromInstance(playerSpeed).AsSingle().NonLazy();
 
-        Container.Bind<PlayerCollision>().FromInstance(playerCollision).AsSingle().NonLazy();
+        Container.Bind<FlyPower>().FromInstance(flyPower).AsSingle().NonLazy();
     }
 }

@@ -15,58 +15,44 @@ public class PlayerCollision : MonoBehaviour
     private PlayerGravity playerGravity;
 
     [Inject]
-    private ScoreManager scoreManager;
+    private TextManager textManager;
 
-    [SerializeField]
-    private float speedLoss, groundForce;
-    
     private CompositeDisposable disposable = new CompositeDisposable();
 
-    private Collider2D playerCollider;
-
-    private void Awake()
+    private void GroundCollision()
     {
-        playerCollider = GetComponent<Collider2D>();
+        GetComponent<Collider2D>()
+            .OnCollisionEnter2DAsObservable()
+            .Where(obj => obj.transform.CompareTag("Ground"))
+            .Subscribe(obj => {
+                GroundCollision groundCollision = obj.transform.GetComponent<GroundCollision>();
+                playerSpeed.AddSpeed(-groundCollision.SpeedLoss());
+                if (playerSpeed.speed > 5f) playerGravity.AddGravity(groundCollision.Force());
+                else disposable.Clear();
+            }).AddTo(disposable);
     }
 
-    private void Collide()
+    private void EnemyTrigger()
     {
-        playerCollider.OnCollisionEnter2DAsObservable()
-            .Where(x => x.gameObject.CompareTag("Ground"))
-            .Subscribe(_ => 
-            {
-                if (playerSpeed.GetSpeed() > speedLoss)
-                {
-                    playerSpeed.SetSpeed(playerSpeed.GetSpeed() - speedLoss);
-                    playerGravity.AddGravity(groundForce);
-                }
-                else
-                {
-                    playerSpeed.SetSpeed(0f);
-                    disposable.Clear();
-                }
-            }).AddTo(disposable);
-
-        playerCollider.OnTriggerEnter2DAsObservable()
-            .Where(x => x.gameObject.CompareTag("Enemy"))
-            .Subscribe(_ =>
-            {
-                var collisionBehavior = _.GetComponent<IEnemyCollision>();
-                playerGravity.AddGravity(collisionBehavior.CollisionBehavior());
-
-                var enemyScore = _.GetComponent<EnemyScore>();
-                scoreManager.SetScore(enemyScore.GetScore());
-
+        GetComponent<Collider2D>()
+            .OnTriggerEnter2DAsObservable()
+            .Where(obj => obj.gameObject.CompareTag("Enemy"))
+            .Subscribe(obj => { 
+                EnemyCollision enemyCollision = obj.GetComponent<EnemyCollision>();
+                playerGravity.AddGravity(enemyCollision.Collide());
+                textManager.SetCoin(enemyCollision.Score());
             }).AddTo(disposable);
     }
 
     private void OnEnable()
     {
-        inputScript.onStart += Collide;
+        inputScript.onStart += GroundCollision;
+        inputScript.onStart += EnemyTrigger;
     }
 
     private void OnDisable()
     {
-        inputScript.onStart -= Collide;
+        inputScript.onStart -= GroundCollision;
+        inputScript.onStart -= EnemyTrigger;
     }
 }
