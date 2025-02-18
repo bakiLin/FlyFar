@@ -15,55 +15,44 @@ public class PlayerCollision : MonoBehaviour
     private PlayerGravity playerGravity;
 
     [Inject]
-    private UITextManager textManager;
+    private TextManager textManager;
 
-    [SerializeField]
-    private float speedLoss, groundForce;
-    
     private CompositeDisposable disposable = new CompositeDisposable();
-
-    private Collider2D playerCollider;
-
-    private void Awake()
-    {
-        playerCollider = GetComponent<Collider2D>();
-    }
 
     private void GroundCollision()
     {
-        playerCollider.OnCollisionEnter2DAsObservable()
-            .Where(_ => _.gameObject.CompareTag("Ground"))
-            .Subscribe(_ => {
-                playerSpeed.AddSpeed(-speedLoss);
-                if (playerSpeed.GetSpeed() > 0f) playerGravity.AddGravity(groundForce);
+        GetComponent<Collider2D>()
+            .OnCollisionEnter2DAsObservable()
+            .Where(obj => obj.transform.CompareTag("Ground"))
+            .Subscribe(obj => {
+                GroundCollision groundCollision = obj.transform.GetComponent<GroundCollision>();
+                playerSpeed.AddSpeed(-groundCollision.SpeedLoss());
+                if (playerSpeed.speed > 5f) playerGravity.AddGravity(groundCollision.Force());
                 else disposable.Clear();
             }).AddTo(disposable);
     }
 
     private void EnemyTrigger()
     {
-        playerCollider.OnTriggerEnter2DAsObservable()
-            .Where(_ => _.gameObject.CompareTag("Enemy"))
-            .Subscribe(enemy => {
-                EnemyCollision enemyCollision = enemy.GetComponent<EnemyCollision>();
+        GetComponent<Collider2D>()
+            .OnTriggerEnter2DAsObservable()
+            .Where(obj => obj.gameObject.CompareTag("Enemy"))
+            .Subscribe(obj => { 
+                EnemyCollision enemyCollision = obj.GetComponent<EnemyCollision>();
                 playerGravity.AddGravity(enemyCollision.Collide());
                 textManager.SetCoin(enemyCollision.Score());
             }).AddTo(disposable);
     }
 
-    private void Collide()
-    {
-        GroundCollision();
-        EnemyTrigger();
-    }
-
     private void OnEnable()
     {
-        inputScript.onStart += Collide;
+        inputScript.onStart += GroundCollision;
+        inputScript.onStart += EnemyTrigger;
     }
 
     private void OnDisable()
     {
-        inputScript.onStart -= Collide;
+        inputScript.onStart -= GroundCollision;
+        inputScript.onStart -= EnemyTrigger;
     }
 }

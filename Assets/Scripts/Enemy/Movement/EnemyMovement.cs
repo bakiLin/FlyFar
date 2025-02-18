@@ -12,26 +12,12 @@ public class EnemyMovement : MonoBehaviour
 
     private Random random = new Random();
 
-    private float direction, speed;
-
-    private void Move()
+    private void Move(float direction, float speed)
     {
-        double range = 1.1 - 0.5;
-        double multiply = (random.NextDouble() * range) + 0.5;
-
-        if (playerSpeed.GetSpeed() > 0f)
-        {
-            direction = -20f;
-            speed = playerSpeed.GetSpeed() * (float) multiply;
-        }
-        else
-        {
-            direction = 20f;
-            speed = 5f;
-        }
+        double multiply = random.NextDouble() * 0.6 + 0.5;
 
         tween.Kill();
-        tween = transform.DOMoveX(direction, speed)
+        tween = transform.DOMoveX(direction, speed * (float) multiply)
             .SetSpeedBased()
             .SetEase(Ease.Linear)
             .OnComplete(() => { gameObject.SetActive(false); });
@@ -39,13 +25,10 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        Move();
+        if (playerSpeed.speed > 0f) Move(-20f, playerSpeed.speed);
+        else Move(20f, 7f);
 
-        playerSpeed.onChange += Move;
-    }
-
-    private void OnDisable()
-    {
-        playerSpeed.onChange -= Move;
+        playerSpeed.onChange += () => { Move(-20f, playerSpeed.speed); };
+        playerSpeed.onStop += () => { Move(20f, 7f); };
     }
 }

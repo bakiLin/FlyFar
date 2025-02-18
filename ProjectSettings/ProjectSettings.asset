@@ -436,6 +436,9 @@ PlayerSettings:
   - serializedVersion: 3
     m_BuildTarget: Android
     m_Formats: 03000000
+  - serializedVersion: 3
+    m_BuildTarget: WebGL
+    m_Formats: 05000000
   playModeTestRunnerEnabled: 0
   runPlayModeTestAsEditModeTest: 0
   actionOnDotNetUnhandledException: 1
@@ -714,7 +717,7 @@ PlayerSettings:
     ReservedCFE: DOTWEEN
     Standalone: DOTWEEN;YG_PLUGIN_YANDEX_GAME
     VisionOS: DOTWEEN
-    WebGL: DOTWEEN;YG_PLUGIN_YANDEX_GAME
+    WebGL: DOTWEEN;YG_PLUGIN_YANDEX_GAME;UNITASK_DOTWEEN_SUPPORT
     Windows Store Apps: DOTWEEN
     XboxOne: DOTWEEN
     iPhone: DOTWEEN

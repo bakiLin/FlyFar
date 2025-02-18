@@ -27,5 +27,5 @@ public class EnemyCollision : MonoBehaviour
         return jumpForce;
     }
 
-    public virtual int Score() => score;
+    public int Score() => score;
 }

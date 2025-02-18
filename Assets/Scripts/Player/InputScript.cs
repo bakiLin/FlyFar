@@ -6,11 +6,11 @@ using Zenject;
 public class InputScript : MonoBehaviour
 {
     [Inject]
-    private FlyPower playerPower;
-
-    public Action onStart;
+    private FlyPower flyPower;
 
     private KeyboardInputAction keyboardInputAction;
+
+    public Action onStart;
 
     private void Awake()
     {
@@ -27,6 +27,8 @@ public class InputScript : MonoBehaviour
     private void OnDisable()
     {
         keyboardInputAction.Disable();
+
+        keyboardInputAction.Keyboard.PowerBar.started -= StopArrow;
     }
 
     private void StopArrow(InputAction.CallbackContext context)
@@ -35,17 +37,6 @@ public class InputScript : MonoBehaviour
 
         keyboardInputAction.Keyboard.PowerBar.started -= StopArrow;
 
-        keyboardInputAction.Keyboard.PowerBar.started += FlyPower;
-    }
-
-    private void FlyPower(InputAction.CallbackContext context)
-    {
-        playerPower.Fly();
-    }
-
-    public void SwitchFly(bool state)
-    {
-        if (state) keyboardInputAction.Keyboard.PowerBar.started += FlyPower;
-        else keyboardInputAction.Keyboard.PowerBar.started -= FlyPower;
+        keyboardInputAction.Keyboard.PowerBar.started += ((InputAction.CallbackContext context) => { flyPower.Fly(); });
     }
 }

@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3685f40a4612bbc419b88d8b3804d51c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flyTime: 5
+  time: 0
 --- !u!1 &2890490205474945576
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,7 +129,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 677427317507714805, guid: 02c373d7b09690742846b095e013a335, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -238,8 +238,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82fabea9680b92b409f9e4c99a8f4372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpeed: 3
-  maxSpeed: 4
 --- !u!114 &1464641800361834489
 MonoBehaviour:
   m_ObjectHideFlags: 0

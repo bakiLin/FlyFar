@@ -1,47 +1,41 @@
-using System.Collections;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using Zenject;
 
 public class FlyPower : MonoBehaviour
 {
     [Inject]
-    private UITextManager uiTextManager;
+    private TextManager textManager;
 
     [Inject]
     private PlayerGravity playerGravity;
 
     [SerializeField]
-    private int force, amount;
-
-    public float time;
-
     private GameObject left, right;
+
+    public float force, time;
+
+    public int num;
 
     private void Awake()
     {
-        uiTextManager.SetPower(amount);
-
-        left = transform.GetChild(0).gameObject;
-        right = transform.GetChild(1).gameObject;
+        textManager.SetPower(num);
     }
 
-    private IEnumerator FlyCoroutine()
+    public async void Fly()
     {
-        if (amount > 0)
+        if (num > 0f)
         {
-            amount -= 1;
+            num--;
 
             left.SetActive(true);
             right.SetActive(true);
 
-            uiTextManager.SetPower(amount);
+            textManager.SetPower(num);
 
-            yield return new WaitForSeconds(time / 2);
+            await UniTask.Delay((int)(time * 400));
 
             playerGravity.AddGravity(force);
-
         }
     }
-
-    public void Fly() => StartCoroutine(FlyCoroutine());
 }

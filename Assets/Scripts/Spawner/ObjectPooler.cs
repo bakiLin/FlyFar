@@ -38,4 +38,16 @@ public class ObjectPooler : MonoBehaviour
             poolDictionary.Add(pool.tag, objectPool);
         }
     }
+
+    public void Spawn(string tag, Vector3 position)
+    {
+        if (poolDictionary.ContainsKey(tag))
+        {
+            GameObject obj = poolDictionary[tag].Dequeue();
+            obj.SetActive(false);
+            obj.transform.position = position;
+            obj.SetActive(true);
+            poolDictionary[tag].Enqueue(obj);
+        }
+    }
 }

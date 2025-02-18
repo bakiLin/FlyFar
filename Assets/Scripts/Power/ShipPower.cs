@@ -8,10 +8,10 @@ public class ShipPower : MonoBehaviour
     private PlayerSpeed playerSpeed;
 
     [Inject]
-    private InputScript inputScript;
+    private PlayerGravity playerGravity;
 
     [Inject]
-    private PlayerGravity playerGravity;
+    private FlyPower flyPower;
 
     [SerializeField]
     private int time;
@@ -21,7 +21,7 @@ public class ShipPower : MonoBehaviour
         playerGravity.SwitchGravity();
         playerGravity.transform.position.Set(transform.position.x, transform.position.y + 0.6f, 0f);
 
-        inputScript.SwitchFly(false);
+        flyPower.enabled = false;
 
         StopAllCoroutines();
         StartCoroutine(PilotCoroutine());
@@ -38,7 +38,7 @@ public class ShipPower : MonoBehaviour
 
         playerGravity.SwitchGravity();
 
-        inputScript.SwitchFly(true);
+        flyPower.enabled = true;
 
         gameObject.SetActive(false);
     }

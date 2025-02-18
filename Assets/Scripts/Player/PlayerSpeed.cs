@@ -1,30 +1,21 @@
 using System;
-using UniRx;
 using UnityEngine;
 
 public class PlayerSpeed : MonoBehaviour
 {
+    public float speed { get; private set; }
+
     public Action onChange, onStop;
-
-    private CompositeDisposable disposable = new CompositeDisposable();
-
-    private float speed;
 
     public void AddSpeed(float value)
     {
-        speed += value;
-        speed = Mathf.RoundToInt(speed);
-        
-        if (speed < 7f)
+        speed += Mathf.RoundToInt(value);
+
+        if (speed > 5f) onChange?.Invoke();
+        else
         {
             speed = 0f;
             onStop?.Invoke();
         }
-
-        onChange?.Invoke();
     }
-
-    public float GetSpeed() => speed;
-
-    private void OnDisable() => disposable.Clear();
 }

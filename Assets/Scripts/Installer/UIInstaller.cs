@@ -4,15 +4,15 @@ using Zenject;
 public class UIInstaller : MonoInstaller
 {
     [SerializeField]
-    private PowerBar powerBarArrow;
+    private PowerBar powerBar;
 
     [SerializeField]
-    private UITextManager uiTextManager;
+    private TextManager textManager;
 
     public override void InstallBindings()
     {
-        Container.Bind<PowerBar>().FromInstance(powerBarArrow).AsSingle().NonLazy();
+        Container.Bind<PowerBar>().FromInstance(powerBar).AsSingle().NonLazy();
 
-        Container.Bind<UITextManager>().FromInstance(uiTextManager).AsSingle().NonLazy();
+        Container.Bind<TextManager>().FromInstance(textManager).AsSingle().NonLazy();
     }
 }
