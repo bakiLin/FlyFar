@@ -30,15 +30,15 @@ public class EnemySpawner : MonoBehaviour
 
     private void Awake() => cts = new CancellationTokenSource();
 
-    private async void SpawnAsync()
+    private async UniTaskVoid SpawnAsync()
     {
         while (playerSpeed.speed < 1f) await UniTask.DelayFrame(1);
 
-        while (!cts.IsCancellationRequested)
+        while (true)
         {
             double delay = GetRandom(distance[1], distance[0]) / playerSpeed.speed * 1000;
 
-            await UniTask.Delay((int)delay);
+            await UniTask.Delay((int)delay, cancellationToken: cts.Token);
 
             if (yPosition.Length > 1)
                 objectPooler.Spawn(enemyTag, new Vector3(15f, GetRandom(yPosition[0], yPosition[1])));
@@ -56,12 +56,14 @@ public class EnemySpawner : MonoBehaviour
 
     private void OnEnable()
     {
-        inputScript.onStart += SpawnAsync;
+        inputScript.onStart += () => { SpawnAsync().Forget(); };
         playerSpeed.onStop += () => { cts?.Cancel(); };
     }
 
     private void OnDisable()
     {
-        inputScript.onStart -= SpawnAsync;
+        inputScript.onStart -= () => { SpawnAsync().Forget(); };
     }
+
+    private void OnDestroy() => cts?.Cancel();
 }
