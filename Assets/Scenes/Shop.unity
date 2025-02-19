@@ -2272,6 +2272,74 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d13ac64bec5097a4cb2933b14e2db9b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectManager: {fileID: 896621681}
+--- !u!1 &896621679
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 896621680}
+  - component: {fileID: 896621681}
+  m_Layer: 0
+  m_Name: Select Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &896621680
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896621679}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1912420872}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &896621681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896621679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20e500a4798d20740920b932a1492ebb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectSprite: {fileID: 21300000, guid: 063ec0e91245c0847b28e7273711ee5e, type: 3}
+  regularSprite: {fileID: 21300000, guid: bf47839f4bfa02440921e7ce216db5bb, type: 3}
+  color:
+  - {fileID: 629754805}
+  - {fileID: 944748775}
+  - {fileID: 721236678}
+  - {fileID: 1176522951}
+  - {fileID: 1348532556}
+  - {fileID: 488044404}
+  face:
+  - {fileID: 1948473570}
+  - {fileID: 2101589221}
+  - {fileID: 463220369}
+  - {fileID: 1497904946}
+  - {fileID: 485055992}
+  - {fileID: 1973124485}
+  - {fileID: 1149220647}
+  - {fileID: 991554}
+  - {fileID: 413358603}
+  - {fileID: 1728040488}
+  - {fileID: 1361436862}
+  - {fileID: 400208505}
+  - {fileID: 1486275922}
 --- !u!1 &944748773
 GameObject:
   m_ObjectHideFlags: 0
@@ -4495,6 +4563,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 889926988}
+  - {fileID: 896621680}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1914893398

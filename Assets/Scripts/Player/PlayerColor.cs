@@ -19,19 +19,7 @@ public class PlayerAppearance : MonoBehaviour
 
         while (!YandexGame.SDKEnabled) await UniTask.DelayFrame(1);
 
-        SetColor();
-        SetFace();
-    }
-
-    private void SetColor()
-    {
-        int index = YandexGame.savesData.color;
-        spriteRenderer.sprite = spriteManager.color[index];
-    }
-
-    private void SetFace()
-    {
-        int index = YandexGame.savesData.face;
-        faceSpriteRenderer.sprite = spriteManager.face[index];
+        spriteRenderer.sprite = spriteManager.color[YandexGame.savesData.color];
+        faceSpriteRenderer.sprite = spriteManager.face[YandexGame.savesData.face];
     }
 }
