@@ -1,6 +1,8 @@
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using YG;
 using Zenject;
 
 public class GameOver : MonoBehaviour
@@ -15,21 +17,27 @@ public class GameOver : MonoBehaviour
     private RectTransform window;
 
     [SerializeField]
-    private TextMeshProUGUI coinText;
+    private float Y, duration; 
 
     [SerializeField]
-    private float windowPosition, time;
+    private TextMeshProUGUI coinText, coinTotalText;
 
-    private void WindowAnimation()
+    private async void ResultWindow()
     {
-        coinText.text = textManager.coin.ToString();
+        while (!YandexGame.SDKEnabled) await UniTask.DelayFrame(1);
 
-        window.DOAnchorPosY(windowPosition, time)
+        window.DOAnchorPosY(Y, duration)
             .SetEase(Ease.OutQuart);
+
+        coinText.text = $"{textManager.coin}";
+        coinTotalText.text = $"Total: {YandexGame.savesData.money + textManager.coin}";
+
+        YandexGame.savesData.money += textManager.coin;
+        YandexGame.SaveProgress();
     }
 
-    //private void OnEnable()
-    //{
-    //    playerSpeed.onStop += WindowAnimation;
-    //}
+    private void OnEnable()
+    {
+        playerSpeed.onStop += ResultWindow;
+    }
 }

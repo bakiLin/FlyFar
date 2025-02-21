@@ -9,10 +9,15 @@ public class UIInstaller : MonoInstaller
     [SerializeField]
     private TextManager textManager;
 
+    [SerializeField]
+    private GameButtonManager buttonManager;
+
     public override void InstallBindings()
     {
         Container.Bind<PowerBar>().FromInstance(powerBar).AsSingle().NonLazy();
 
         Container.Bind<TextManager>().FromInstance(textManager).AsSingle().NonLazy();
+
+        Container.Bind<GameButtonManager>().FromInstance(buttonManager).AsSingle().NonLazy();
     }
 }

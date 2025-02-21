@@ -27,8 +27,6 @@ public class BackgroundMovement : MonoBehaviour
     {
         while (true)
         {
-            token.ThrowIfCancellationRequested();
-
             await transform.DOMoveX(-31.5f, playerSpeed.speed * multiply)
                 .SetSpeedBased()
                 .SetEase(Ease.Linear)
@@ -47,4 +45,6 @@ public class BackgroundMovement : MonoBehaviour
     {
         playerSpeed.onChange -= Move;
     }
+
+    private void OnDestroy() => cts?.Cancel();
 }
