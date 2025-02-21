@@ -1,4 +1,5 @@
-﻿
+﻿using System.Collections.Generic;
+
 namespace YG
 {
     [System.Serializable]
@@ -14,6 +15,9 @@ namespace YG
         public int money = 0;
         public int color = 0;
         public int face = 0;
+
+        public List<int> colorUnlocked = new List<int>() {0};
+        public List<int> faceUnlocked = new List<int>() {0};
         // ...
 
         // Поля (сохранения) можно удалять и создавать новые. При обновлении игры сохранения ломаться не должны

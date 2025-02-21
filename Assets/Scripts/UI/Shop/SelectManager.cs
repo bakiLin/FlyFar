@@ -24,8 +24,7 @@ public class SelectManager : MonoBehaviour
 
     public void SetColor()
     {
-        foreach (var c in color)
-            c.sprite = regularSprite;
+        foreach (var c in color) c.sprite = regularSprite;
 
         int index = YandexGame.savesData.color;
         color[index].sprite = selectSprite;
@@ -33,8 +32,7 @@ public class SelectManager : MonoBehaviour
 
     public void SetFace()
     {
-        foreach (var f in face)
-            f.sprite = regularSprite;
+        foreach (var f in face) f.sprite = regularSprite;
 
         int index = YandexGame.savesData.face;
         face[index].sprite = selectSprite;
