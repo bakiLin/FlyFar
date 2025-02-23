@@ -11,11 +11,12 @@ public class PlayerGravity : MonoBehaviour
 
     public void AddGravity(float value)
     {
-        rb.linearVelocityY = value;
+        if (rb.gravityScale.Equals(1)) rb.linearVelocityY = value;
     }
 
     public void SwitchGravity()
     {
+        rb.linearVelocityY = 0f;
         rb.gravityScale = rb.gravityScale.Equals(1) ? 0 : 1;
     }
 }

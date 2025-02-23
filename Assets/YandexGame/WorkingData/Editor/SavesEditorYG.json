@@ -1,10 +1,10 @@
 {
-    "idSave": 123,
+    "idSave": 140,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
-    "money": 49,
-    "color": 1,
+    "money": 891,
+    "color": 0,
     "face": 8,
     "colorUnlocked": [
         0,
@@ -18,7 +18,9 @@
         1,
         2,
         4,
-        1
+        1,
+        4,
+        0
     ],
     "faceUnlocked": [
         0,
@@ -26,6 +28,9 @@
         8,
         0,
         8,
+        8,
+        7,
+        1,
         8
     ]
 }

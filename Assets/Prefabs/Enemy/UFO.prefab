@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6123160490940823108}
-  - component: {fileID: 1193142171928991194}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Untagged
@@ -35,19 +34,6 @@ Transform:
   - {fileID: 7775455564266912165}
   m_Father: {fileID: 1309600511317537705}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1193142171928991194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2372783978410443231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3685f40a4612bbc419b88d8b3804d51c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 0
 --- !u!1 &2890490205474945576
 GameObject:
   m_ObjectHideFlags: 0
@@ -61,7 +47,6 @@ GameObject:
   - component: {fileID: 7646347416466695079}
   - component: {fileID: 2756109114620333323}
   - component: {fileID: 2591803860104856610}
-  - component: {fileID: 2465864912724869963}
   - component: {fileID: 1464641800361834489}
   m_Layer: 0
   m_Name: UFO
@@ -127,9 +112,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingLayerID: -1716433635
+  m_SortingLayer: 1
+  m_SortingOrder: 5
   m_Sprite: {fileID: 677427317507714805, guid: 02c373d7b09690742846b095e013a335, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -226,18 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7a6385503ae5b7429c4ce133fe7e338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2465864912724869963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2890490205474945576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82fabea9680b92b409f9e4c99a8f4372, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  speed: 10
 --- !u!114 &1464641800361834489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,7 +225,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 0
-  score: 15
+  score: 10
+  time: 3
 --- !u!1 &3896975686298885932
 GameObject:
   m_ObjectHideFlags: 0
