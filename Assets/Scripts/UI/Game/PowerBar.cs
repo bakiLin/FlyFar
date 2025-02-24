@@ -15,18 +15,18 @@ public class PowerBar : MonoBehaviour
     private InputScript inputScript;
 
     [SerializeField]
-    private Slider slider;
+    private float multiply;
 
     [SerializeField]
-    private float multiply;
+    private Image fill;
 
     private Sequence sequence;
 
     private void Awake()
     {
         sequence = DOTween.Sequence()
-            .Append(slider.DOValue(1f, 1f).SetEase(Ease.InCubic))
-            .Append(slider.DOValue(0f, 1f).SetEase(Ease.OutCubic))
+            .Append(fill.DOFillAmount(1f, 1f).SetEase(Ease.InCubic))
+            .Append(fill.DOFillAmount(0f, 1f).SetEase(Ease.OutCubic))
             .SetLoops(-1);
     }
 
@@ -34,20 +34,14 @@ public class PowerBar : MonoBehaviour
     {
         sequence.Kill();
 
-        slider.transform.parent.gameObject.SetActive(false);
-
-        float value = Mathf.Clamp(slider.value * multiply, 10f, 1000f);
+        float value = Mathf.Clamp(fill.fillAmount * multiply, 10f, 1000f);
         playerGravity.AddGravity(Mathf.RoundToInt(value));
         playerSpeed.AddSpeed(Mathf.RoundToInt(value));
+
+        fill.transform.parent.gameObject.SetActive(false);
     }
 
-    private void OnEnable()
-    {
-        inputScript.onStart += Stop;
-    }
+    private void OnEnable() => inputScript.onStart += Stop;
 
-    private void OnDisable()
-    {
-        inputScript.onStart -= Stop;
-    }
+    private void OnDisable() => inputScript.onStart -= Stop;
 }

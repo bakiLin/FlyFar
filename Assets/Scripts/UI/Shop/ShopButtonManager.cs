@@ -10,7 +10,13 @@ public class ShopButtonManager : MonoBehaviour
     private SelectManager selectManager;
 
     [SerializeField]
+    private EnemyDataManager enemyDataManager;
+
+    [SerializeField]
     private TextMeshProUGUI coinText;
+
+    [SerializeField]
+    private CategoryData[] categories;
 
     private async void Awake()
     {
@@ -27,6 +33,13 @@ public class ShopButtonManager : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void Category(CategoryData data)
+    {
+        foreach (var c in categories) c.TurnOff();
+
+        selectManager.SetCategory(data.TurnOn());
     }
 
     public void SaveColor(ItemData data)
@@ -61,5 +74,11 @@ public class ShopButtonManager : MonoBehaviour
             data.SetData();
             selectManager.SetFace();
         }
+    }
+
+    public void SetEnemyData(EnemyData data)
+    {
+        enemyDataManager.SetData(data.name, data.description, data.cost[0].ToString());
+        selectManager.SetEnemy(data.image);
     }
 }

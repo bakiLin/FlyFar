@@ -15,6 +15,8 @@ public class EnemySpawner : MonoBehaviour
     [Inject]
     private InputScript inputScript;
 
+    public int id;
+
     [SerializeField]
     private string enemyTag;
 
@@ -60,10 +62,7 @@ public class EnemySpawner : MonoBehaviour
         playerSpeed.onStop += () => { cts?.Cancel(); };
     }
 
-    private void OnDisable()
-    {
-        inputScript.onStart -= () => { SpawnAsync().Forget(); };
-    }
+    private void OnDisable() => cts?.Cancel();
 
     private void OnDestroy() => cts?.Cancel();
 }

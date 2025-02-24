@@ -9,10 +9,7 @@ public class SelectManager : MonoBehaviour
     private Sprite selectSprite, regularSprite;
 
     [SerializeField]
-    private Image[] color;
-
-    [SerializeField]
-    private Image[] face;
+    private Image[] category, color, face, enemy;
 
     private async void Awake()
     {
@@ -36,5 +33,19 @@ public class SelectManager : MonoBehaviour
 
         int index = YandexGame.savesData.face;
         face[index].sprite = selectSprite;
+    }
+
+    public void SetCategory(Image image)
+    {
+        foreach (var c in category) c.sprite = regularSprite;
+
+        image.sprite = selectSprite;
+    }
+
+    public void SetEnemy(Image image)
+    {
+        foreach (var e in enemy) e.sprite = regularSprite;
+
+        image.sprite = selectSprite;
     }
 }
