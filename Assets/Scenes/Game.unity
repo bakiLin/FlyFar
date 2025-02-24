@@ -2691,7 +2691,7 @@ GameObject:
   - component: {fileID: 530792634}
   - component: {fileID: 530792633}
   m_Layer: 0
-  m_Name: Shop Installer
+  m_Name: Sprite Installer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,78 +1,50 @@
-using Cysharp.Threading.Tasks;
-using TMPro;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using YG;
+using Zenject;
 
 public class ShopButtonManager : MonoBehaviour
 {
-    [SerializeField]
+    [Inject]
     private SelectManager selectManager;
 
-    [SerializeField]
+    [Inject]
     private EnemyDataManager enemyDataManager;
 
-    [SerializeField]
-    private TextMeshProUGUI coinText;
+    [Inject]
+    private CoinManager coinManager;
 
-    [SerializeField]
-    private CategoryData[] categories;
-
-    private async void Awake()
-    {
-        while (!YandexGame.SDKEnabled) await UniTask.DelayFrame(1);
-
-        SetCoinText();
-    }
-
-    public void SetCoinText()
-    {
-        coinText.text = YandexGame.savesData.money.ToString();
-    }
+    public Action onCategory;
 
     public void StartGame()
     {
         SceneManager.LoadScene(1);
     }
 
-    public void Category(CategoryData data)
+    public void SetCategory(CategoryData data)
     {
-        foreach (var c in categories) c.TurnOff();
-
-        selectManager.SetCategory(data.TurnOn());
+        onCategory?.Invoke();
+        selectManager.SetCategory(data.Select());
     }
 
-    public void SaveColor(ItemData data)
+    public void SetCosmetic(ItemData data)
     {
         if (data.locked)
         {
             if (data.Buy())
             {
-                SetCoinText();
-                selectManager.SetColor();
-            }
-        }
-        else
-        {
-            data.SetData();
-            selectManager.SetColor();
-        }
-    }
+                coinManager.UpdateCoinText();
 
-    public void SaveFace(ItemData data)
-    {
-        if (data.locked)
-        {
-            if (data.Buy())
-            {
-                SetCoinText();
-                selectManager.SetFace();
+                if (data.type.Equals(ItemData.Type.Color)) selectManager.SetColor();
+                else selectManager.SetFace();
             }
         }
         else
         {
             data.SetData();
-            selectManager.SetFace();
+
+            if (data.type.Equals(ItemData.Type.Color)) selectManager.SetColor();
+            else selectManager.SetFace();
         }
     }
 

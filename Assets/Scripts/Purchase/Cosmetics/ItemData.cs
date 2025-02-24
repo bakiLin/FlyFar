@@ -4,13 +4,24 @@ using YG;
 
 public class ItemData : MonoBehaviour
 {
+    public enum Type
+    {
+        Color,
+        Face
+    } 
+
+    public Type type { get; protected set; }
     public int id, cost;
     public bool locked { get; protected set; }
 
     protected void LockStatus()
     {
         if (!locked) Unlock();
-        else SetCost();
+        else
+        {
+            GameObject obj = transform.Find("Cost").gameObject;
+            obj.GetComponent<TextMeshProUGUI>().text = cost.ToString();
+        }
     }
 
     private void Unlock()
@@ -19,15 +30,13 @@ public class ItemData : MonoBehaviour
         transform.Find("Cost").gameObject.SetActive(false);
     }
 
-    private void SetCost()
-    {
-        GameObject obj = transform.Find("Cost").gameObject;
-        obj.GetComponent<TextMeshProUGUI>().text = cost.ToString();
-    }
+    public virtual void SetData() { }
 
     public bool Buy()
     {
-        if (YandexGame.savesData.money > cost)
+        bool state = YandexGame.savesData.money > cost;
+
+        if (state)
         {
             locked = false;
 
@@ -35,12 +44,8 @@ public class ItemData : MonoBehaviour
 
             SetData();
             Unlock();
-
-            return true;
         }
 
-        return false;
+        return state;
     }
-
-    public virtual void SetData() { }
 }

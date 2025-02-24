@@ -1,8 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class CategoryData : MonoBehaviour
 {
+    [Inject]
+    private ShopButtonManager shopButtonManager;
+
     [SerializeField]
     private GameObject options;
 
@@ -13,15 +17,15 @@ public class CategoryData : MonoBehaviour
         image = GetComponent<Image>();
     }
 
-    public Image TurnOn()
+    public Image Select()
     {
-        options?.SetActive(true);
+        options.SetActive(true);
 
         return image;
     }
 
-    public void TurnOff()
+    private void OnEnable()
     {
-        options?.SetActive(false);
+        shopButtonManager.onCategory += () => options.SetActive(false);
     }
 }

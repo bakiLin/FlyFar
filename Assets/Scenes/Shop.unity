@@ -157,10 +157,10 @@ RectTransform:
   - {fileID: 1403424312}
   m_Father: {fileID: 206354604}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1110, y: -70}
-  m_SizeDelta: {x: 120, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &991552
 MonoBehaviour:
@@ -223,7 +223,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 889926989}
         m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SaveFace
+        m_MethodName: SetCosmetic
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 991556}
@@ -632,6 +632,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 121069203}
   m_CullTransparentMesh: 1
+--- !u!1 &154439410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 154439411}
+  - component: {fileID: 154439412}
+  m_Layer: 0
+  m_Name: ShopInstaller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &154439411
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154439410}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 791243521}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &154439412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154439410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34da0c277515b3d469ebbefb090c75dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectManager: {fileID: 896621681}
+  enemyDataManager: {fileID: 1703161364}
+  coinManager: {fileID: 1770322222}
+  shopButtonManager: {fileID: 889926989}
 --- !u!1 &202339167
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,10 +1199,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1619935560}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 135, y: -25}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &322894434
 MonoBehaviour:
@@ -1382,10 +1430,10 @@ RectTransform:
   - {fileID: 1539784828}
   m_Father: {fileID: 206354604}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1710, y: -70}
-  m_SizeDelta: {x: 120, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &400208503
 MonoBehaviour:
@@ -1448,7 +1496,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 889926989}
         m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SaveFace
+        m_MethodName: SetCosmetic
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 400208507}
@@ -1759,10 +1807,10 @@ RectTransform:
   - {fileID: 405317866}
   m_Father: {fileID: 206354604}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1260, y: -70}
-  m_SizeDelta: {x: 120, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &413358601
 MonoBehaviour:
@@ -1825,7 +1873,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 889926989}
         m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SaveFace
+        m_MethodName: SetCosmetic
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 413358605}
@@ -2132,10 +2180,10 @@ RectTransform:
   - {fileID: 1815266743}
   m_Father: {fileID: 206354604}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 360, y: -70}
-  m_SizeDelta: {x: 120, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &463220367
 MonoBehaviour:
@@ -2198,7 +2246,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 889926989}
         m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SaveFace
+        m_MethodName: SetCosmetic
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 463220371}
@@ -2298,10 +2346,10 @@ RectTransform:
   - {fileID: 232183228}
   m_Father: {fileID: 206354604}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 660, y: -70}
-  m_SizeDelta: {x: 120, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &485055990
 MonoBehaviour:
@@ -2364,7 +2412,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 889926989}
         m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SaveFace
+        m_MethodName: SetCosmetic
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 485055994}
@@ -2530,7 +2578,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 889926989}
         m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SaveColor
+        m_MethodName: SetCosmetic
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 488044406}
@@ -3654,7 +3702,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 889926989}
         m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SaveColor
+        m_MethodName: SetCosmetic
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 629754809}
@@ -3785,10 +3833,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1619935560}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 195, y: -25}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &635626522
 MonoBehaviour:
@@ -4181,7 +4229,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 889926989}
         m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SaveColor
+        m_MethodName: SetCosmetic
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 721236682}
@@ -4246,6 +4294,71 @@ RectTransform:
   m_AnchoredPosition: {x: -60, y: 160}
   m_SizeDelta: {x: 870, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &791243519
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 791243521}
+  - component: {fileID: 791243520}
+  m_Layer: 0
+  m_Name: SceneContext
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &791243520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791243519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89715ad69b973a14899afa2c6730b30b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableObjectInstallers: []
+  _monoInstallers:
+  - {fileID: 154439412}
+  _installerPrefabs: []
+  _autoRun: 1
+  OnPreInstall:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPostInstall:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPreResolve:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPostResolve:
+    m_PersistentCalls:
+      m_Calls: []
+  _parentNewObjectsUnderSceneContext: 0
+  _contractNames: []
+  _parentContractNames: []
+--- !u!4 &791243521
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791243519}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 154439411}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &808192929
 GameObject:
   m_ObjectHideFlags: 0
@@ -4655,12 +4768,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d13ac64bec5097a4cb2933b14e2db9b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectManager: {fileID: 896621681}
-  enemyDataManager: {fileID: 1703161364}
-  coinText: {fileID: 532569824}
-  categories:
-  - {fileID: 1015155438}
-  - {fileID: 2029386962}
 --- !u!1 &896621679
 GameObject:
   m_ObjectHideFlags: 0
@@ -4769,11 +4876,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1489788916}
-  m_Father: {fileID: 2112294709}
+  m_Father: {fileID: 1923220303}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 365, y: -65}
+  m_AnchoredPosition: {x: -85.00006, y: 110}
   m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &917969666
@@ -5044,7 +5151,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 889926989}
         m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SaveColor
+        m_MethodName: SetCosmetic
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 944748779}
@@ -5358,7 +5465,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 889926989}
         m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: Category
+        m_MethodName: SetCategory
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1015155438}
@@ -5792,10 +5899,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1619935560}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 75, y: -25}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1125461789
 MonoBehaviour:
@@ -5873,10 +5980,10 @@ RectTransform:
   - {fileID: 859308720}
   m_Father: {fileID: 206354604}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960, y: -70}
-  m_SizeDelta: {x: 120, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1149220645
 MonoBehaviour:
@@ -5939,7 +6046,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 889926989}
         m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SaveFace
+        m_MethodName: SetCosmetic
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1149220649}
@@ -6241,7 +6348,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 889926989}
         m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SaveColor
+        m_MethodName: SetCosmetic
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1176522953}
@@ -7092,7 +7199,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 889926989}
         m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SaveColor
+        m_MethodName: SetCosmetic
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1348532558}
@@ -7328,10 +7435,10 @@ RectTransform:
   - {fileID: 518750041}
   m_Father: {fileID: 206354604}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1560, y: -70}
-  m_SizeDelta: {x: 120, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1361436860
 MonoBehaviour:
@@ -7394,7 +7501,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 889926989}
         m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SaveFace
+        m_MethodName: SetCosmetic
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1361436864}
@@ -7488,10 +7595,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1619935560}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 15, y: -25}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1392426278
 MonoBehaviour:
@@ -7855,10 +7962,10 @@ RectTransform:
   - {fileID: 1753048626}
   m_Father: {fileID: 206354604}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1860, y: -70}
-  m_SizeDelta: {x: 120, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1486275920
 MonoBehaviour:
@@ -7921,7 +8028,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 889926989}
         m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SaveFace
+        m_MethodName: SetCosmetic
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1486275924}
@@ -8096,10 +8203,10 @@ RectTransform:
   - {fileID: 1840096258}
   m_Father: {fileID: 206354604}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 510, y: -70}
-  m_SizeDelta: {x: 120, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1497904944
 MonoBehaviour:
@@ -8162,7 +8269,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 889926989}
         m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SaveFace
+        m_MethodName: SetCosmetic
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1497904948}
@@ -8595,11 +8702,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2078695928}
-  m_Father: {fileID: 2112294709}
+  m_Father: {fileID: 1923220303}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 65, y: -65}
+  m_AnchoredPosition: {x: -385.00003, y: 110}
   m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1595039860
@@ -9289,7 +9396,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1722198967
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9424,10 +9531,10 @@ RectTransform:
   - {fileID: 1712460439}
   m_Father: {fileID: 206354604}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1410, y: -70}
-  m_SizeDelta: {x: 120, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1728040486
 MonoBehaviour:
@@ -9490,7 +9597,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 889926989}
         m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SaveFace
+        m_MethodName: SetCosmetic
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1728040490}
@@ -9720,10 +9827,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1619935560}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 255, y: -25}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1765738687
 MonoBehaviour:
@@ -9763,6 +9870,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1765738685}
   m_CullTransparentMesh: 1
+--- !u!1 &1770322220
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1770322221}
+  - component: {fileID: 1770322222}
+  m_Layer: 0
+  m_Name: Coin Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1770322221
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1770322220}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1912420872}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1770322222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1770322220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d10d0b78b2a0b014a942ccc60425d545, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinText: {fileID: 532569824}
 --- !u!1 &1815266742
 GameObject:
   m_ObjectHideFlags: 0
@@ -10353,6 +10505,7 @@ Transform:
   - {fileID: 889926988}
   - {fileID: 896621680}
   - {fileID: 1703161363}
+  - {fileID: 1770322221}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1914893398
@@ -10468,11 +10621,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 427904498}
-  m_Father: {fileID: 2112294709}
+  m_Father: {fileID: 1923220303}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 215, y: -65}
+  m_AnchoredPosition: {x: -235.00003, y: 110}
   m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1918102002
@@ -10601,6 +10754,44 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &1923220302
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1923220303}
+  m_Layer: 5
+  m_Name: Buttons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1923220303
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923220302}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1595039859}
+  - {fileID: 1918102001}
+  - {fileID: 917969665}
+  m_Father: {fileID: 2112294709}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1937457315
 GameObject:
   m_ObjectHideFlags: 0
@@ -10789,10 +10980,10 @@ RectTransform:
   - {fileID: 1042407821}
   m_Father: {fileID: 206354604}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 60, y: -70}
-  m_SizeDelta: {x: 120, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1948473568
 MonoBehaviour:
@@ -10855,7 +11046,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 889926989}
         m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SaveFace
+        m_MethodName: SetCosmetic
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1948473572}
@@ -11030,10 +11221,10 @@ RectTransform:
   - {fileID: 1153152104}
   m_Father: {fileID: 206354604}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 810, y: -70}
-  m_SizeDelta: {x: 120, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1973124483
 MonoBehaviour:
@@ -11096,7 +11287,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 889926989}
         m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SaveFace
+        m_MethodName: SetCosmetic
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1973124487}
@@ -11560,7 +11751,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 889926989}
         m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: Category
+        m_MethodName: SetCategory
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 2029386962}
@@ -11944,10 +12135,10 @@ RectTransform:
   - {fileID: 2046132108}
   m_Father: {fileID: 206354604}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 210, y: -70}
-  m_SizeDelta: {x: 120, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2101589219
 MonoBehaviour:
@@ -12010,7 +12201,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 889926989}
         m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SaveFace
+        m_MethodName: SetCosmetic
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 2101589223}
@@ -12162,7 +12353,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2112294709
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12176,9 +12367,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1227904970}
-  - {fileID: 1595039859}
-  - {fileID: 1918102001}
-  - {fileID: 917969665}
+  - {fileID: 1923220303}
   m_Father: {fileID: 1094217626}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -12628,6 +12817,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 428495689}
+  - {fileID: 791243521}
   - {fileID: 1271113917}
   - {fileID: 1912420872}
   - {fileID: 2048592421485774119}

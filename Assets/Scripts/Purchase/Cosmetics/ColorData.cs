@@ -5,6 +5,8 @@ public class ColorData : ItemData
 {
     private async void Awake()
     {
+        type = Type.Color;
+
         while (!YandexGame.SDKEnabled) await UniTask.DelayFrame(1);
 
         locked = YandexGame.savesData.colorUnlocked.Contains(id) ? false : true;

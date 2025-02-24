@@ -5,6 +5,8 @@ public class FaceData : ItemData
 {
     private async void Awake()
     {
+        type = Type.Face;
+
         while (!YandexGame.SDKEnabled) await UniTask.DelayFrame(1);
 
         locked = YandexGame.savesData.faceUnlocked.Contains(id) ? false : true;
