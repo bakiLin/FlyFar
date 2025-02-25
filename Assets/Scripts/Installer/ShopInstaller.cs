@@ -7,7 +7,7 @@ public class ShopInstaller : MonoInstaller
     private SelectManager selectManager;
 
     [SerializeField]
-    private EnemyDataManager enemyDataManager;
+    private LevelItemDataManager levelItemDataManager;
 
     [SerializeField]
     private CoinManager coinManager;
@@ -19,7 +19,7 @@ public class ShopInstaller : MonoInstaller
     {
         Container.Bind<SelectManager>().FromInstance(selectManager).AsSingle().NonLazy();
 
-        Container.Bind<EnemyDataManager>().FromInstance(enemyDataManager).AsSingle().NonLazy();
+        Container.Bind<LevelItemDataManager>().FromInstance(levelItemDataManager).AsSingle().NonLazy();
 
         Container.Bind<CoinManager>().FromInstance(coinManager).AsSingle().NonLazy();
 

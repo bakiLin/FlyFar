@@ -20,8 +20,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private string enemyTag;
 
-    [SerializeField]
-    private float[] distance;
+    public float[] distance;
 
     [SerializeField]
     private float[] yPosition;

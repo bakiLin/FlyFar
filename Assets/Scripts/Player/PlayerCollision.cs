@@ -41,6 +41,7 @@ public class PlayerCollision : MonoBehaviour
                 EnemyCollision enemyCollision = obj.GetComponent<EnemyCollision>();
                 playerGravity.AddGravity(enemyCollision.Collide());
                 textManager.SetCoin(enemyCollision.Score());
+                if (playerSpeed.speed < 5f) disposable.Clear();
             }).AddTo(disposable);
     }
 

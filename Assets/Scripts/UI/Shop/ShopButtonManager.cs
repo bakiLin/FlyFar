@@ -9,7 +9,7 @@ public class ShopButtonManager : MonoBehaviour
     private SelectManager selectManager;
 
     [Inject]
-    private EnemyDataManager enemyDataManager;
+    private LevelItemDataManager levelItemManager;
 
     [Inject]
     private CoinManager coinManager;
@@ -48,9 +48,11 @@ public class ShopButtonManager : MonoBehaviour
         }
     }
 
-    public void SetEnemyData(EnemyData data)
+    public void SetLevelItemData(LevelItemData data)
     {
-        enemyDataManager.SetData(data.name, data.description, data.cost[0].ToString());
-        selectManager.SetEnemy(data.image);
+        levelItemManager.SetData(data);
+
+        if (data.GetType().Name == "EnemyData") selectManager.SetEnemy(data.image);
+        else selectManager.SetPlayer(data.image);
     }
 }

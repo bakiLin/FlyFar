@@ -19,15 +19,6 @@ namespace YG
         public List<int> colorUnlocked = new List<int>() {0};
         public List<int> faceUnlocked = new List<int>() {0};
         public List<int> enemyUnlocked = new List<int>() {0, 1};
-        public Dictionary<string, int> enemyDictionary = new Dictionary<string, int>();
-        // ...
-
-        // Поля (сохранения) можно удалять и создавать новые. При обновлении игры сохранения ломаться не должны
-
-        // Вы можете выполнить какие то действия при загрузке сохранений
-        public SavesYG()
-        {
-            // Допустим, задать значения по умолчанию для отдельных элементов массива
-        }
+        public List<int> enemyLevel = new List<int>() {0};
     }
 }

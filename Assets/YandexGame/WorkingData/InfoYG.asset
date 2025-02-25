@@ -24,7 +24,7 @@ MonoBehaviour:
     photo: https://justplaygames.ru/public/icon_player.png
     payingStatus: paying
     serverTime: 1721201231000
-  AdWhenLoadingScene: 0
+  AdWhenLoadingScene: 1
   showFirstAd: 1
   rewardedAfterClosing: 1
   adDisplayCalls: 0
@@ -34,7 +34,7 @@ MonoBehaviour:
   testErrorOfRewardedAdsInEditor: 0
   saveCloud: 1
   flush: 1
-  localSaveSync: 1
+  localSaveSync: 0
   saveCloudInterval: 5
   saveOnQuitGame: 0
   quitGameParameters:
@@ -305,7 +305,7 @@ MonoBehaviour:
   metricaEnable: 0
   metricaCounterID: 0
   debug: 0
-  archivingBuild: 1
+  archivingBuild: 0
   logoImageFormat: 0
   backgroundImageFormat: 1
   pixelRatioEnable: 0

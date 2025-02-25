@@ -1,11 +1,11 @@
 {
-    "idSave": 177,
+    "idSave": 343,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
-    "money": 901,
-    "color": 2,
-    "face": 6,
+    "money": 13589,
+    "color": 0,
+    "face": 8,
     "colorUnlocked": [
         0,
         0,
@@ -28,7 +28,14 @@
         4,
         2,
         1,
-        2
+        2,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
     ],
     "faceUnlocked": [
         0,
@@ -47,10 +54,19 @@
         1,
         0,
         1,
-        6
+        6,
+        0,
+        6,
+        0,
+        8
     ],
     "enemyUnlocked": [
         0,
+        1
+    ],
+    "enemyLevel": [
+        5,
+        1,
         1
     ]
 }

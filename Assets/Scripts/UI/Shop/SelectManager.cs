@@ -9,7 +9,7 @@ public class SelectManager : MonoBehaviour
     private Sprite selectSprite, regularSprite;
 
     [SerializeField]
-    private Image[] category, color, face, enemy;
+    private Image[] category, color, face, enemy, player;
 
     private async void Awake()
     {
@@ -45,6 +45,13 @@ public class SelectManager : MonoBehaviour
     public void SetEnemy(Image image)
     {
         foreach (var e in enemy) e.sprite = regularSprite;
+
+        image.sprite = selectSprite;
+    }
+
+    public void SetPlayer(Image image)
+    {
+        foreach (var p in player) p.sprite = regularSprite;
 
         image.sprite = selectSprite;
     }
