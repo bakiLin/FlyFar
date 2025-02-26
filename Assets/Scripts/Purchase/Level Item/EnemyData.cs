@@ -10,15 +10,7 @@ public class EnemyData : LevelItemData
 
         while (!YandexGame.SDKEnabled) await UniTask.DelayFrame(1);
 
-        if (id + 1 > YandexGame.savesData.enemyLevel.Count)
-        {
-            YandexGame.savesData.enemyLevel.Add(lvlCurrent);
-            YandexGame.SaveProgress();
-        }
-        else
-        {
-            lvlCurrent = YandexGame.savesData.enemyLevel[id];
-        }
+        lvlCurrent = YandexGame.savesData.enemyLevel[id];
     }
 
     public override void UpdateLevel()

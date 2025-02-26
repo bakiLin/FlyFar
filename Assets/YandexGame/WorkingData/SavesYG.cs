@@ -19,6 +19,8 @@ namespace YG
         public List<int> colorUnlocked = new List<int>() {0};
         public List<int> faceUnlocked = new List<int>() {0};
         public List<int> enemyUnlocked = new List<int>() {0, 1};
-        public List<int> enemyLevel = new List<int>() {0};
+
+        public int[] enemyLevel = new int[5];
+        public int[] playerLevel = new int[5];
     }
 }

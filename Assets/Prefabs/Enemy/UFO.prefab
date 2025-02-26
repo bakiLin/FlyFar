@@ -225,7 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 0
-  score: 10
+  score: 7
   time: 3
 --- !u!1 &3896975686298885932
 GameObject:

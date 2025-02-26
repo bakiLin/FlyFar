@@ -15,6 +15,9 @@ public class InputScript : MonoBehaviour
 
     public Action onStart;
 
+    [HideInInspector]
+    public bool powerOn = false;
+
     private void Awake()
     {
         keyboardInputAction = new KeyboardInputAction();  
@@ -40,7 +43,8 @@ public class InputScript : MonoBehaviour
 
         keyboardInputAction.Keyboard.PowerBar.started -= StopArrow;
 
-        keyboardInputAction.Keyboard.PowerBar.started += ((InputAction.CallbackContext context) => { flyPower.Fly(); });
+        if (powerOn) keyboardInputAction.Keyboard.PowerBar.started += ((InputAction.CallbackContext context) => { flyPower.Fly(); });
+
     }
 
     public void SwitchFlyPower(bool state)

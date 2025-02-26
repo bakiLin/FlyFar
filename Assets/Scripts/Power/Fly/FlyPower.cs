@@ -13,14 +13,10 @@ public class FlyPower : MonoBehaviour
     [SerializeField]
     private GameObject left, right;
 
-    public float force, time;
-
+    [HideInInspector]
     public int num;
 
-    private void Awake()
-    {
-        textManager.SetPower(num);
-    }
+    public float force, time;
 
     public async void Fly()
     {
