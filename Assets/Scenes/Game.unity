@@ -2749,7 +2749,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5546191, y: 2.3000097, z: -10}
+  m_LocalPosition: {x: 0.5495111, y: 2.3000097, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3103,7 +3103,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91ff763814470be438bb4307135c9e57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  faceSpriteRenderer: {fileID: 459214826}
+  color:
+  - {fileID: 21300000, guid: 7d874be34579c6e4894eac6beabb2015, type: 3}
+  - {fileID: 21300000, guid: 71d211d5fc50c834281663057b71f766, type: 3}
+  - {fileID: 21300000, guid: cdc33cc9b20b9d94da0813bcc1e359c9, type: 3}
+  - {fileID: 21300000, guid: 55b341ce0ecfd0e4999239183b41680f, type: 3}
+  - {fileID: 21300000, guid: f0d31e2cc191f9049b6dadec66658bc0, type: 3}
+  - {fileID: 21300000, guid: 5ce8686a9f2579142a618e56225e0e9d, type: 3}
+  face:
+  - {fileID: 0}
+  - {fileID: 21300000, guid: d921983247cd33146a7c78b1ce78c6fc, type: 3}
+  - {fileID: 21300000, guid: d34092820af8e24488a281eb74f35497, type: 3}
+  - {fileID: 21300000, guid: cbb050b1849765747829bfa92e1ab765, type: 3}
+  - {fileID: 21300000, guid: 847d179ccfdd51d4683169dfee0c352a, type: 3}
+  - {fileID: 21300000, guid: 561eb72a48317e74293898e16008c8a8, type: 3}
+  - {fileID: 21300000, guid: d5b8b069d8f68c140a0c544c55846dad, type: 3}
+  - {fileID: 21300000, guid: 5e674b70ef4ae414f8be30ca9d492aaa, type: 3}
+  - {fileID: 21300000, guid: 132565fd414b5e6478b77cd80cbbac2c, type: 3}
+  - {fileID: 21300000, guid: 39e3a7f6912652d49b0b1e0bd18b872a, type: 3}
+  - {fileID: 21300000, guid: 7a992e4ac6cd5094ea23cc035dd55302, type: 3}
+  - {fileID: 21300000, guid: 666ff0ee673327c449348e1d294b177d, type: 3}
+  - {fileID: 21300000, guid: 0bb04740df9b07f4eb7d4ce9e08be4e6, type: 3}
 --- !u!1 &599269966
 GameObject:
   m_ObjectHideFlags: 0

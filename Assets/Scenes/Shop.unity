@@ -220,19 +220,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 991554}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 889926989}
-        m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SetCosmetic
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 991556}
-          m_ObjectArgumentAssemblyTypeName: ItemData, Assembly-CSharp
-          m_IntArgument: 7
-          m_FloatArgument: 0
-          m_StringArgument: 7
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &991554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -676,10 +664,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34da0c277515b3d469ebbefb090c75dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectManager: {fileID: 896621681}
-  levelItemDataManager: {fileID: 1703161364}
+  spriteManager: {fileID: 896621681}
   coinManager: {fileID: 1770322222}
-  shopButtonManager: {fileID: 889926989}
 --- !u!1 &202339167
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,6 +751,7 @@ GameObject:
   m_Component:
   - component: {fileID: 206354604}
   - component: {fileID: 206354605}
+  - component: {fileID: 206354606}
   m_Layer: 5
   m_Name: Container
   m_TagString: Untagged
@@ -828,6 +815,18 @@ MonoBehaviour:
   m_Spacing: {x: 30, y: 0}
   m_Constraint: 2
   m_ConstraintCount: 1
+--- !u!114 &206354606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206354603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0220b69df3434b948b2e2a71b2f792be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &208546277
 GameObject:
   m_ObjectHideFlags: 0
@@ -1530,19 +1529,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 400208505}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 889926989}
-        m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SetCosmetic
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 400208507}
-          m_ObjectArgumentAssemblyTypeName: ItemData, Assembly-CSharp
-          m_IntArgument: 11
-          m_FloatArgument: 0
-          m_StringArgument: 11
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &400208505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1907,19 +1894,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 413358603}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 889926989}
-        m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SetCosmetic
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 413358605}
-          m_ObjectArgumentAssemblyTypeName: ItemData, Assembly-CSharp
-          m_IntArgument: 8
-          m_FloatArgument: 0
-          m_StringArgument: 8
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &413358603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2355,19 +2330,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 463220369}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 889926989}
-        m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SetCosmetic
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 463220371}
-          m_ObjectArgumentAssemblyTypeName: ItemData, Assembly-CSharp
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 2
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &463220369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2474,10 +2437,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  name: Wings
+  title: Wings
   description: Let's fly high up into the sky and hit more enemies
-  lvlMax: 5
-  lvlCurrent: 0
+  maxLevel: 5
+  currentLevel: 0
   cost: 64000000c80000002c01000090010000f4010000
 --- !u!114 &465133048
 MonoBehaviour:
@@ -2522,19 +2485,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 465133050}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 889926989}
-        m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SetLevelItemData
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 465133047}
-          m_ObjectArgumentAssemblyTypeName: LevelItemData, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &465133049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2689,19 +2640,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 485055992}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 889926989}
-        m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SetCosmetic
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 485055994}
-          m_ObjectArgumentAssemblyTypeName: ItemData, Assembly-CSharp
-          m_IntArgument: 4
-          m_FloatArgument: 0
-          m_StringArgument: 4
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &485055992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2855,19 +2794,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 488044404}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 889926989}
-        m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SetCosmetic
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 488044406}
-          m_ObjectArgumentAssemblyTypeName: ItemData, Assembly-CSharp
-          m_IntArgument: 5
-          m_FloatArgument: 0
-          m_StringArgument: pink
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &488044404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4054,19 +3981,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 629754805}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 889926989}
-        m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SetCosmetic
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 629754809}
-          m_ObjectArgumentAssemblyTypeName: ItemData, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: red
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &629754809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4360,10 +4275,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 3
-  name: Finance
+  title: Finance
   description: You get more money at the end of the run
-  lvlMax: 5
-  lvlCurrent: 0
+  maxLevel: 5
+  currentLevel: 0
   cost: 64000000c80000002c01000090010000f4010000
 --- !u!114 &656095849
 MonoBehaviour:
@@ -4408,19 +4323,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 656095851}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 889926989}
-        m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SetLevelItemData
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 656095848}
-          m_ObjectArgumentAssemblyTypeName: LevelItemData, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &656095850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4749,19 +4652,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 721236678}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 889926989}
-        m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SetCosmetic
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 721236682}
-          m_ObjectArgumentAssemblyTypeName: ItemData, Assembly-CSharp
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: green
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &721236682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4905,10 +4796,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 4
-  name: Launcher
+  title: Launch
   description: Launches you higher at the start of the game
-  lvlMax: 5
-  lvlCurrent: 0
+  maxLevel: 5
+  currentLevel: 0
   cost: 64000000c80000002c01000090010000f4010000
 --- !u!114 &733428082
 MonoBehaviour:
@@ -4953,19 +4844,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 733428084}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 889926989}
-        m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SetLevelItemData
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 733428081}
-          m_ObjectArgumentAssemblyTypeName: LevelItemData, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &733428083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5178,6 +5057,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 743900868}
+  - component: {fileID: 743900869}
   m_Layer: 5
   m_Name: Color
   m_TagString: Untagged
@@ -5210,6 +5090,18 @@ RectTransform:
   m_AnchoredPosition: {x: -60, y: 160}
   m_SizeDelta: {x: 870, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &743900869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743900867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0220b69df3434b948b2e2a71b2f792be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &756129294
 GameObject:
   m_ObjectHideFlags: 0
@@ -5294,19 +5186,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 756129299}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 889926989}
-        m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SetLevelItemData
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 756129301}
-          m_ObjectArgumentAssemblyTypeName: LevelItemData, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &756129298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5373,10 +5253,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  name: Speed Loss
+  title: Speed Loss
   description: You lose less speed when colliding
-  lvlMax: 5
-  lvlCurrent: 0
+  maxLevel: 5
+  currentLevel: 0
   cost: 64000000c80000002c01000090010000f4010000
 --- !u!1 &791243519
 GameObject:
@@ -6156,50 +6036,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 874002332}
   m_CullTransparentMesh: 1
---- !u!1 &889926987
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 889926988}
-  - component: {fileID: 889926989}
-  m_Layer: 0
-  m_Name: Shop Button
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &889926988
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 889926987}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1912420872}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &889926989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 889926987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d13ac64bec5097a4cb2933b14e2db9b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &896621679
 GameObject:
   m_ObjectHideFlags: 0
@@ -6211,7 +6047,7 @@ GameObject:
   - component: {fileID: 896621680}
   - component: {fileID: 896621681}
   m_Layer: 0
-  m_Name: Select Manager
+  m_Name: Sprite Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6241,46 +6077,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 896621679}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20e500a4798d20740920b932a1492ebb, type: 3}
+  m_Script: {fileID: 11500000, guid: 17129ca6a803b29419546522f61b466a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectSprite: {fileID: 21300000, guid: 063ec0e91245c0847b28e7273711ee5e, type: 3}
-  regularSprite: {fileID: 21300000, guid: bf47839f4bfa02440921e7ce216db5bb, type: 3}
-  category:
-  - {fileID: 1015155434}
-  - {fileID: 2029386959}
-  - {fileID: 1443539927}
-  color:
-  - {fileID: 629754805}
-  - {fileID: 944748775}
-  - {fileID: 721236678}
-  - {fileID: 1176522951}
-  - {fileID: 1348532556}
-  - {fileID: 488044404}
-  face:
-  - {fileID: 1948473570}
-  - {fileID: 2101589221}
-  - {fileID: 463220369}
-  - {fileID: 1497904946}
-  - {fileID: 485055992}
-  - {fileID: 1973124485}
-  - {fileID: 1149220647}
-  - {fileID: 991554}
-  - {fileID: 413358603}
-  - {fileID: 1728040488}
-  - {fileID: 1361436862}
-  - {fileID: 400208505}
-  - {fileID: 1486275922}
-  enemy:
-  - {fileID: 1595039862}
-  - {fileID: 1918102004}
-  - {fileID: 917969669}
-  player:
-  - {fileID: 465133050}
-  - {fileID: 756129299}
-  - {fileID: 1053898960}
-  - {fileID: 656095851}
-  - {fileID: 733428084}
+  commonBorder: {fileID: 21300000, guid: bf47839f4bfa02440921e7ce216db5bb, type: 3}
+  selectedBorder: {fileID: 21300000, guid: 063ec0e91245c0847b28e7273711ee5e, type: 3}
+  emptySlot: {fileID: 3441002012680869628, guid: 88c731ba54dfc7d4e9afd42129b1a543, type: 3}
+  filledSlot: {fileID: -3205594875923400357, guid: 66312f0d3dee1bc4384c107c8c863d77, type: 3}
 --- !u!1 &917969664
 GameObject:
   m_ObjectHideFlags: 0
@@ -6335,10 +6138,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 2
-  name: Ship
+  title: Ship
   description: Will help you gain speed if you befriend him
-  lvlMax: 5
-  lvlCurrent: 0
+  maxLevel: 5
+  currentLevel: 0
   cost: 64000000c80000002c01000090010000f4010000
 --- !u!114 &917969667
 MonoBehaviour:
@@ -6383,19 +6186,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 917969669}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 889926989}
-        m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SetLevelItemData
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 917969666}
-          m_ObjectArgumentAssemblyTypeName: LevelItemData, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &917969668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6588,19 +6379,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 944748775}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 889926989}
-        m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SetCosmetic
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 944748779}
-          m_ObjectArgumentAssemblyTypeName: ItemData, Assembly-CSharp
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: blue
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &944748779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6778,7 +6557,6 @@ GameObject:
   - component: {fileID: 1015155434}
   - component: {fileID: 1015155436}
   - component: {fileID: 1015155437}
-  - component: {fileID: 1015155438}
   m_Layer: 5
   m_Name: Color (Button)
   m_TagString: Untagged
@@ -6902,32 +6680,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1015155434}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 889926989}
-        m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SetCategory
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1015155438}
-          m_ObjectArgumentAssemblyTypeName: CategoryData, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1015155438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1015155432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21a32e292fe07a040a907a06bbc0fc6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  options: {fileID: 1722198966}
+      m_Calls: []
 --- !u!1 &1042407820
 GameObject:
   m_ObjectHideFlags: 0
@@ -7148,19 +6901,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1053898960}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 889926989}
-        m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SetLevelItemData
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1053898962}
-          m_ObjectArgumentAssemblyTypeName: LevelItemData, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1053898959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7227,10 +6968,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 2
-  name: Bounciness
+  title: Bounciness
   description: Let's you bounce higher when colliding
-  lvlMax: 5
-  lvlCurrent: 0
+  maxLevel: 5
+  currentLevel: 0
   cost: 64000000c80000002c01000090010000f4010000
 --- !u!1 &1073213119
 GameObject:
@@ -7802,19 +7543,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1149220647}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 889926989}
-        m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SetCosmetic
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1149220649}
-          m_ObjectArgumentAssemblyTypeName: ItemData, Assembly-CSharp
-          m_IntArgument: 6
-          m_FloatArgument: 0
-          m_StringArgument: 6
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1149220647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8104,19 +7833,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1176522951}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 889926989}
-        m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SetCosmetic
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1176522953}
-          m_ObjectArgumentAssemblyTypeName: ItemData, Assembly-CSharp
-          m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: yellow
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1176522951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9191,19 +8908,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1348532556}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 889926989}
-        m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SetCosmetic
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1348532558}
-          m_ObjectArgumentAssemblyTypeName: ItemData, Assembly-CSharp
-          m_IntArgument: 4
-          m_FloatArgument: 0
-          m_StringArgument: purple
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1348532556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9493,19 +9198,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1361436862}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 889926989}
-        m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SetCosmetic
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1361436864}
-          m_ObjectArgumentAssemblyTypeName: ItemData, Assembly-CSharp
-          m_IntArgument: 10
-          m_FloatArgument: 0
-          m_StringArgument: 10
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1361436862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9993,7 +9686,6 @@ GameObject:
   - component: {fileID: 1443539927}
   - component: {fileID: 1443539926}
   - component: {fileID: 1443539925}
-  - component: {fileID: 1443539924}
   m_Layer: 5
   m_Name: Player (Button)
   m_TagString: Untagged
@@ -10021,19 +9713,6 @@ RectTransform:
   m_AnchoredPosition: {x: 160, y: -60.000023}
   m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0.5, y: 1}
---- !u!114 &1443539924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1443539922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21a32e292fe07a040a907a06bbc0fc6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  options: {fileID: 242212428}
 --- !u!114 &1443539925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10077,19 +9756,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1443539927}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 889926989}
-        m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SetCategory
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1443539924}
-          m_ObjectArgumentAssemblyTypeName: CategoryData, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1443539926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10319,19 +9986,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1486275922}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 889926989}
-        m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SetCosmetic
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1486275924}
-          m_ObjectArgumentAssemblyTypeName: ItemData, Assembly-CSharp
-          m_IntArgument: 12
-          m_FloatArgument: 0
-          m_StringArgument: 12
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1486275922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10560,19 +10215,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1497904946}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 889926989}
-        m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SetCosmetic
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1497904948}
-          m_ObjectArgumentAssemblyTypeName: ItemData, Assembly-CSharp
-          m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: 3
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1497904946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10962,6 +10605,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1576799665}
   m_CullTransparentMesh: 1
+--- !u!1 &1594073753
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1594073754}
+  - component: {fileID: 1594073755}
+  m_Layer: 0
+  m_Name: Category Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1594073754
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594073753}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1912420872}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1594073755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594073753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15d058b6fd44ce94c938df4854c14de4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  category:
+  - {fileID: 1015155432}
+  - {fileID: 2029386956}
+  - {fileID: 1443539922}
+  windows:
+  - {fileID: 1722198966}
+  - {fileID: 2112294708}
+  - {fileID: 242212428}
 --- !u!1 &1595039858
 GameObject:
   m_ObjectHideFlags: 0
@@ -11016,10 +10711,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  name: Bee
+  title: Bee
   description: Flyes over your head and really loves its Queen
-  lvlMax: 5
-  lvlCurrent: 0
+  maxLevel: 5
+  currentLevel: 0
   cost: 64000000c80000002c01000090010000f4010000
 --- !u!114 &1595039861
 MonoBehaviour:
@@ -11117,19 +10812,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1595039862}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 889926989}
-        m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SetLevelItemData
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1595039860}
-          m_ObjectArgumentAssemblyTypeName: LevelItemData, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &1619935559
 GameObject:
   m_ObjectHideFlags: 0
@@ -11406,74 +11089,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1648703175}
   m_CullTransparentMesh: 1
---- !u!1 &1703161362
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1703161363}
-  - component: {fileID: 1703161364}
-  m_Layer: 0
-  m_Name: Level Item Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1703161363
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1703161362}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1912420872}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1703161364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1703161362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26e003445ce0dfc409748f9734c2bc8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelItems:
-  - title: {fileID: 1845547186}
-    description: {fileID: 75979470}
-    costText: {fileID: 2124130587}
-    button: {fileID: 555625651}
-    slots:
-    - {fileID: 1392426278}
-    - {fileID: 1125461789}
-    - {fileID: 322894434}
-    - {fileID: 635626522}
-    - {fileID: 1765738687}
-  - title: {fileID: 823898897}
-    description: {fileID: 1960051651}
-    costText: {fileID: 1627663959}
-    button: {fileID: 813927240}
-    slots:
-    - {fileID: 1932610978}
-    - {fileID: 741156082}
-    - {fileID: 1822153138}
-    - {fileID: 1080994653}
-    - {fileID: 414773100}
-  emptySprite: {fileID: 3441002012680869628, guid: 88c731ba54dfc7d4e9afd42129b1a543, type: 3}
-  boughtSprite: {fileID: -3205594875923400357, guid: 66312f0d3dee1bc4384c107c8c863d77, type: 3}
-  closedSprite: {fileID: -7524341903146727432, guid: db5af1d87de0b5c4cac0ef6045e3ea9e, type: 3}
 --- !u!1 &1705643581
 GameObject:
   m_ObjectHideFlags: 0
@@ -11783,14 +11398,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 889926989}
-        m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: StartGame
-        m_Mode: 1
+      - m_Target: {fileID: 896621681}
+        m_TargetAssemblyTypeName: SpriteManager, Assembly-CSharp
+        m_MethodName: LoadLevel
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -12046,19 +11661,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1728040488}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 889926989}
-        m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SetCosmetic
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1728040490}
-          m_ObjectArgumentAssemblyTypeName: ItemData, Assembly-CSharp
-          m_IntArgument: 9
-          m_FloatArgument: 0
-          m_StringArgument: 9
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1728040488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13029,10 +12632,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 889926988}
-  - {fileID: 896621680}
-  - {fileID: 1703161363}
   - {fileID: 1770322221}
+  - {fileID: 896621680}
+  - {fileID: 1594073754}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1914893398
@@ -13168,10 +12770,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  name: Slime
+  title: Slime
   description: Pink and wants to launch you into space
-  lvlMax: 5
-  lvlCurrent: 0
+  maxLevel: 5
+  currentLevel: 0
   cost: 64000000c80000002c01000090010000f4010000
 --- !u!114 &1918102003
 MonoBehaviour:
@@ -13269,19 +12871,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1918102004}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 889926989}
-        m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SetLevelItemData
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1918102002}
-          m_ObjectArgumentAssemblyTypeName: LevelItemData, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &1923220302
 GameObject:
   m_ObjectHideFlags: 0
@@ -13291,6 +12881,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1923220303}
+  - component: {fileID: 1923220304}
+  - component: {fileID: 1923220305}
   m_Layer: 5
   m_Name: Buttons
   m_TagString: Untagged
@@ -13320,6 +12912,40 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1923220304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923220302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0220b69df3434b948b2e2a71b2f792be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1923220305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923220302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125d19b49ac13f548934221028a6612b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titleText: {fileID: 1845547186}
+  descText: {fileID: 75979470}
+  costText: {fileID: 2124130587}
+  button: {fileID: 555625651}
+  images:
+  - {fileID: 1392426278}
+  - {fileID: 1125461789}
+  - {fileID: 322894434}
+  - {fileID: 635626522}
+  - {fileID: 1765738687}
 --- !u!1 &1932610976
 GameObject:
   m_ObjectHideFlags: 0
@@ -13646,19 +13272,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1948473570}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 889926989}
-        m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SetCosmetic
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1948473572}
-          m_ObjectArgumentAssemblyTypeName: ItemData, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 0
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1948473570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13795,6 +13409,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1950457992}
+  - component: {fileID: 1950457994}
+  - component: {fileID: 1950457993}
   m_Layer: 5
   m_Name: Buttons
   m_TagString: Untagged
@@ -13826,6 +13442,40 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1950457993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950457991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125d19b49ac13f548934221028a6612b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titleText: {fileID: 823898897}
+  descText: {fileID: 1960051651}
+  costText: {fileID: 1627663959}
+  button: {fileID: 813927240}
+  images:
+  - {fileID: 1932610978}
+  - {fileID: 741156082}
+  - {fileID: 1822153138}
+  - {fileID: 1080994653}
+  - {fileID: 414773100}
+--- !u!114 &1950457994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950457991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0220b69df3434b948b2e2a71b2f792be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1960051649
 GameObject:
   m_ObjectHideFlags: 0
@@ -14063,19 +13713,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1973124485}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 889926989}
-        m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SetCosmetic
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1973124487}
-          m_ObjectArgumentAssemblyTypeName: ItemData, Assembly-CSharp
-          m_IntArgument: 5
-          m_FloatArgument: 0
-          m_StringArgument: 5
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1973124485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14404,7 +14042,6 @@ GameObject:
   - component: {fileID: 2029386959}
   - component: {fileID: 2029386958}
   - component: {fileID: 2029386961}
-  - component: {fileID: 2029386962}
   m_Layer: 5
   m_Name: Enemy (Button)
   m_TagString: Untagged
@@ -14528,32 +14165,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2029386959}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 889926989}
-        m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SetCategory
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 2029386962}
-          m_ObjectArgumentAssemblyTypeName: CategoryData, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &2029386962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2029386956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21a32e292fe07a040a907a06bbc0fc6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  options: {fileID: 2112294708}
+      m_Calls: []
 --- !u!1 &2046132107
 GameObject:
   m_ObjectHideFlags: 0
@@ -14978,19 +14590,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2101589221}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 889926989}
-        m_TargetAssemblyTypeName: ShopButtonManager, Assembly-CSharp
-        m_MethodName: SetCosmetic
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 2101589223}
-          m_ObjectArgumentAssemblyTypeName: ItemData, Assembly-CSharp
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 1
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &2101589221
 MonoBehaviour:
   m_ObjectHideFlags: 0
