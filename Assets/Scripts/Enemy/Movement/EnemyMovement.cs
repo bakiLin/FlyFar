@@ -25,10 +25,19 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        if (playerSpeed.speed > 0f) Move(-20f, playerSpeed.speed);
+        if (playerSpeed.speed > 0f) Move(-20f, Mathf.Clamp(playerSpeed.speed, 5f, 25f));
         else Move(20f, 7f);
 
-        playerSpeed.onChange += () => { Move(-20f, playerSpeed.speed); };
+        playerSpeed.onChange += () => { Mathf.Clamp(playerSpeed.speed, 5f, 25f); };
         playerSpeed.onStop += () => { Move(20f, 7f); };
+    }
+
+    public void Stop()
+    {
+        tween.Kill();
+
+        playerSpeed.onChange -= () => { Move(-20f, playerSpeed.speed); };
+
+        enabled = false;
     }
 }

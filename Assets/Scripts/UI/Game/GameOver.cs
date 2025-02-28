@@ -20,20 +20,30 @@ public class GameOver : MonoBehaviour
     private float Y, duration; 
 
     [SerializeField]
-    private TextMeshProUGUI coinText, coinTotalText;
+    private TextMeshProUGUI coinText, coinTotalText, multiplyText;
+
+    [SerializeField]
+    private float[] levelMultiply;
 
     private async void ResultWindow()
     {
         while (!YandexGame.SDKEnabled) await UniTask.DelayFrame(1);
 
-        window.DOAnchorPosY(Y, duration)
-            .SetEase(Ease.OutQuart);
+        int level = YandexGame.savesData.playerLevel[3];
+        int money = Mathf.RoundToInt(textManager.coin * levelMultiply[level]);
 
-        coinText.text = $"{textManager.coin}";
-        coinTotalText.text = $"Total: {YandexGame.savesData.money + textManager.coin}";
+        if (level > 0) multiplyText.text = $"x{levelMultiply[level]}";
 
-        YandexGame.savesData.money += textManager.coin;
+        coinText.text = $"{money}";
+        coinTotalText.text = $"Total: {YandexGame.savesData.money + money}";
+
+        YandexGame.savesData.money += money;
         YandexGame.SaveProgress();
+
+        window.DOAnchorPosY(Y, duration)
+            .SetEase(Ease.OutQuart)
+            .WithCancellation(cancellationToken: destroyCancellationToken)
+            .Forget();
     }
 
     private void OnEnable()

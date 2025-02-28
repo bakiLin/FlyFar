@@ -8,9 +8,15 @@ public class InputScript : MonoBehaviour
     [Inject]
     private FlyPower flyPower;
 
+    [Inject]
+    private PlayerSpeed playerSpeed;
+
     private KeyboardInputAction keyboardInputAction;
 
     public Action onStart;
+
+    [HideInInspector]
+    public bool powerOn = false;
 
     private void Awake()
     {
@@ -22,13 +28,13 @@ public class InputScript : MonoBehaviour
         keyboardInputAction.Enable();
 
         keyboardInputAction.Keyboard.PowerBar.started += StopArrow;
+
+        playerSpeed.onStop += keyboardInputAction.Disable;
     }
 
     private void OnDisable()
     {
         keyboardInputAction.Disable();
-
-        keyboardInputAction.Keyboard.PowerBar.started -= StopArrow;
     }
 
     private void StopArrow(InputAction.CallbackContext context)
@@ -37,6 +43,13 @@ public class InputScript : MonoBehaviour
 
         keyboardInputAction.Keyboard.PowerBar.started -= StopArrow;
 
-        keyboardInputAction.Keyboard.PowerBar.started += ((InputAction.CallbackContext context) => { flyPower.Fly(); });
+        if (powerOn) keyboardInputAction.Keyboard.PowerBar.started += ((InputAction.CallbackContext context) => { flyPower.Fly(); });
+
+    }
+
+    public void SwitchFlyPower(bool state)
+    {
+        if (state) keyboardInputAction.Enable();
+        else keyboardInputAction.Disable();
     }
 }

@@ -26,8 +26,8 @@ public class PlayerCollision : MonoBehaviour
             .Where(obj => obj.transform.CompareTag("Ground"))
             .Subscribe(obj => {
                 GroundCollision groundCollision = obj.transform.GetComponent<GroundCollision>();
-                playerSpeed.AddSpeed(-groundCollision.SpeedLoss());
-                if (playerSpeed.speed > 5f) playerGravity.AddGravity(groundCollision.Force());
+                playerSpeed.AddSpeed(-playerSpeed.speed * groundCollision.multiply);
+                if (playerSpeed.speed > 5f) playerGravity.Bounce(groundCollision.force);
                 else disposable.Clear();
             }).AddTo(disposable);
     }
@@ -39,8 +39,9 @@ public class PlayerCollision : MonoBehaviour
             .Where(obj => obj.gameObject.CompareTag("Enemy"))
             .Subscribe(obj => { 
                 EnemyCollision enemyCollision = obj.GetComponent<EnemyCollision>();
-                playerGravity.AddGravity(enemyCollision.Collide());
+                playerGravity.Bounce(enemyCollision.Collide());
                 textManager.SetCoin(enemyCollision.Score());
+                if (playerSpeed.speed < 5f) disposable.Clear();
             }).AddTo(disposable);
     }
 

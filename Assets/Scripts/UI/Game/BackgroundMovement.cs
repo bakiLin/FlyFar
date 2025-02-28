@@ -10,7 +10,7 @@ public class BackgroundMovement : MonoBehaviour
     private PlayerSpeed playerSpeed;
 
     [SerializeField]
-    private float multiply;
+    private float positionX, multiply;
 
     private CancellationTokenSource cts;
 
@@ -27,7 +27,7 @@ public class BackgroundMovement : MonoBehaviour
     {
         while (true)
         {
-            await transform.DOMoveX(-31.5f, playerSpeed.speed * multiply)
+            await transform.DOMoveX(positionX, playerSpeed.speed * multiply)
                 .SetSpeedBased()
                 .SetEase(Ease.Linear)
                 .OnComplete(() => { transform.position = new Vector3(0f, transform.position.y); })

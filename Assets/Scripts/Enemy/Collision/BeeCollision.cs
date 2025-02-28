@@ -8,8 +8,6 @@ public class BeeCollision : EnemyCollision
             .SetSpeedBased()
             .SetEase(Ease.Linear);
 
-        animator.SetTrigger("Death");
-
-        return jumpForce;
+        return base.Collide();
     }
 }

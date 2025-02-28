@@ -15,11 +15,12 @@ public class EnemySpawner : MonoBehaviour
     [Inject]
     private InputScript inputScript;
 
+    public int id;
+
     [SerializeField]
     private string enemyTag;
 
-    [SerializeField]
-    private float[] distance;
+    public float[] distance;
 
     [SerializeField]
     private float[] yPosition;
@@ -36,7 +37,7 @@ public class EnemySpawner : MonoBehaviour
 
         while (true)
         {
-            double delay = GetRandom(distance[1], distance[0]) / playerSpeed.speed * 1000;
+            double delay = GetRandom(distance[1], distance[0]) / Mathf.Clamp(playerSpeed.speed, 5f, 25f) * 1000;
 
             await UniTask.Delay((int)delay, cancellationToken: cts.Token);
 
@@ -60,10 +61,7 @@ public class EnemySpawner : MonoBehaviour
         playerSpeed.onStop += () => { cts?.Cancel(); };
     }
 
-    private void OnDisable()
-    {
-        inputScript.onStart -= () => { SpawnAsync().Forget(); };
-    }
+    private void OnDisable() => cts?.Cancel();
 
     private void OnDestroy() => cts?.Cancel();
 }
