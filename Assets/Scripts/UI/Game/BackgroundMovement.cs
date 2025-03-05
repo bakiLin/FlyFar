@@ -27,7 +27,7 @@ public class BackgroundMovement : MonoBehaviour
     {
         while (true)
         {
-            await transform.DOMoveX(positionX, playerSpeed.speed * multiply)
+            await transform.DOMoveX(positionX, playerSpeed.speed.Value * multiply)
                 .SetSpeedBased()
                 .SetEase(Ease.Linear)
                 .OnComplete(() => { transform.position = new Vector3(0f, transform.position.y); })

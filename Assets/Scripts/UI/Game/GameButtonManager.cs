@@ -1,20 +1,34 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+using DG.Tweening;
 
 public class GameButtonManager : MonoBehaviour
 {
-    [SerializeField]
-    private Button replay, shop;
+    private Tween tween;
 
-    private void Awake()
+    public void LoadScene(int index)
     {
-        replay.onClick.AddListener(() => { 
-            SceneManager.LoadScene(1); 
-        });
+        SceneManager.LoadScene(index);
+        Time.timeScale = 1f;
+    }
 
-        shop.onClick.AddListener(() => {
-            SceneManager.LoadScene(0);
-        });
+    public void Pause(RectTransform window)
+    {
+        Time.timeScale = 0f;
+
+        tween.Kill();
+        tween = window.DOAnchorPosY(-200f, 1f)
+            .SetEase(Ease.OutQuart)
+            .SetUpdate(true);
+    }
+
+    public void Resume(RectTransform window)
+    {
+        Time.timeScale = 1f;
+
+        tween.Kill();
+        tween = window.DOAnchorPosY(200f, 1f)
+            .SetEase(Ease.InOutCubic)
+            .SetUpdate(true);
     }
 }

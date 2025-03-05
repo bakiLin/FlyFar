@@ -2,6 +2,7 @@ using DG.Tweening;
 using UnityEngine;
 using Zenject;
 using Random = System.Random;
+using UniRx;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class EnemyMovement : MonoBehaviour
     private Tween tween;
 
     private Random random = new Random();
+
+    public CompositeDisposable disposable = new CompositeDisposable();
 
     private void Move(float direction, float speed)
     {
@@ -25,19 +28,20 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        if (playerSpeed.speed > 0f) Move(-20f, Mathf.Clamp(playerSpeed.speed, 5f, 25f));
+        if (playerSpeed.speed.Value > 0f) Move(-20f, Mathf.Clamp(playerSpeed.speed.Value, 5f, 25f));
         else Move(20f, 7f);
 
-        playerSpeed.onChange += () => { Mathf.Clamp(playerSpeed.speed, 5f, 25f); };
-        playerSpeed.onStop += () => { Move(20f, 7f); };
+        playerSpeed.speed.Subscribe(speed => { 
+            if (speed > 5f) Move(-20f, Mathf.Clamp(speed, 5f, 25f));
+            else Move(20f, 7f);
+        }).AddTo(disposable);
     }
+
+    private void OnDisable() => disposable.Clear();
 
     public void Stop()
     {
-        tween.Kill();
-
-        playerSpeed.onChange -= () => { Move(-20f, playerSpeed.speed); };
-
-        enabled = false;
+        disposable.Clear();
+        Move(-20f, playerSpeed.speed.Value);
     }
 }

@@ -12,6 +12,9 @@ public class PlayerInstaller : MonoInstaller
     [SerializeField]
     private FlyPower flyPower;
 
+    [SerializeField]
+    private PlayerParticleManager playerParticleManager;
+
     public override void InstallBindings()
     {
         Container.Bind<PlayerGravity>().FromInstance(playerGravity).AsSingle().NonLazy();
@@ -19,5 +22,7 @@ public class PlayerInstaller : MonoInstaller
         Container.Bind<PlayerSpeed>().FromInstance(playerSpeed).AsSingle().NonLazy();
 
         Container.Bind<FlyPower>().FromInstance(flyPower).AsSingle().NonLazy();
+
+        Container.Bind<PlayerParticleManager>().FromInstance(playerParticleManager).AsSingle().NonLazy();
     }
 }

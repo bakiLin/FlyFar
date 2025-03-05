@@ -23,14 +23,26 @@ public class UpgradableManager : MonoBehaviour
 
     public void SetData(LevelItemData data)
     {
-        titleText.text = data.title;
-        descText.text = data.description;
+        if (data.currentLevel != data.maxLevel)
+        {
+            titleText.text = data.title;
+            descText.text = data.description;
 
-        SetCost(data);
+            SetCost(data);
 
-        button.interactable = true;
-        button.onClick.RemoveAllListeners();
-        button.onClick.AddListener(() => Buy(data));
+            button.interactable = true;
+            button.onClick.RemoveAllListeners();
+            button.onClick.AddListener(() => Buy(data));
+        }
+        else
+        {
+            costText.text = "MAX";
+
+            button.interactable = false;
+            button.onClick.RemoveAllListeners();
+
+            foreach (var image in images) image.sprite = spriteManager.filledSlot;
+        }
     }
 
     private void SetCost(LevelItemData data)

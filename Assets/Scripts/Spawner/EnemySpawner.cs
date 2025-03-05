@@ -33,11 +33,11 @@ public class EnemySpawner : MonoBehaviour
 
     private async UniTaskVoid SpawnAsync()
     {
-        while (playerSpeed.speed < 1f) await UniTask.DelayFrame(1);
+        while (playerSpeed.speed.Value < 1f) await UniTask.DelayFrame(1);
 
         while (true)
         {
-            double delay = GetRandom(distance[1], distance[0]) / Mathf.Clamp(playerSpeed.speed, 5f, 25f) * 1000;
+            double delay = GetRandom(distance[1], distance[0]) / Mathf.Clamp(playerSpeed.speed.Value, 5f, 25f) * 1000;
 
             await UniTask.Delay((int)delay, cancellationToken: cts.Token);
 
