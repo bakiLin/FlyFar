@@ -29,7 +29,7 @@ public class PlayerGravity : MonoBehaviour
 
     public void Bounce(float value)
     {
-        if (rb.gravityScale.Equals(1)) rb.linearVelocityY = value * multiply;
+        if (rb.gravityScale.Equals(1) && value > rb.linearVelocityY) rb.linearVelocityY = value * multiply;
     }
 
     public void SwitchGravity()

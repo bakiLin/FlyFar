@@ -19,8 +19,8 @@ public class EnemyChangeLevel : MonoBehaviour
 
         if (level > 1)
         {
-            spawner.distance[0] -= decrease * (level - 1);
-            spawner.distance[1] -= decrease * (level - 1);
+            spawner.distance[0] -= decrease * level;
+            spawner.distance[1] -= decrease * level;
         }
     }
 }

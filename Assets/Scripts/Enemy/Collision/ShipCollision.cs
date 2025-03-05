@@ -13,6 +13,9 @@ public class ShipCollision : EnemyCollision
     [Inject]
     private InputScript inputScript;
 
+    [Inject]
+    private PlayerParticleManager playerParticleManager;
+
     [SerializeField]
     private int time;
 
@@ -48,6 +51,7 @@ public class ShipCollision : EnemyCollision
     {
         if (!called)
         {
+            playerParticleManager.StopFalling();
             playerGravity.SwitchGravity();
 
             Vector3 player = playerGravity.transform.position;

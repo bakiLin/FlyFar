@@ -34,11 +34,15 @@ public class PlayerParticleManager : MonoBehaviour
 
         Observable.EveryUpdate()
             .Where(_ => rb.linearVelocityY > 0f && isFalling)
-            .Subscribe(_ => {
-                isFalling = false;
-                particle.Stop();
-                particle.Clear();
-            }).AddTo(disposable);
+            .Subscribe(_ => StopFalling())
+            .AddTo(disposable);
+    }
+
+    public void StopFalling()
+    {
+        isFalling = false;
+        particle.Stop();
+        particle.Clear();
     }
 
     private async UniTaskVoid Accelerate()

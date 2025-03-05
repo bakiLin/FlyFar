@@ -19,19 +19,15 @@ public class PowerBar : MonoBehaviour
     [SerializeField]
     private float[] levelMultiply;
 
-    [SerializeField]
     private Image fill;
 
     private Sequence sequence;
 
-    private float multiply;
-
     private async void Awake()
     {
-        while (!YandexGame.SDKEnabled) await UniTask.DelayFrame(1);
+        fill = transform.Find("Fill").GetComponent<Image>();
 
-        int level = YandexGame.savesData.playerLevel[4];
-        multiply = levelMultiply[level];
+        while (!YandexGame.SDKEnabled) await UniTask.DelayFrame(1);
 
         sequence = DOTween.Sequence()
             .Append(fill.DOFillAmount(1f, 1f).SetEase(Ease.InCubic))
@@ -43,11 +39,13 @@ public class PowerBar : MonoBehaviour
     {
         sequence.Kill();
 
-        float value = Mathf.Clamp(fill.fillAmount * multiply, 8f, 1000f);
-        playerGravity.AddGravity(Mathf.RoundToInt(value));
-        playerSpeed.AddSpeed(Mathf.RoundToInt(value));
+        float multiply = levelMultiply[YandexGame.savesData.playerLevel[4]];
+        int value = Mathf.RoundToInt(Mathf.Clamp(fill.fillAmount * multiply, 8f, 1000f));
 
-        fill.transform.parent.gameObject.SetActive(false);
+        playerGravity.AddGravity(value);
+        playerSpeed.AddSpeed(value);
+
+        gameObject.SetActive(false);
     }
 
     private void OnEnable() => inputScript.onStart += Stop;

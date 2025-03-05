@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
 
-public class GameButtonManager : MonoBehaviour
+public class ButtonManager : MonoBehaviour
 {
     private Tween tween;
 

@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1301934}
   - component: {fileID: 1301935}
+  - component: {fileID: 1301936}
   m_Layer: 0
   m_Name: Snail
   m_TagString: Untagged
@@ -163,13 +164,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ac6a9008bbd280439c1817997a6aa71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 100
+  id: 3
   enemyTag: snail
   distance:
   - 20
-  - 70
+  - 80
   yPosition:
   - -2.85
+--- !u!114 &1301936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6d0115a6e48e6f4db5242095bfc74c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  decrease: -8
 --- !u!1 &2871104
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,7 +195,7 @@ GameObject:
   - component: {fileID: 2871105}
   - component: {fileID: 2871106}
   m_Layer: 0
-  m_Name: 'Button '
+  m_Name: Button Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -211,7 +225,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2871104}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f35da8a6304093a42a4bcba3338728aa, type: 3}
+  m_Script: {fileID: 11500000, guid: 4669b67e461d18a4793269c32fab5533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &63770997
@@ -821,63 +835,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &169960975
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 169960976}
-  - component: {fileID: 169960977}
-  m_Layer: 0
-  m_Name: Game Over
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &169960976
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 169960975}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1699078253}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &169960977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 169960975}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdb4a3d95bd939a448af4ab7855c7fb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  window: {fileID: 5177748031603570344}
-  Y: -150
-  duration: 1
-  coinText: {fileID: 4496051696831699393}
-  coinTotalText: {fileID: 7283714973811492156}
-  multiplyText: {fileID: 678868547}
-  levelMultiply:
-  - 1
-  - 1.2
-  - 1.4
-  - 1.6
-  - 1.8
-  - 2
 --- !u!1 &201520586
 GameObject:
   m_ObjectHideFlags: 0
@@ -2547,7 +2504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b3d44be9ad0784392f20495736e7de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerBar: {fileID: 1321303905}
+  powerBar: {fileID: 1994603313}
   textManager: {fileID: 1594566754}
   buttonManager: {fileID: 2871106}
 --- !u!4 &473542106
@@ -2827,7 +2784,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5546191, y: 2.3000097, z: -10}
+  m_LocalPosition: {x: 0.5495111, y: 2.3000097, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2877,6 +2834,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 531485868}
+  - component: {fileID: 531485869}
   m_Layer: 0
   m_Name: Enemy Spawner
   m_TagString: Untagged
@@ -2898,12 +2856,28 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 484541546}
-  - {fileID: 1301934}
   - {fileID: 1474910458}
   - {fileID: 1793512022}
   - {fileID: 831893347}
+  - {fileID: 1301934}
   m_Father: {fileID: 1699078253}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &531485869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531485867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7713aa292173ee49966d14c9b108d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySpawners:
+  - {fileID: 1474910457}
+  - {fileID: 1793512021}
+  - {fileID: 831893346}
 --- !u!1 &555088459
 GameObject:
   m_ObjectHideFlags: 0
@@ -3124,7 +3098,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   left: {fileID: 5383698297431203015}
   right: {fileID: 3321319550111505822}
-  num: 100
+  powerUI: {fileID: 6054188418810981207}
+  powerNumber: 0300000005000000070000000a0000000f000000
   force: 13
   time: 0.3
 --- !u!114 &555088470
@@ -4096,7 +4071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6d0115a6e48e6f4db5242095bfc74c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  decrease: 25
+  decrease: 20
 --- !u!1 &846533822
 GameObject:
   m_ObjectHideFlags: 0
@@ -4218,7 +4193,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2871106}
-        m_TargetAssemblyTypeName: GameButtonManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
         m_MethodName: Pause
         m_Mode: 2
         m_Arguments:
@@ -4486,7 +4461,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2871106}
-        m_TargetAssemblyTypeName: GameButtonManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 3
         m_Arguments:
@@ -4916,7 +4891,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2871106}
-        m_TargetAssemblyTypeName: GameButtonManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 3
         m_Arguments:
@@ -4965,50 +4940,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 905147823}
   m_CullTransparentMesh: 1
---- !u!1 &953267971
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 953267972}
-  - component: {fileID: 953267973}
-  m_Layer: 0
-  m_Name: Sprite
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &953267972
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 953267971}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1699078253}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &953267973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 953267971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b20c545597b7bd144aca0bcb0c6df869, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &960221162
 GameObject:
   m_ObjectHideFlags: 0
@@ -5768,7 +5699,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2871106}
-        m_TargetAssemblyTypeName: GameButtonManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
         m_MethodName: Resume
         m_Mode: 2
         m_Arguments:
@@ -6086,7 +6017,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2871106}
-        m_TargetAssemblyTypeName: GameButtonManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 3
         m_Arguments:
@@ -6539,58 +6470,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1321303903
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1321303904}
-  - component: {fileID: 1321303905}
-  m_Layer: 0
-  m_Name: Power Bar
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1321303904
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1321303903}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1699078253}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1321303905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1321303903}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c6b39b92b02f1b4cb0c00d400e4d34d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelMultiply:
-  - 15
-  - 18
-  - 21
-  - 24
-  - 27
-  - 30
-  fill: {fileID: 274804499}
 --- !u!1 &1387678253
 GameObject:
   m_ObjectHideFlags: 0
@@ -6749,54 +6628,6 @@ Transform:
   - {fileID: 219595548}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1401062154
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1401062155}
-  - component: {fileID: 1401062156}
-  m_Layer: 0
-  m_Name: Spawn Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1401062155
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1401062154}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1699078253}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1401062156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1401062154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7713aa292173ee49966d14c9b108d09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemySpawners:
-  - {fileID: 1474910457}
-  - {fileID: 1793512021}
-  - {fileID: 831893346}
 --- !u!1 &1426839882
 GameObject:
   m_ObjectHideFlags: 0
@@ -7123,7 +6954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6d0115a6e48e6f4db5242095bfc74c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  decrease: 1.5
+  decrease: 1.2
 --- !u!1 &1482073199
 GameObject:
   m_ObjectHideFlags: 0
@@ -7519,7 +7350,7 @@ GameObject:
   - component: {fileID: 1594566753}
   - component: {fileID: 1594566754}
   m_Layer: 0
-  m_Name: 'Text '
+  m_Name: Text Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7758,16 +7589,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1321303904}
   - {fileID: 1274049934}
   - {fileID: 1828871819}
   - {fileID: 531485868}
-  - {fileID: 1401062155}
   - {fileID: 1594566753}
-  - {fileID: 169960976}
   - {fileID: 2871105}
-  - {fileID: 953267972}
-  - {fileID: 1938495791}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1724640041
@@ -8506,7 +8332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6d0115a6e48e6f4db5242095bfc74c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  decrease: 25
+  decrease: 10
 --- !u!1 &1826244307
 GameObject:
   m_ObjectHideFlags: 0
@@ -9256,52 +9082,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   positionX: -31.5
   multiply: 0.6
---- !u!1 &1938495790
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1938495791}
-  - component: {fileID: 1938495792}
-  m_Layer: 0
-  m_Name: Fly Power Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1938495791
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1938495790}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1699078253}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1938495792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1938495790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5eb279fb0a24e240b5494b9656c8b3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  powerUI: {fileID: 6054188418810981207}
-  powerNumber: 03000000050000000a0000000f00000014000000
 --- !u!1 &1942600297
 GameObject:
   m_ObjectHideFlags: 0
@@ -9487,6 +9267,7 @@ GameObject:
   - component: {fileID: 1994603310}
   - component: {fileID: 1994603312}
   - component: {fileID: 1994603311}
+  - component: {fileID: 1994603313}
   m_Layer: 5
   m_Name: Power Bar
   m_TagString: Untagged
@@ -9553,6 +9334,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1994603309}
   m_CullTransparentMesh: 1
+--- !u!114 &1994603313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994603309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c6b39b92b02f1b4cb0c00d400e4d34d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelMultiply:
+  - 15
+  - 18
+  - 21
+  - 24
+  - 27
+  - 30
 --- !u!1 &2034416546
 GameObject:
   m_ObjectHideFlags: 3
@@ -15565,6 +15365,7 @@ GameObject:
   - component: {fileID: 5177748031603570344}
   - component: {fileID: 1591818085885205142}
   - component: {fileID: 365683868856842999}
+  - component: {fileID: 5177748031603570345}
   m_Layer: 5
   m_Name: Game Over (Window)
   m_TagString: Untagged
@@ -16338,7 +16139,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2871106}
-        m_TargetAssemblyTypeName: GameButtonManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 3
         m_Arguments:
@@ -16382,6 +16183,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 320.00006}
   m_SizeDelta: {x: 400, y: 320}
   m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &5177748031603570345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724869307306562058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb4a3d95bd939a448af4ab7855c7fb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseButton: {fileID: 846533822}
+  levelMultiply:
+  - 1
+  - 1.2
+  - 1.4
+  - 1.6
+  - 1.8
+  - 2
 --- !u!1 &5215972593924681895
 GameObject:
   m_ObjectHideFlags: 0

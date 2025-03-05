@@ -36,6 +36,8 @@ public class UpgradableManager : MonoBehaviour
         }
         else
         {
+            titleText.text = data.title;
+            descText.text = data.description;
             costText.text = "MAX";
 
             button.interactable = false;
