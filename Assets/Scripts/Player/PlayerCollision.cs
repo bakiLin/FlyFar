@@ -17,6 +17,9 @@ public class PlayerCollision : MonoBehaviour
     [Inject]
     private TextManager textManager;
 
+    [Inject]
+    private PlayerParticleManager playerParticleManager;
+
     private CompositeDisposable disposable = new CompositeDisposable();
 
     private void GroundCollision()
@@ -26,8 +29,8 @@ public class PlayerCollision : MonoBehaviour
             .Where(obj => obj.transform.CompareTag("Ground"))
             .Subscribe(obj => {
                 GroundCollision groundCollision = obj.transform.GetComponent<GroundCollision>();
-                playerSpeed.AddSpeed(-playerSpeed.speed * groundCollision.multiply);
-                if (playerSpeed.speed > 5f) playerGravity.Bounce(groundCollision.force);
+                if (!playerParticleManager.isFalling) playerSpeed.AddSpeed(-playerSpeed.speed.Value * groundCollision.multiply);
+                if (playerSpeed.speed.Value > 5f) playerGravity.Bounce(groundCollision.force);
                 else disposable.Clear();
             }).AddTo(disposable);
     }
@@ -41,7 +44,7 @@ public class PlayerCollision : MonoBehaviour
                 EnemyCollision enemyCollision = obj.GetComponent<EnemyCollision>();
                 playerGravity.Bounce(enemyCollision.Collide());
                 textManager.SetCoin(enemyCollision.Score());
-                if (playerSpeed.speed < 5f) disposable.Clear();
+                if (playerSpeed.speed.Value < 5f) disposable.Clear();
             }).AddTo(disposable);
     }
 

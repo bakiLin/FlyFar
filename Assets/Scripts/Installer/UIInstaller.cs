@@ -10,7 +10,7 @@ public class UIInstaller : MonoInstaller
     private TextManager textManager;
 
     [SerializeField]
-    private GameButtonManager buttonManager;
+    private ButtonManager buttonManager;
 
     public override void InstallBindings()
     {
@@ -18,6 +18,6 @@ public class UIInstaller : MonoInstaller
 
         Container.Bind<TextManager>().FromInstance(textManager).AsSingle().NonLazy();
 
-        Container.Bind<GameButtonManager>().FromInstance(buttonManager).AsSingle().NonLazy();
+        Container.Bind<ButtonManager>().FromInstance(buttonManager).AsSingle().NonLazy();
     }
 }

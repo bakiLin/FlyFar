@@ -1,9 +1,13 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using YG;
 using Zenject;
 
 public class FlyPower : MonoBehaviour
 {
+    [Inject]
+    private InputScript inputScript;
+
     [Inject]
     private TextManager textManager;
 
@@ -13,10 +17,28 @@ public class FlyPower : MonoBehaviour
     [SerializeField]
     private GameObject left, right;
 
-    [HideInInspector]
-    public int num;
+    [SerializeField]
+    private GameObject powerUI;
+
+    [SerializeField]
+    private int[] powerNumber;
 
     public float force, time;
+
+    private int num;
+
+    private void Awake()
+    {
+        int level = YandexGame.savesData.playerLevel[0];
+
+        if (level > 0)
+        {
+            inputScript.powerOn = true;
+            num = powerNumber[level - 1];
+            textManager.SetPower(num);
+            powerUI.SetActive(true);
+        }
+    }
 
     public async void Fly()
     {

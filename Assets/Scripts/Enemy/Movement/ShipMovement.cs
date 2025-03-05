@@ -16,7 +16,7 @@ public class ShipMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        if (playerSpeed.speed > 0f) Move(-20f);
+        if (playerSpeed.speed.Value > 0f) Move(-20f);
         else Move(20f);
 
         VerticalMove();

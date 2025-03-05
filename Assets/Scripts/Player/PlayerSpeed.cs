@@ -1,20 +1,22 @@
 using System;
 using UnityEngine;
+using UniRx;
 
 public class PlayerSpeed : MonoBehaviour
 {
-    public float speed { get; private set; }
+    [HideInInspector]
+    public FloatReactiveProperty speed;
 
     public Action onChange, onStop;
 
     public void AddSpeed(float value)
     {
-        speed += Mathf.RoundToInt(value);
+        speed.Value += Mathf.RoundToInt(value);
 
-        if (speed > 5f) onChange?.Invoke();
+        if (speed.Value > 5f) onChange?.Invoke();
         else
         {
-            speed = 0f;
+            speed.Value = 0f;
             onStop?.Invoke();
         }
     }
