@@ -1,9 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using YG;
+using Zenject;
 
 public class ButtonManager : MonoBehaviour
 {
+    [Inject]
+    private GameOver gameOver;
+
     private Tween tween;
 
     public void LoadScene(int index)
@@ -31,4 +36,12 @@ public class ButtonManager : MonoBehaviour
             .SetEase(Ease.InOutCubic)
             .SetUpdate(true);
     }
+
+    public void RewardedAd() => YandexGame.RewVideoShow(0);
+
+    private void GetReward(int id) => gameOver.GetReward();
+
+    private void OnEnable() => YandexGame.RewardVideoEvent += GetReward;
+
+    private void OnDisable() => YandexGame.RewardVideoEvent -= GetReward;
 }

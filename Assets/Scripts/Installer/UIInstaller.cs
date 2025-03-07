@@ -10,7 +10,10 @@ public class UIInstaller : MonoInstaller
     private TextManager textManager;
 
     [SerializeField]
-    private ButtonManager buttonManager;
+    private FlyBar flyBar;
+
+    [SerializeField]
+    private GameOver gameOver;
 
     public override void InstallBindings()
     {
@@ -18,6 +21,8 @@ public class UIInstaller : MonoInstaller
 
         Container.Bind<TextManager>().FromInstance(textManager).AsSingle().NonLazy();
 
-        Container.Bind<ButtonManager>().FromInstance(buttonManager).AsSingle().NonLazy();
+        Container.Bind<FlyBar>().FromInstance(flyBar).AsSingle().NonLazy();
+
+        Container.Bind<GameOver>().FromInstance(gameOver).AsSingle().NonLazy();
     }
 }

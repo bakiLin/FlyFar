@@ -64,6 +64,9 @@ public class UpgradableManager : MonoBehaviour
         {
             YandexGame.savesData.money -= data.cost[data.currentLevel];
 
+            if (data.currentLevel + 1 > YandexGame.savesData.bonusLevel)
+                YandexGame.savesData.bonusLevel = data.currentLevel + 1;
+
             data.UpdateLevel();
             coinManager.UpdateCoinText();
             SetCost(data);

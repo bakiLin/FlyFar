@@ -173,5 +173,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e5d5d064282a4443aff2e7d5f4a288c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 15
-  score: 5
+  jumpForce: 20
+  score: 7

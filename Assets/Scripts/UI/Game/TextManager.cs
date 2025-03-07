@@ -25,7 +25,7 @@ public class TextManager : MonoBehaviour
 
     private void OnEnable()
     {
-        playerSpeed.onChange += () => { speedText.text = playerSpeed.speed.ToString(); };
-        playerSpeed.onStop += () => { speedText.text = "0"; };
+        playerSpeed.onChange += () => speedText.text = playerSpeed.speed.ToString();
+        playerSpeed.onStop += () => speedText.text = "0"; 
     }
 }
