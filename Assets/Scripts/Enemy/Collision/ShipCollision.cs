@@ -68,7 +68,7 @@ public class ShipCollision : EnemyCollision
 
     private async void Pilot()
     {
-        inputScript.SwitchFlyPower(false);
+        inputScript.SwitchPower(false);
 
         for (int i = 0; i < time * 2; i++)
         {
@@ -79,7 +79,7 @@ public class ShipCollision : EnemyCollision
 
         playerGravity.SwitchGravity();
 
-        inputScript.SwitchFlyPower(true);
+        inputScript.SwitchPower(true);
 
         gameObject.SetActive(false);
     }

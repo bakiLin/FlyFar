@@ -1,45 +1,35 @@
 {
-    "idSave": 638,
+    "idSave": 972,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
-    "money": 7,
-    "color": 3,
-    "face": 8,
+    "money": 0,
+    "color": 0,
+    "face": 0,
+    "bonusLevel": 0,
+    "currentLevel": 1,
     "colorUnlocked": [
-        0,
-        4,
-        0,
-        4,
-        0,
-        1,
-        0,
-        4,
-        3
+        0
     ],
     "faceUnlocked": [
-        0,
-        0,
-        0,
-        0,
-        8
+        0
     ],
     "enemyUnlocked": [
         0,
         1
     ],
     "enemyLevel": [
-        5,
-        4,
-        1,
-        2,
+        0,
+        0,
+        0,
+        0,
         0
     ],
     "playerLevel": [
-        3,
-        3,
-        4,
-        3,
-        3
+        0,
+        0,
+        0,
+        0,
+        0
     ]
 }

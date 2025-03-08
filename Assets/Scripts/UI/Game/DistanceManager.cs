@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using System.Threading;
 using TMPro;
 using UnityEngine;
@@ -12,34 +13,61 @@ public class DistanceManager : MonoBehaviour
     [Inject]
     private InputScript inputScript;
 
+    [Inject]
+    private TextManager textManager;
+
+    [SerializeField]
+    private RectTransform coinTransform;
+
+    [SerializeField]
+    private Vector2 position_1, position_2;
+
     private CancellationTokenSource cts = new CancellationTokenSource();
 
     private TextMeshProUGUI distanceText;
 
-    private int distance;
+    private int distance, num = 1;
+
+    private Vector2 startPosition;
 
     private void Awake()
-    {
+    { 
         distanceText = GetComponent<TextMeshProUGUI>();
+        startPosition = coinTransform.position;
     }
 
-    private async UniTaskVoid UpdateDistanceAsync(CancellationToken token)
+    private async UniTaskVoid UpdateDistanceAsync()
     {
-        while (true)
+        while (!cts.IsCancellationRequested)
         {
-            token.ThrowIfCancellationRequested();
+            await UniTask.Delay(1000, cancellationToken: cts.Token);
 
             distance += Mathf.RoundToInt(playerSpeed.speed.Value);
 
             distanceText.text = $"{distance.ToString()} m";
 
-            await UniTask.Delay(1000, cancellationToken: token);
+            GainBonusMoney().Forget();
+        }
+    }
+
+    private async UniTaskVoid GainBonusMoney()
+    {
+        if (distance / (500 * num) > 0)
+        {
+            num++;
+            await DOTween.Sequence()
+                .Append(coinTransform.DOAnchorPos(position_1, 1f)
+                    .SetEase(Ease.OutCubic))
+                .Append(coinTransform.DOAnchorPos(position_2, 1f)
+                    .SetEase(Ease.InOutCirc)
+                    .OnComplete(() => { coinTransform.anchoredPosition = startPosition; }));
+            textManager.SetCoin(100);
         }
     }
 
     private void OnEnable()
     {
-        inputScript.onStart += () => { UpdateDistanceAsync(cts.Token).Forget(); };
+        inputScript.onStart += () => UpdateDistanceAsync().Forget();
         playerSpeed.onStop += cts.Cancel;
     }
 

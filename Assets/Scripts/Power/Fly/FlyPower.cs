@@ -56,4 +56,10 @@ public class FlyPower : MonoBehaviour
             playerGravity.AddGravity(force);
         }
     }
+
+    public void GetFlyPower()
+    {
+        num++;
+        textManager.SetPower(num);
+    }
 }

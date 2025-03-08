@@ -20,30 +20,25 @@ public class BackgroundMovement : MonoBehaviour
 
         cts = new CancellationTokenSource();
 
-        MoveAsync(cts.Token).Forget();
+        MoveAsync().Forget();
     }
 
-    private async UniTaskVoid MoveAsync(CancellationToken token)
+    private async UniTaskVoid MoveAsync()
     {
-        while (true)
+        while (!cts.IsCancellationRequested)
         {
             await transform.DOMoveX(positionX, playerSpeed.speed.Value * multiply)
                 .SetSpeedBased()
                 .SetEase(Ease.Linear)
                 .OnComplete(() => { transform.position = new Vector3(0f, transform.position.y); })
-                .WithCancellation(token);
+                .WithCancellation(cts.Token);
         }
     }
 
     private void OnEnable()
     {
         playerSpeed.onChange += Move;
-        playerSpeed.onStop += () => { cts?.Cancel(); };
-    }
-
-    private void OnDisable()
-    {
-        playerSpeed.onChange -= Move;
+        playerSpeed.onStop += () => cts?.Cancel();
     }
 
     private void OnDestroy() => cts?.Cancel();

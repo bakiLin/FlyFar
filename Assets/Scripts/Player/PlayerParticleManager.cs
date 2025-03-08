@@ -8,6 +8,9 @@ public class PlayerParticleManager : MonoBehaviour
     [Inject]
     private PlayerSpeed playerSpeed;
 
+    [Inject]
+    private FlyBar flyBar;
+
     [SerializeField]
     private float speedBarier;
 
@@ -43,10 +46,13 @@ public class PlayerParticleManager : MonoBehaviour
         isFalling = false;
         particle.Stop();
         particle.Clear();
+        flyBar.StopFill();
     }
 
     private async UniTaskVoid Accelerate()
     {
+        flyBar.Fill().Forget();
+
         while (isFalling)
         {
             playerSpeed.AddSpeed(1f);

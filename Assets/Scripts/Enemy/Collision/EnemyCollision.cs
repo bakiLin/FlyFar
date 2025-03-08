@@ -22,6 +22,8 @@ public class EnemyCollision : MonoBehaviour
 
     public virtual float Collide()
     {
+        this.enabled = false;
+
         animator.SetTrigger("Death");
 
         return jumpForce;
