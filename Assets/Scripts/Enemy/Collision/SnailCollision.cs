@@ -26,7 +26,7 @@ public class SlimeCollision : EnemyCollision
         if (!playerParticleManager.isFalling) playerSpeed.AddSpeed(-playerSpeed.speed.Value * speedLoss);
         enemyMovement.Stop();
 
-        Sequence sequence = DOTween.Sequence()
+        DOTween.Sequence()
             .Append(transform.DOMoveY(transform.position.y + 1f, 0.25f).SetEase(Ease.OutCubic))
             .Append(transform.DOMoveY(transform.position.y, 0.25f).SetEase(Ease.InQuad));
 

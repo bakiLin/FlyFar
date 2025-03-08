@@ -19,25 +19,32 @@ public class ShipMovement : MonoBehaviour
         if (playerSpeed.speed.Value > 0f) Move(-20f);
         else Move(20f);
 
-        VerticalMove();
+        playerSpeed.onStop += MoveForward;
     }
 
-    private void Move(float direction)
+    private void OnDisable()
     {
         tween.Kill();
-        tween = transform.DOMoveX(direction, speed)
-            .SetSpeedBased()
-            .SetEase(Ease.Linear)
-            .OnComplete(() => { gameObject.SetActive(false); });
+        sequence.Kill();
+
+        playerSpeed.onStop -= MoveForward;
     }
 
-    private void VerticalMove()
+    private void MoveForward() => Move(20f);
+
+    private void Move(float direction)
     {
         sequence.Kill();
         sequence = DOTween.Sequence()
             .Append(transform.DOMoveY(transform.position.y + 1f, 1f).SetEase(Ease.OutQuad))
             .Append(transform.DOMoveY(transform.position.y, 1f).SetEase(Ease.OutQuad))
             .SetLoops(-1);
+
+        tween.Kill();
+        tween = transform.DOMoveX(direction, speed)
+            .SetSpeedBased()
+            .SetEase(Ease.Linear)
+            .OnComplete(() => { gameObject.SetActive(false); });
     }
 
     public void Stop()

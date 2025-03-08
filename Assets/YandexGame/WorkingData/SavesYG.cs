@@ -16,6 +16,7 @@ namespace YG
         public int color = 0;
         public int face = 0;
         public int bonusLevel = 0;
+        public int currentLevel = 0;
 
         public List<int> colorUnlocked = new List<int>() {0};
         public List<int> faceUnlocked = new List<int>() {0};

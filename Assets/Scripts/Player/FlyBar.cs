@@ -14,7 +14,7 @@ public class FlyBar : MonoBehaviour
 
     private CanvasGroup canvasGroup;
 
-    private CancellationTokenSource cts;
+    private CancellationTokenSource cts = new CancellationTokenSource();
 
     private void Awake()
     {
