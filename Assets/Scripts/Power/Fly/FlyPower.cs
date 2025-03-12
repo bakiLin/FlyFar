@@ -1,5 +1,6 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using YG;
 using Zenject;
 
@@ -29,7 +30,7 @@ public class FlyPower : MonoBehaviour
 
     private void Awake()
     {
-        int level = YandexGame.savesData.playerLevel[0];
+        int level = YandexGame.savesData.GetPlayerLevel(SceneManager.GetActiveScene().buildIndex)[0];
 
         if (level > 0)
         {

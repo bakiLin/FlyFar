@@ -1,5 +1,6 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using YG;
 
 public class PlayerGravity : MonoBehaviour
@@ -14,12 +15,16 @@ public class PlayerGravity : MonoBehaviour
     private async void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-
         while (!YandexGame.SDKEnabled) await UniTask.DelayFrame(1);
 
-        int level = YandexGame.savesData.playerLevel[2];
+        int index = SceneManager.GetActiveScene().buildIndex;
+        multiply = jumpMultiply[YandexGame.savesData.GetPlayerLevel(index)[2]];
+    }
 
-        multiply = jumpMultiply[level];
+    public void SwitchGravity()
+    {
+        rb.linearVelocityY = 0f;
+        rb.gravityScale = rb.gravityScale.Equals(1) ? 0 : 1;
     }
 
     public void AddGravity(float value)
@@ -30,11 +35,5 @@ public class PlayerGravity : MonoBehaviour
     public void Bounce(float value)
     {
         if (rb.gravityScale == 1 && value > rb.linearVelocityY) rb.linearVelocityY = value * multiply;
-    }
-
-    public void SwitchGravity()
-    {
-        rb.linearVelocityY = 0f;
-        rb.gravityScale = rb.gravityScale.Equals(1) ? 0 : 1;
     }
 }

@@ -16,6 +16,9 @@ public class DistanceManager : MonoBehaviour
     [Inject]
     private TextManager textManager;
 
+    [Inject]
+    private GameOver gameOver;
+
     [SerializeField]
     private RectTransform coinTransform;
 
@@ -54,6 +57,8 @@ public class DistanceManager : MonoBehaviour
     {
         if (distance / (500 * num) > 0)
         {
+            gameOver.delay = true;
+
             num++;
             await DOTween.Sequence()
                 .Append(coinTransform.DOAnchorPos(position_1, 1f)
@@ -62,6 +67,8 @@ public class DistanceManager : MonoBehaviour
                     .SetEase(Ease.InOutCirc)
                     .OnComplete(() => { coinTransform.anchoredPosition = startPosition; }));
             textManager.SetCoin(100);
+
+            gameOver.delay = false;
         }
     }
 

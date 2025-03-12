@@ -14,17 +14,11 @@ public class BackgroundMovement : MonoBehaviour
 
     private CancellationTokenSource cts;
 
-    private void Move()
+    private async void Move()
     {
-        if (cts != null) cts.Cancel();
-
+        cts?.Cancel();
         cts = new CancellationTokenSource();
 
-        MoveAsync().Forget();
-    }
-
-    private async UniTaskVoid MoveAsync()
-    {
         while (!cts.IsCancellationRequested)
         {
             await transform.DOMoveX(positionX, playerSpeed.speed.Value * multiply)
@@ -38,7 +32,7 @@ public class BackgroundMovement : MonoBehaviour
     private void OnEnable()
     {
         playerSpeed.onChange += Move;
-        playerSpeed.onStop += () => cts?.Cancel();
+        playerSpeed.onStop += () => cts.Cancel();
     }
 
     private void OnDestroy() => cts?.Cancel();

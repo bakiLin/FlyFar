@@ -45,10 +45,8 @@ public class CosmeticItemData : MonoBehaviour
     protected virtual void Select()
     {
         coinManager.UpdateCoinText();
-
         transform.Find("Block").gameObject.SetActive(false);
         transform.Find("Cost").gameObject.SetActive(false);
-
         imageManager.SetBorders(GetComponent<Image>());
     }
 }

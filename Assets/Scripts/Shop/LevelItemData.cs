@@ -26,8 +26,5 @@ public class LevelItemData : MonoBehaviour
         });
     }
 
-    public virtual void UpdateLevel()
-    {
-        currentLevel++;
-    }
+    public virtual void UpdateLevel() => currentLevel++;
 }

@@ -17,6 +17,7 @@ public class ClearProgress : MonoBehaviour
         button.onClick.AddListener(() =>
         {
             YandexGame.ResetSaveProgress();
+            YandexGame.SaveProgress();
             SceneManager.LoadScene(0);
         });
     }

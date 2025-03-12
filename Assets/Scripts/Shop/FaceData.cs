@@ -1,3 +1,4 @@
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using YG;
 
@@ -7,13 +8,14 @@ public class FaceData : CosmeticItemData
     {
         if (!YandexGame.savesData.faceUnlocked.Contains(id))
         {
-            if (YandexGame.savesData.money > cost)
+            int index = SceneManager.GetActiveScene().buildIndex;
+
+            if (YandexGame.savesData.GetMoney(index) > cost)
             {
-                YandexGame.savesData.money -= cost;
+                YandexGame.savesData.SetMoney(index, -cost);
                 YandexGame.savesData.faceUnlocked.Add(id);
                 YandexGame.savesData.face = id;
                 YandexGame.SaveProgress();
-
                 base.Select();
             }
         }
@@ -21,7 +23,6 @@ public class FaceData : CosmeticItemData
         {
             YandexGame.savesData.face = id;
             YandexGame.SaveProgress();
-
             imageManager.SetBorders(GetComponent<Image>());
         }
     }

@@ -17,7 +17,7 @@ public class EnemyChangeLevel : MonoBehaviour
 
         int level = YandexGame.savesData.enemyLevel[spawner.id];
 
-        if (level > 1)
+        if (level > 0)
         {
             spawner.distance[0] -= decrease * level;
             spawner.distance[1] -= decrease * level;

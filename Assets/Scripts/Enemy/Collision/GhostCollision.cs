@@ -13,11 +13,21 @@ public class GhostCollision : EnemyCollision
     [SerializeField]
     private float speedLoss;
 
+    private ShipMovement shipMovement;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        shipMovement = GetComponent<ShipMovement>();
+    }
+
     public override float Collide()
     {
         if (!playerParticleManager.isFalling) playerSpeed.AddSpeed(-playerSpeed.speed.Value * speedLoss);
 
-        transform.DOMoveY(-3f, 5f)
+        shipMovement.enabled = false;
+
+        transform.DOMoveY(-2f, 2f)
             .SetSpeedBased()
             .SetEase(Ease.Linear);
 

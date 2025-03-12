@@ -6,9 +6,6 @@ public class SettingsManager : MonoBehaviour
     [SerializeField]
     private RectTransform settings;
 
-    [SerializeField]
-    private GameObject levels;
-
     private bool settingsOn;
 
     private Tween tween;
@@ -28,6 +25,4 @@ public class SettingsManager : MonoBehaviour
 
         settingsOn = !settingsOn;
     }
-
-    public void SwitchLevels() => levels.SetActive(!levels.activeSelf);
 }

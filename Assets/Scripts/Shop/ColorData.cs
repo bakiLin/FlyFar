@@ -1,5 +1,6 @@
 using UnityEngine.UI;
 using YG;
+using UnityEngine.SceneManagement;
 
 public class ColorData : CosmeticItemData
 {
@@ -7,13 +8,14 @@ public class ColorData : CosmeticItemData
     {
         if (!YandexGame.savesData.colorUnlocked.Contains(id))
         {
-            if (YandexGame.savesData.money > cost)
+            int index = SceneManager.GetActiveScene().buildIndex;
+
+            if (YandexGame.savesData.GetMoney(index) > cost)
             {
-                YandexGame.savesData.money -= cost;
+                YandexGame.savesData.SetMoney(index, -cost);
                 YandexGame.savesData.colorUnlocked.Add(id);
                 YandexGame.savesData.color = id;
                 YandexGame.SaveProgress();
-
                 base.Select();
             }
         }
@@ -21,7 +23,6 @@ public class ColorData : CosmeticItemData
         {
             YandexGame.savesData.color = id;
             YandexGame.SaveProgress();
-
             imageManager.SetBorders(GetComponent<Image>());
         }
     }

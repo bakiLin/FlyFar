@@ -1,6 +1,8 @@
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using YG;
 using Zenject;
 
@@ -18,11 +20,14 @@ public class GameOver : MonoBehaviour
     [SerializeField]
     private float[] levelMultiply;
 
+    [HideInInspector]
+    public bool delay;
+
     private RectTransform window;
 
     private TextMeshProUGUI coinText, coinTotalText, multiplyText;
 
-    private int level, money;
+    private int level, money, sceneIndex;
 
     private void Awake()
     {
@@ -30,31 +35,33 @@ public class GameOver : MonoBehaviour
         coinText = transform.Find("Coin (Text)").GetComponent<TextMeshProUGUI>();
         coinTotalText = transform.Find("Total (Text)").GetComponent<TextMeshProUGUI>();
         multiplyText = transform.Find("Multiply (Text)").GetComponent<TextMeshProUGUI>();
+        sceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
-    private void ResultWindow()
+    private async void ResultWindow()
     {
+        while (delay) await UniTask.DelayFrame(1);
+
         pauseButton.SetActive(false);
 
-        level = YandexGame.savesData.playerLevel[3];
+        level = YandexGame.savesData.GetPlayerLevel(sceneIndex)[3];
         money = Mathf.RoundToInt(textManager.coin * levelMultiply[level]);
 
         coinText.text = $"{money}";
-        coinTotalText.text = $"Total: {YandexGame.savesData.money + money}";
+        coinTotalText.text = $"Total: {YandexGame.savesData.GetMoney(sceneIndex) + money}";
         if (level > 0) multiplyText.text = $"x{levelMultiply[level]}";
 
-        YandexGame.savesData.money += money;
+        YandexGame.savesData.SetMoney(sceneIndex, money);
         YandexGame.SaveProgress();
 
-        window.DOAnchorPosY(-150f, 1f).SetEase(Ease.OutQuart);
+        await window.DOAnchorPosY(-150f, 1f).SetEase(Ease.OutQuart);
     }
 
     public void GetReward()
     {
         coinText.text = $"{money * 2}";
-        coinTotalText.text = $"Total: {YandexGame.savesData.money + money}";
-
-        YandexGame.savesData.money += money;
+        coinTotalText.text = $"Total: {YandexGame.savesData.GetMoney(sceneIndex) + money}";
+        YandexGame.savesData.SetMoney(sceneIndex, money);
         YandexGame.SaveProgress();
     }
 
