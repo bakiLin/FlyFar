@@ -29,7 +29,13 @@ public class CoinManager : MonoBehaviour
         UpdateCoinText();
     }
 
-    public void UpdateCoinText() => coinText.text = YandexGame.savesData.GetMoney(sceneIndex).ToString();
+    public void SetMoney()
+    {
+        if (YandexGame.EnvironmentData.language == "ru")
+            adText.text = $"{reward[YandexGame.savesData.bonusLevel]} монет за рекламу?";
+        else
+            adText.text = $"{reward[YandexGame.savesData.bonusLevel]} coins for and AD?";
+    }
 
-    public void SetMoney() => adText.text = $"{reward[YandexGame.savesData.bonusLevel]} монет за рекламу?";
+    public void UpdateCoinText() => coinText.text = YandexGame.savesData.GetMoney(sceneIndex).ToString();
 }

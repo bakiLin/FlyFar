@@ -6,6 +6,9 @@ public class SettingsManager : MonoBehaviour
     [SerializeField]
     private RectTransform settings;
 
+    [SerializeField]
+    private float movePoint;
+
     private bool settingsOn;
 
     private Tween tween;
@@ -15,7 +18,7 @@ public class SettingsManager : MonoBehaviour
         if (!settingsOn)
         {
             tween.Kill();
-            tween = settings.DOAnchorPosY(-100f, 0.7f);
+            tween = settings.DOAnchorPosY(movePoint, 0.7f);
         }
         else
         {
@@ -24,5 +27,13 @@ public class SettingsManager : MonoBehaviour
         }
 
         settingsOn = !settingsOn;
+    }
+
+    public void MoveUp()
+    {
+        tween.Kill();
+        tween = settings.DOAnchorPosY(300f, 0.7f);
+
+        settingsOn = false;
     }
 }

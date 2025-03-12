@@ -444,7 +444,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -80}
-  m_SizeDelta: {x: 350, y: 170}
+  m_SizeDelta: {x: 350, y: 120}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &75979470
 MonoBehaviour:
@@ -466,7 +466,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Empty
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6e6bee1efe56b754a87e588355c75112, type: 2}
   m_sharedMaterial: {fileID: 1233100749131918324, guid: 6e6bee1efe56b754a87e588355c75112, type: 2}
@@ -493,13 +493,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 8
+  m_fontStyle: 16
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -583,7 +583,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 65, y: 65}
+  m_AnchoredPosition: {x: 65, y: 70}
   m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &82149729
@@ -599,8 +599,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 7
-  title: Ghost
-  description: 'Slow and really annoys '
+  titleEn: Ghost
+  titleRu: "\u041F\u0440\u0438\u0437\u0440\u0430\u043A"
+  descriptionEn: How did he get in here? Anyway, it's best not to touch him
+  descriptionRu: "\u041A\u0430\u043A \u043E\u043D \u0441\u044E\u0434\u0430 \u043F\u043E\u043F\u0430\u043B?               
+    \u0412 \u043B\u044E\u0431\u043E\u043C \u0441\u043B\u0443\u0447\u0430\u0435, \u043B\u0443\u0447\u0448\u0435
+    \u0435\u0433\u043E \u043D\u0435 \u0442\u0440\u043E\u0433\u0430\u0442\u044C"
   maxLevel: 5
   currentLevel: 0
   cost: 55000000c2010000dc050000100e000098210000
@@ -2650,67 +2654,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 427904497}
   m_CullTransparentMesh: 1
---- !u!1001 &428495689
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2211564899198745196, guid: caf9732433f4dc044845763962493607, type: 3}
-      propertyPath: singleton
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2211564899198745197, guid: caf9732433f4dc044845763962493607, type: 3}
-      propertyPath: m_Name
-      value: YandexGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 2211564899198745199, guid: caf9732433f4dc044845763962493607, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2211564899198745199, guid: caf9732433f4dc044845763962493607, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2211564899198745199, guid: caf9732433f4dc044845763962493607, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2211564899198745199, guid: caf9732433f4dc044845763962493607, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2211564899198745199, guid: caf9732433f4dc044845763962493607, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2211564899198745199, guid: caf9732433f4dc044845763962493607, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2211564899198745199, guid: caf9732433f4dc044845763962493607, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2211564899198745199, guid: caf9732433f4dc044845763962493607, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2211564899198745199, guid: caf9732433f4dc044845763962493607, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2211564899198745199, guid: caf9732433f4dc044845763962493607, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: caf9732433f4dc044845763962493607, type: 3}
 --- !u!1 &439201063
 GameObject:
   m_ObjectHideFlags: 0
@@ -2978,7 +2921,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 65, y: -65}
+  m_AnchoredPosition: {x: 65, y: -60}
   m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &465133047
@@ -2994,8 +2937,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  title: Wings
-  description: Let's fly high up into the sky and hit more enemies
+  titleEn: FlightFlight
+  titleRu: "\u041F\u043E\u043B\u0451\u0442"
+  descriptionEn: Use [SPACE] to perform a dash
+  descriptionRu: "\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0439\u0442\u0435
+    [\u041F\u0420\u041E\u0411\u0415\u041B], \u0447\u0442\u043E\u0431\u044B \u0432\u044B\u043F\u043E\u043B\u043D\u0438\u0442\u044C
+    \u0440\u044B\u0432\u043E\u043A"
   maxLevel: 5
   currentLevel: 0
   cost: 280000005e010000dc050000ac0d0000581b0000
@@ -3182,6 +3129,7 @@ GameObject:
   - component: {fileID: 470612798}
   - component: {fileID: 470612800}
   - component: {fileID: 470612799}
+  - component: {fileID: 470612801}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -3307,6 +3255,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 470612797}
   m_CullTransparentMesh: 1
+--- !u!114 &470612801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470612797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 470612799}
+  uniqueFontTMP: {fileID: 0}
+  textLComponent: {fileID: 0}
+  infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
+  text: 
+  ru: "\u0434\u0430"
+  en: yes
+  tr: 
+  az: 
+  be: 
+  he: 
+  hy: 
+  ka: 
+  et: 
+  fr: 
+  kk: 
+  ky: 
+  lt: 
+  lv: 
+  ro: 
+  tg: 
+  tk: 
+  uk: 
+  uz: 
+  es: 
+  pt: 
+  ar: 
+  id: 
+  ja: 
+  it: 
+  de: 
+  hi: 
+  changeOnlyFont: 0
+  fontNumber: 0
+  uniqueFont: {fileID: 0}
+  additionalText: {fileID: 0}
+  textHeight: 20
+  processTranslateLabel: 
+  componentTextField: 1
+  countLang: 0
 --- !u!1 &485055988
 GameObject:
   m_ObjectHideFlags: 0
@@ -4891,7 +4891,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 65, y: 65}
+  m_AnchoredPosition: {x: 65, y: 70}
   m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &656095848
@@ -4907,8 +4907,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 3
-  title: Finance
-  description: You get more money at the end of the run
+  titleEn: Finance
+  titleRu: "\u0424\u0438\u043D\u0430\u043D\u0441\u044B"
+  descriptionEn: Multiplies the coins collected
+  descriptionRu: "\u041F\u0440\u0435\u0443\u043C\u043D\u043E\u0436\u0430\u0435\u0442
+    \u0441\u043E\u0431\u0440\u0430\u043D\u043D\u044B\u0435 \u043C\u043E\u043D\u0435\u0442\u044B"
   maxLevel: 5
   currentLevel: 0
   cost: 64000000f4010000d00700008813000010270000
@@ -5046,7 +5049,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 65, y: -64.99996}
+  m_AnchoredPosition: {x: 65, y: -60}
   m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &659159414
@@ -5586,7 +5589,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 215, y: 65}
+  m_AnchoredPosition: {x: 215, y: 70}
   m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &733428081
@@ -5602,8 +5605,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 4
-  title: Launch
-  description: Launches you higher at the start of the game
+  titleEn: Good start
+  titleRu: "\u0425\u043E\u0440\u043E\u0448\u0438\u0439 \u0441\u0442\u0430\u0440\u0442"
+  descriptionEn: Start the game with a solid jump
+  descriptionRu: "\u041D\u0430\u0447\u043D\u0438 \u0438\u0433\u0440\u0443 \u0441
+    \u0443\u0432\u0435\u0440\u0435\u043D\u043D\u043E\u0433\u043E \u043F\u0440\u044B\u0436\u043A\u0430"
   maxLevel: 5
   currentLevel: 0
   cost: 4b00000090010000dc050000a00f0000401f0000
@@ -5946,7 +5952,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 214.99997, y: -65}
+  m_AnchoredPosition: {x: 214.99997, y: -60}
   m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &756129297
@@ -6059,8 +6065,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  title: Speed Loss
-  description: You lose less speed when colliding
+  titleEn: Friction
+  titleRu: "\u0422\u0440\u0435\u043D\u0438\u0435"
+  descriptionEn: Reduces deceleration after collision
+  descriptionRu: "\u0423\u043C\u0435\u043D\u044C\u0448\u0430\u0435\u0442 \u0437\u0430\u043C\u0435\u0434\u043B\u0435\u043D\u0438\u0435
+    \u043F\u0440\u0438 \u0441\u0442\u043E\u043B\u043A\u043D\u043E\u0432\u0435\u043D\u0438\u0438"
   maxLevel: 5
   currentLevel: 0
   cost: 500000008601000040060000a00f0000e81c0000
@@ -6638,7 +6647,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Empty
+  m_text: ---
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6e6bee1efe56b754a87e588355c75112, type: 2}
   m_sharedMaterial: {fileID: 1233100749131918324, guid: 6e6bee1efe56b754a87e588355c75112, type: 2}
@@ -6665,8 +6674,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 33
+  m_fontSizeBase: 33
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7164,7 +7173,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 365, y: -65}
+  m_AnchoredPosition: {x: 365, y: -60}
   m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &917969666
@@ -7180,8 +7189,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 6
-  title: Cloud
-  description: Will help you gain speed if you befriend him
+  titleEn: Cloud
+  titleRu: "\u0422\u0443\u0447\u0430"
+  descriptionEn: See if you can find him in the clouds
+  descriptionRu: "\u041F\u043E\u043F\u0440\u043E\u0431\u0443\u0439 \u043D\u0430\u0439\u0434\u0438
+    \u0435\u0433\u043E \u0441\u0440\u0435\u0434\u0438 \u043E\u0431\u043B\u0430\u043A\u043E\u0432"
   maxLevel: 5
   currentLevel: 0
   cost: c80000008a0200006c070000c0120000b8240000
@@ -8022,7 +8034,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 365, y: -65}
+  m_AnchoredPosition: {x: 365, y: -60}
   m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1053898958
@@ -8135,8 +8147,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 2
-  title: Bounciness
-  description: Let's you bounce higher when colliding
+  titleEn: Bounciness
+  titleRu: "\u0423\u043F\u0440\u0443\u0433\u043E\u0441\u0442\u044C"
+  descriptionEn: Strengthens jump power after collision
+  descriptionRu: "\u041F\u043E\u0437\u0432\u043E\u043B\u044F\u0435\u0442 \u0443\u0432\u0435\u043B\u0438\u0447\u0438\u0442\u044C
+    \u0441\u0438\u043B\u0443 \u043F\u0440\u044B\u0436\u043A\u0430 \u043F\u0440\u0438
+    \u0441\u0442\u043E\u043B\u043A\u043D\u043E\u0432\u0435\u043D\u0438\u0438"
   maxLevel: 5
   currentLevel: 0
   cost: 4b0000009001000040060000ac0d0000401f0000
@@ -8151,6 +8167,7 @@ GameObject:
   - component: {fileID: 1065758037}
   - component: {fileID: 1065758039}
   - component: {fileID: 1065758038}
+  - component: {fileID: 1065758040}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -8197,7 +8214,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: money
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6e6bee1efe56b754a87e588355c75112, type: 2}
   m_sharedMaterial: {fileID: 1233100749131918324, guid: 6e6bee1efe56b754a87e588355c75112, type: 2}
@@ -8276,6 +8293,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1065758036}
   m_CullTransparentMesh: 1
+--- !u!114 &1065758040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065758036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 1065758038}
+  uniqueFontTMP: {fileID: 0}
+  textLComponent: {fileID: 0}
+  infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
+  text: 
+  ru: "\u043C\u043E\u043D\u0435\u0442\u044B"
+  en: coins
+  tr: 
+  az: 
+  be: 
+  he: 
+  hy: 
+  ka: 
+  et: 
+  fr: 
+  kk: 
+  ky: 
+  lt: 
+  lv: 
+  ro: 
+  tg: 
+  tk: 
+  uk: 
+  uz: 
+  es: 
+  pt: 
+  ar: 
+  id: 
+  ja: 
+  it: 
+  de: 
+  hi: 
+  changeOnlyFont: 0
+  fontNumber: 0
+  uniqueFont: {fileID: 0}
+  additionalText: {fileID: 0}
+  textHeight: 20
+  processTranslateLabel: 
+  componentTextField: 1
+  countLang: 0
 --- !u!1 &1073213119
 GameObject:
   m_ObjectHideFlags: 0
@@ -8362,6 +8431,7 @@ GameObject:
   - component: {fileID: 1076595662}
   - component: {fileID: 1076595664}
   - component: {fileID: 1076595663}
+  - component: {fileID: 1076595665}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -8487,6 +8557,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1076595661}
   m_CullTransparentMesh: 1
+--- !u!114 &1076595665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1076595661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 1076595663}
+  uniqueFontTMP: {fileID: 0}
+  textLComponent: {fileID: 0}
+  infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
+  text: 
+  ru: "\u043D\u0435\u0442"
+  en: no
+  tr: 
+  az: 
+  be: 
+  he: 
+  hy: 
+  ka: 
+  et: 
+  fr: 
+  kk: 
+  ky: 
+  lt: 
+  lv: 
+  ro: 
+  tg: 
+  tk: 
+  uk: 
+  uz: 
+  es: 
+  pt: 
+  ar: 
+  id: 
+  ja: 
+  it: 
+  de: 
+  hi: 
+  changeOnlyFont: 0
+  fontNumber: 0
+  uniqueFont: {fileID: 0}
+  additionalText: {fileID: 0}
+  textHeight: 20
+  processTranslateLabel: 
+  componentTextField: 1
+  countLang: 0
 --- !u!1 &1080994651
 GameObject:
   m_ObjectHideFlags: 0
@@ -8735,11 +8857,11 @@ RectTransform:
   - {fileID: 979580870}
   m_Father: {fileID: 1914893399}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -200}
-  m_SizeDelta: {x: 1000, y: 450}
-  m_Pivot: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -74.99999}
+  m_SizeDelta: {x: 1000, y: -249.99998}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1094217627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10223,6 +10345,7 @@ GameObject:
   - component: {fileID: 1282359461}
   - component: {fileID: 1282359463}
   - component: {fileID: 1282359462}
+  - component: {fileID: 1282359464}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -10269,7 +10392,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: buy
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6e6bee1efe56b754a87e588355c75112, type: 2}
   m_sharedMaterial: {fileID: 1233100749131918324, guid: 6e6bee1efe56b754a87e588355c75112, type: 2}
@@ -10348,6 +10471,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1282359460}
   m_CullTransparentMesh: 1
+--- !u!114 &1282359464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282359460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 1282359462}
+  uniqueFontTMP: {fileID: 0}
+  textLComponent: {fileID: 0}
+  infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
+  text: 
+  ru: "\u043A\u0443\u043F\u0438\u0442\u044C"
+  en: buy
+  tr: 
+  az: 
+  be: 
+  he: 
+  hy: 
+  ka: 
+  et: 
+  fr: 
+  kk: 
+  ky: 
+  lt: 
+  lv: 
+  ro: 
+  tg: 
+  tk: 
+  uk: 
+  uz: 
+  es: 
+  pt: 
+  ar: 
+  id: 
+  ja: 
+  it: 
+  de: 
+  hi: 
+  changeOnlyFont: 0
+  fontNumber: 0
+  uniqueFont: {fileID: 0}
+  additionalText: {fileID: 0}
+  textHeight: 20
+  processTranslateLabel: 
+  componentTextField: 1
+  countLang: 0
 --- !u!1 &1290235022
 GameObject:
   m_ObjectHideFlags: 0
@@ -10385,7 +10560,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 215, y: -64.99996}
+  m_AnchoredPosition: {x: 215, y: -60}
   m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1290235024
@@ -11588,6 +11763,7 @@ GameObject:
   - component: {fileID: 1426174448}
   - component: {fileID: 1426174450}
   - component: {fileID: 1426174449}
+  - component: {fileID: 1426174451}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -11634,7 +11810,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: buy
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6e6bee1efe56b754a87e588355c75112, type: 2}
   m_sharedMaterial: {fileID: 1233100749131918324, guid: 6e6bee1efe56b754a87e588355c75112, type: 2}
@@ -11713,6 +11889,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426174447}
   m_CullTransparentMesh: 1
+--- !u!114 &1426174451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426174447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 1426174449}
+  uniqueFontTMP: {fileID: 0}
+  textLComponent: {fileID: 0}
+  infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
+  text: 
+  ru: "\u043A\u0443\u043F\u0438\u0442\u044C"
+  en: buy
+  tr: 
+  az: 
+  be: 
+  he: 
+  hy: 
+  ka: 
+  et: 
+  fr: 
+  kk: 
+  ky: 
+  lt: 
+  lv: 
+  ro: 
+  tg: 
+  tk: 
+  uk: 
+  uz: 
+  es: 
+  pt: 
+  ar: 
+  id: 
+  ja: 
+  it: 
+  de: 
+  hi: 
+  changeOnlyFont: 0
+  fontNumber: 0
+  uniqueFont: {fileID: 0}
+  additionalText: {fileID: 0}
+  textHeight: 20
+  processTranslateLabel: 
+  componentTextField: 1
+  countLang: 0
 --- !u!1 &1443539922
 GameObject:
   m_ObjectHideFlags: 0
@@ -12365,7 +12593,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "50 \u043C\u043E\u043D\u0435\u0442 \u0437\u0430 \u0440\u0435\u043A\u043B\u0430\u043C\u0443?"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6e6bee1efe56b754a87e588355c75112, type: 2}
   m_sharedMaterial: {fileID: 1233100749131918324, guid: 6e6bee1efe56b754a87e588355c75112, type: 2}
@@ -12948,7 +13176,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 65, y: -65}
+  m_AnchoredPosition: {x: 65, y: -60}
   m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1595039860
@@ -12964,8 +13192,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 4
-  title: Bat
-  description: Flyes over your head and really loves its Queen
+  titleEn: Bat
+  titleRu: "\u041B\u0435\u0442\u0443\u0447\u0430\u044F \u043C\u044B\u0448\u044C"
+  descriptionEn: Where does it keep it's coins?
+  descriptionRu: "\u0413\u0434\u0435 \u0436\u0435 \u043E\u043D\u0430 \u0445\u0440\u0430\u043D\u0438\u0442
+    \u0441\u0432\u043E\u0438 \u043C\u043E\u043D\u0435\u0442\u044B? "
   maxLevel: 5
   currentLevel: 0
   cost: 320000002c01000014050000100e0000201c0000
@@ -13188,7 +13419,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 000
+  m_text: '-'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6e6bee1efe56b754a87e588355c75112, type: 2}
   m_sharedMaterial: {fileID: 1233100749131918324, guid: 6e6bee1efe56b754a87e588355c75112, type: 2}
@@ -14792,6 +15023,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings: {fileID: 811588589}
+  movePoint: -100
 --- !u!1 &1822922576
 GameObject:
   m_ObjectHideFlags: 0
@@ -15060,7 +15292,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Empty
+  m_text: ---
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6e6bee1efe56b754a87e588355c75112, type: 2}
   m_sharedMaterial: {fileID: 1233100749131918324, guid: 6e6bee1efe56b754a87e588355c75112, type: 2}
@@ -15087,8 +15319,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 33
+  m_fontSizeBase: 33
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -15370,7 +15602,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 214.99997, y: -65}
+  m_AnchoredPosition: {x: 214.99997, y: -60}
   m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1918102002
@@ -15386,8 +15618,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 5
-  title: Slime
-  description: Pink and wants to launch you into space
+  titleEn: Goo
+  titleRu: "\u0421\u043B\u0430\u0439\u043C"
+  descriptionEn: Slime's closest sibling
+  descriptionRu: "\u0420\u043E\u0434\u043D\u043E\u0439 \u0431\u0440\u0430\u0442 \u0421\u043B\u0438\u0437\u0438"
   maxLevel: 5
   currentLevel: 0
   cost: 460000009001000040060000d80e0000401f0000
@@ -16128,7 +16362,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -80}
-  m_SizeDelta: {x: 350, y: 170}
+  m_SizeDelta: {x: 350, y: 120}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1960051651
 MonoBehaviour:
@@ -16150,7 +16384,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Empty
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6e6bee1efe56b754a87e588355c75112, type: 2}
   m_sharedMaterial: {fileID: 1233100749131918324, guid: 6e6bee1efe56b754a87e588355c75112, type: 2}
@@ -16183,7 +16417,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 8
+  m_fontStyle: 16
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -17468,7 +17702,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 000
+  m_text: '-'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6e6bee1efe56b754a87e588355c75112, type: 2}
   m_sharedMaterial: {fileID: 1233100749131918324, guid: 6e6bee1efe56b754a87e588355c75112, type: 2}
@@ -17852,7 +18086,6 @@ GameObject:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 428495689}
   - {fileID: 791243521}
   - {fileID: 1912420872}
   - {fileID: 1271113917}

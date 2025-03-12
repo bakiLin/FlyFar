@@ -40,7 +40,7 @@ public class UpgradableManager : MonoBehaviour
         }
         else
         {
-            costText.text = "MAX";
+            costText.text = "-";
             button.interactable = false;
             foreach (var image in images) image.sprite = spriteManager.filledSlot;
         }
@@ -60,7 +60,7 @@ public class UpgradableManager : MonoBehaviour
         }
         else
         {
-            costText.text = "MAX";
+            costText.text = "-";
             button.interactable = false;
             foreach (var image in images) image.sprite = spriteManager.filledSlot;
         }

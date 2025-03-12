@@ -48,7 +48,10 @@ public class GameOver : MonoBehaviour
         money = Mathf.RoundToInt(textManager.coin * levelMultiply[level]);
 
         coinText.text = $"{money}";
-        coinTotalText.text = $"Total: {YandexGame.savesData.GetMoney(sceneIndex) + money}";
+
+        if (YandexGame.EnvironmentData.language == "ru") coinTotalText.text = $"Всего: {YandexGame.savesData.GetMoney(sceneIndex) + money}";
+        else coinTotalText.text = $"Total: {YandexGame.savesData.GetMoney(sceneIndex) + money}";
+
         if (level > 0) multiplyText.text = $"x{levelMultiply[level]}";
 
         YandexGame.savesData.SetMoney(sceneIndex, money);
@@ -60,7 +63,10 @@ public class GameOver : MonoBehaviour
     public void GetReward()
     {
         coinText.text = $"{money * 2}";
-        coinTotalText.text = $"Total: {YandexGame.savesData.GetMoney(sceneIndex) + money}";
+
+        if (YandexGame.EnvironmentData.language == "ru") coinTotalText.text = $"Всего: {YandexGame.savesData.GetMoney(sceneIndex) + money}";
+        else coinTotalText.text = $"Total: {YandexGame.savesData.GetMoney(sceneIndex) + money}";
+
         YandexGame.savesData.SetMoney(sceneIndex, money);
         YandexGame.SaveProgress();
     }
