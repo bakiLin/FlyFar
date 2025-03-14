@@ -1,5 +1,6 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using YG;
 using Zenject;
 
@@ -13,6 +14,9 @@ public class FlyPower : MonoBehaviour
 
     [Inject]
     private PlayerGravity playerGravity;
+
+    [Inject]
+    private AudioManager audioManager;
 
     [SerializeField]
     private GameObject left, right;
@@ -29,7 +33,7 @@ public class FlyPower : MonoBehaviour
 
     private void Awake()
     {
-        int level = YandexGame.savesData.playerLevel[0];
+        int level = YandexGame.savesData.GetPlayerLevel(SceneManager.GetActiveScene().buildIndex)[0];
 
         if (level > 0)
         {
@@ -44,6 +48,8 @@ public class FlyPower : MonoBehaviour
     {
         if (num > 0f)
         {
+            audioManager.Play("Fly");
+
             num--;
 
             left.SetActive(true);

@@ -15,9 +15,11 @@ public class EnemyMovement : MonoBehaviour
 
     public CompositeDisposable disposable = new CompositeDisposable();
 
+    private double multiply;
+
     private void Move(float direction, float speed)
     {
-        double multiply = random.NextDouble() * 0.6 + 0.5;
+        multiply = random.NextDouble() * 0.6 + 0.5;
 
         tween.Kill();
         tween = transform.DOMoveX(direction, speed * (float) multiply)
@@ -28,20 +30,20 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        if (playerSpeed.speed.Value > 0f) Move(-20f, Mathf.Clamp(playerSpeed.speed.Value, 5f, 25f));
-        else Move(20f, 7f);
+        if (playerSpeed.speed.Value > 0f) Move(-25f, Mathf.Clamp(playerSpeed.speed.Value, 5f, 25f));
+        else Move(25f, 7f);
 
         playerSpeed.speed.Subscribe(speed => { 
-            if (speed > 5f) Move(-20f, Mathf.Clamp(speed, 5f, 25f));
-            else Move(20f, 7f);
+            if (speed > 5f) Move(-25f, Mathf.Clamp(speed, 5f, 25f));
+            else Move(25f, 7f);
         }).AddTo(disposable);
     }
-
-    private void OnDisable() => disposable.Clear();
 
     public void Stop()
     {
         disposable.Clear();
         Move(-20f, playerSpeed.speed.Value);
     }
+
+    private void OnDisable() => disposable.Clear();
 }

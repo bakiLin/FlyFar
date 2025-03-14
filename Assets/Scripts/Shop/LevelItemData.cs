@@ -7,9 +7,11 @@ public class LevelItemData : MonoBehaviour
 {
     public int id;
 
-    public string title;
+    public string titleEn, titleRu, descriptionEn, descriptionRu;
 
-    public string description;
+    public string title { get; private set; }
+
+    public string description { get; private set; }
 
     public int maxLevel, currentLevel;
 
@@ -19,6 +21,8 @@ public class LevelItemData : MonoBehaviour
     {
         while (!YandexGame.SDKEnabled) await UniTask.DelayFrame(1);
 
+        InitLang();
+
         GetComponent<Button>().onClick.AddListener(() =>
         {
             GetComponentInParent<ImageManager>().SetBorders(GetComponent<Image>());
@@ -26,8 +30,19 @@ public class LevelItemData : MonoBehaviour
         });
     }
 
-    public virtual void UpdateLevel()
+    protected void InitLang()
     {
-        currentLevel++;
+        if (YandexGame.EnvironmentData.language == "ru")
+        {
+            title = titleRu;
+            description = descriptionRu;
+        }
+        else
+        {
+            title = titleEn;
+            description = descriptionEn;
+        }
     }
+
+    public virtual void UpdateLevel() => currentLevel++;
 }

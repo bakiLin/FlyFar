@@ -20,6 +20,12 @@ public class PlayerCollision : MonoBehaviour
     [Inject]
     private PlayerParticleManager playerParticleManager;
 
+    [Inject]
+    private GameOver gameOver;
+
+    [Inject]
+    private AudioManager audioManager;
+
     private CompositeDisposable disposable = new CompositeDisposable();
 
     private void GroundCollision()
@@ -40,11 +46,14 @@ public class PlayerCollision : MonoBehaviour
         GetComponent<Collider2D>()
             .OnTriggerEnter2DAsObservable()
             .Where(obj => obj.gameObject.CompareTag("Enemy"))
-            .Subscribe(obj => { 
+            .Subscribe(obj => {
+                audioManager.Play("Hit");
+                gameOver.delay = true;
                 EnemyCollision enemyCollision = obj.GetComponent<EnemyCollision>();
                 playerGravity.Bounce(enemyCollision.Collide());
                 textManager.SetCoin(enemyCollision.Score());
                 if (playerSpeed.speed.Value < 5f) disposable.Clear();
+                gameOver.delay = false;
             }).AddTo(disposable);
     }
 

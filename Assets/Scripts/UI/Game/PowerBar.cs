@@ -4,6 +4,7 @@ using DG.Tweening;
 using Zenject;
 using YG;
 using Cysharp.Threading.Tasks;
+using UnityEngine.SceneManagement;
 
 public class PowerBar : MonoBehaviour
 {
@@ -39,12 +40,12 @@ public class PowerBar : MonoBehaviour
     {
         sequence.Kill();
 
-        float multiply = levelMultiply[YandexGame.savesData.playerLevel[4]];
+        int index = SceneManager.GetActiveScene().buildIndex;
+        float multiply = levelMultiply[YandexGame.savesData.GetPlayerLevel(index)[4]];
         int value = Mathf.RoundToInt(Mathf.Clamp(fill.fillAmount * multiply, 8f, 1000f));
 
         playerGravity.AddGravity(value);
         playerSpeed.AddSpeed(value);
-
         gameObject.SetActive(false);
     }
 

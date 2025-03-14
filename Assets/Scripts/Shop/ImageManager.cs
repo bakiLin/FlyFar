@@ -20,11 +20,16 @@ public class ImageManager : MonoBehaviour
             images[i].sprite = spriteManager.commonBorder;
         }
 
-        CosmeticItemData temp = GetComponentInChildren<CosmeticItemData>();
+        SetSelectedBorder();
+    }
 
-        if (temp)
+    private void SetSelectedBorder()
+    {
+        CosmeticItemData cosmetic = GetComponentInChildren<CosmeticItemData>();
+
+        if (cosmetic)
         {
-            if (temp.GetType() == typeof(ColorData)) images[YandexGame.savesData.color].sprite = spriteManager.selectedBorder;
+            if (cosmetic.GetType() == typeof(ColorData)) images[YandexGame.savesData.color].sprite = spriteManager.selectedBorder;
             else images[YandexGame.savesData.face].sprite = spriteManager.selectedBorder;
         }
     }
@@ -32,7 +37,6 @@ public class ImageManager : MonoBehaviour
     public void SetBorders(Image button)
     {
         foreach (var image in images) image.sprite = spriteManager.commonBorder;
-
         button.sprite = spriteManager.selectedBorder; 
     }
 }

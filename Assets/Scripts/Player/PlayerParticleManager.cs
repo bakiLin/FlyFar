@@ -11,6 +11,9 @@ public class PlayerParticleManager : MonoBehaviour
     [Inject]
     private FlyBar flyBar;
 
+    [Inject]
+    private AudioManager audioManager;
+
     [SerializeField]
     private float speedBarier;
 
@@ -30,6 +33,7 @@ public class PlayerParticleManager : MonoBehaviour
         Observable.EveryUpdate()
             .Where(_ => rb.linearVelocityY < speedBarier && !isFalling)
             .Subscribe(_ => {
+                audioManager.Play("Fall");
                 isFalling = true;
                 particle.Play();
                 Accelerate().Forget();
@@ -43,6 +47,7 @@ public class PlayerParticleManager : MonoBehaviour
 
     public void StopFalling()
     {
+        audioManager.Stop("Fall");
         isFalling = false;
         particle.Stop();
         particle.Clear();

@@ -7,7 +7,7 @@ public class SettingsManager : MonoBehaviour
     private RectTransform settings;
 
     [SerializeField]
-    private GameObject levels;
+    private float movePoint;
 
     private bool settingsOn;
 
@@ -18,7 +18,7 @@ public class SettingsManager : MonoBehaviour
         if (!settingsOn)
         {
             tween.Kill();
-            tween = settings.DOAnchorPosY(-100f, 0.7f);
+            tween = settings.DOAnchorPosY(movePoint, 0.7f);
         }
         else
         {
@@ -29,5 +29,11 @@ public class SettingsManager : MonoBehaviour
         settingsOn = !settingsOn;
     }
 
-    public void SwitchLevels() => levels.SetActive(!levels.activeSelf);
+    public void MoveUp()
+    {
+        tween.Kill();
+        tween = settings.DOAnchorPosY(300f, 0.7f);
+
+        settingsOn = false;
+    }
 }

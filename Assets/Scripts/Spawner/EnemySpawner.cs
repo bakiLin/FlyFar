@@ -12,9 +12,6 @@ public class EnemySpawner : MonoBehaviour
     [Inject]
     private PlayerSpeed playerSpeed;
 
-    [Inject]
-    private InputScript inputScript;
-
     public int id;
 
     public string enemyTag;
@@ -23,32 +20,19 @@ public class EnemySpawner : MonoBehaviour
 
     private Random random = new Random();
 
-    private CancellationTokenSource cts = new CancellationTokenSource();
+    private double delay;
 
-    private async UniTaskVoid SpawnAsync()
+    public async UniTaskVoid SpawnAsync(CancellationToken token)
     {
-        while (!cts.IsCancellationRequested)
+        while (!token.IsCancellationRequested)
         {
-            double delay = GetRandom(distance[0], distance[1]) / Mathf.Clamp(playerSpeed.speed.Value, 5f, 25f) * 1000;
-            await UniTask.Delay((int)delay, cancellationToken: cts.Token);
+            delay = GetRandom(distance[0], distance[1]) / Mathf.Clamp(playerSpeed.speed.Value, 5f, 25f) * 1000;
+            await UniTask.Delay((int)delay, cancellationToken: token);
 
-            if (yPosition.Length > 1) objectPooler.Spawn(enemyTag, new Vector3(15f, GetRandom(yPosition[0], yPosition[1])));
-            else objectPooler.Spawn(enemyTag, new Vector3(15f, yPosition[0]));
+            if (yPosition.Length > 1) objectPooler.Spawn(enemyTag, new Vector3(23f, GetRandom(yPosition[0], yPosition[1])));
+            else objectPooler.Spawn(enemyTag, new Vector3(23f, yPosition[0]));
         }
     }
 
-    private float GetRandom(float min, float max)
-    {
-        double range = max - min;
-        double value = (random.NextDouble() * range) + min;
-        return (float)value;
-    }
-
-    private void OnEnable()
-    {
-        inputScript.onStart += () => SpawnAsync().Forget();
-        playerSpeed.onStop += () => cts?.Cancel();
-    }
-
-    private void OnDestroy() => cts?.Cancel();
+    private float GetRandom(float min, float max) => (float)((random.NextDouble() * (max - min)) + min);
 }

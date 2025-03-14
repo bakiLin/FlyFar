@@ -175,4 +175,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 5
   score: 1
-  speedLoss: 0.4
+  speedLoss: 0.3
