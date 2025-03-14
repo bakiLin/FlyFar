@@ -1,13 +1,13 @@
 {
-    "idSave": 1541,
+    "idSave": 1749,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
-    "money": 82,
+    "money": 48,
     "money2": 0,
     "color": 0,
     "face": 0,
-    "bonusLevel": 0,
+    "bonusLevel": 1,
     "currentLevel": 0,
     "lvl2Unlocked": false,
     "colorUnlocked": [
@@ -21,7 +21,7 @@
         1
     ],
     "enemyLevel": [
-        0,
+        1,
         0,
         0,
         0,
@@ -31,7 +31,7 @@
         0
     ],
     "playerLevel": [
-        0,
+        1,
         0,
         0,
         0,

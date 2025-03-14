@@ -16,8 +16,8 @@ public class ShipMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        if (playerSpeed.speed.Value > 0f) Move(-20f);
-        else Move(20f);
+        if (playerSpeed.speed.Value > 0f) Move(-25f);
+        else Move(25f);
 
         playerSpeed.onStop += MoveForward;
     }
@@ -30,7 +30,7 @@ public class ShipMovement : MonoBehaviour
         playerSpeed.onStop -= MoveForward;
     }
 
-    private void MoveForward() => Move(20f);
+    private void MoveForward() => Move(25f);
 
     private void Move(float direction)
     {

@@ -67,7 +67,7 @@ public class LevelData : MonoBehaviour
                     YandexGame.SaveProgress();
                     SceneManager.LoadScene(3);
                 }
-                else if (YandexGame.savesData.money > 15000)
+                else if (YandexGame.savesData.money >= 15000)
                 {
                     Unlock();
                     YandexGame.savesData.lvl2Unlocked = true;

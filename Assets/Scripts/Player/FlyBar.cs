@@ -30,7 +30,7 @@ public class FlyBar : MonoBehaviour
 
         while (!cts.IsCancellationRequested)
         {
-            await fill.DOFillAmount(1f, 1f - fill.fillAmount)
+            await fill.DOFillAmount(1f, 0.7f - 0.7f * fill.fillAmount)
                 .SetEase(Ease.Linear)
                 .OnComplete(() => { 
                     flyPower.GetFlyPower();

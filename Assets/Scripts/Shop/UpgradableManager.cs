@@ -13,6 +13,9 @@ public class UpgradableManager : MonoBehaviour
     [Inject]
     private CoinManager coinManager;
 
+    [Inject]
+    private AudioManager audioManager;
+
     [SerializeField]
     private TextMeshProUGUI titleText, descText, costText;
 
@@ -69,8 +72,10 @@ public class UpgradableManager : MonoBehaviour
     private void Buy(LevelItemData data)
     {
         if (data.maxLevel > data.currentLevel && 
-            YandexGame.savesData.GetMoney(sceneIndex) > data.cost[data.currentLevel])
+            YandexGame.savesData.GetMoney(sceneIndex) >= data.cost[data.currentLevel])
         {
+            audioManager.Play("Coin");
+
             YandexGame.savesData.SetMoney(sceneIndex, -data.cost[data.currentLevel]);
 
             if (data.currentLevel + 1 > YandexGame.savesData.bonusLevel)

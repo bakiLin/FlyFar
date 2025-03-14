@@ -15,6 +15,9 @@ public class FlyPower : MonoBehaviour
     [Inject]
     private PlayerGravity playerGravity;
 
+    [Inject]
+    private AudioManager audioManager;
+
     [SerializeField]
     private GameObject left, right;
 
@@ -45,6 +48,8 @@ public class FlyPower : MonoBehaviour
     {
         if (num > 0f)
         {
+            audioManager.Play("Fly");
+
             num--;
 
             left.SetActive(true);

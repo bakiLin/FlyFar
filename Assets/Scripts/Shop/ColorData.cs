@@ -10,7 +10,7 @@ public class ColorData : CosmeticItemData
         {
             int index = SceneManager.GetActiveScene().buildIndex;
 
-            if (YandexGame.savesData.GetMoney(index) > cost)
+            if (YandexGame.savesData.GetMoney(index) >= cost)
             {
                 YandexGame.savesData.SetMoney(index, -cost);
                 YandexGame.savesData.colorUnlocked.Add(id);

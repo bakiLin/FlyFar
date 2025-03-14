@@ -21,9 +21,9 @@ public class InputScript : MonoBehaviour
 
     private void StopArrow(InputAction.CallbackContext context)
     {
-        onStart?.Invoke();
         keyboardInputAction.Keyboard.PowerBar.started -= StopArrow;
         if (powerOn) keyboardInputAction.Keyboard.PowerBar.started += (InputAction.CallbackContext context) => flyPower.Fly();
+        onStart?.Invoke();
     }
 
     public void SwitchPower(bool state)

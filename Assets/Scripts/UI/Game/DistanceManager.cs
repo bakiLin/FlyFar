@@ -19,6 +19,9 @@ public class DistanceManager : MonoBehaviour
     [Inject]
     private GameOver gameOver;
 
+    [Inject]
+    private AudioManager audioManager;
+
     [SerializeField]
     private RectTransform coinTransform;
 
@@ -45,11 +48,14 @@ public class DistanceManager : MonoBehaviour
         {
             await UniTask.Delay(1000, cancellationToken: cts.Token);
 
-            distance += Mathf.RoundToInt(playerSpeed.speed.Value);
+            if (!cts.IsCancellationRequested)
+            {
+                distance += Mathf.RoundToInt(playerSpeed.speed.Value);
 
-            distanceText.text = $"{distance.ToString()} m";
+                distanceText.text = $"{distance.ToString()} m";
 
-            GainBonusMoney().Forget();
+                GainBonusMoney().Forget();
+            }
         }
     }
 
@@ -58,14 +64,17 @@ public class DistanceManager : MonoBehaviour
         if (distance / (500 * num) > 0)
         {
             gameOver.delay = true;
-
+            audioManager.Play("Fly");
             num++;
             await DOTween.Sequence()
                 .Append(coinTransform.DOAnchorPos(position_1, 1f)
                     .SetEase(Ease.OutCubic))
                 .Append(coinTransform.DOAnchorPos(position_2, 1f)
                     .SetEase(Ease.InOutCirc)
-                    .OnComplete(() => { coinTransform.anchoredPosition = startPosition; }));
+                    .OnComplete(() => {
+                        audioManager.Play("Coin");
+                        coinTransform.anchoredPosition = startPosition; 
+                    }));
             textManager.SetCoin(100);
 
             gameOver.delay = false;

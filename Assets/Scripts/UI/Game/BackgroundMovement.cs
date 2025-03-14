@@ -12,28 +12,15 @@ public class BackgroundMovement : MonoBehaviour
     [SerializeField]
     private float positionX, multiply;
 
-    private CancellationTokenSource cts;
-
-    private async void Move()
+    public async void MoveAsync(CancellationToken token)
     {
-        cts?.Cancel();
-        cts = new CancellationTokenSource();
-
-        while (!cts.IsCancellationRequested)
+        while (!token.IsCancellationRequested)
         {
             await transform.DOMoveX(positionX, playerSpeed.speed.Value * multiply)
                 .SetSpeedBased()
                 .SetEase(Ease.Linear)
                 .OnComplete(() => { transform.position = new Vector3(0f, transform.position.y); })
-                .WithCancellation(cts.Token);
+                .WithCancellation(token);
         }
     }
-
-    private void OnEnable()
-    {
-        playerSpeed.onChange += Move;
-        playerSpeed.onStop += () => cts.Cancel();
-    }
-
-    private void OnDestroy() => cts?.Cancel();
 }
