@@ -1,13 +1,13 @@
 {
-    "idSave": 1749,
+    "idSave": 1781,
     "isFirstSession": false,
-    "language": "ru",
+    "language": "en",
     "promptDone": false,
-    "money": 48,
-    "money2": 0,
+    "money": 153,
+    "money2": 124,
     "color": 0,
     "face": 0,
-    "bonusLevel": 1,
+    "bonusLevel": 2,
     "currentLevel": 0,
     "lvl2Unlocked": false,
     "colorUnlocked": [
@@ -24,8 +24,8 @@
         1,
         0,
         0,
-        0,
-        0,
+        1,
+        2,
         0,
         0,
         0
@@ -33,9 +33,9 @@
     "playerLevel": [
         1,
         0,
-        0,
-        0,
-        0
+        1,
+        1,
+        1
     ],
     "playerLevel2": [
         0,
