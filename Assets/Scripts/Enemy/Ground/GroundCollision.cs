@@ -1,4 +1,3 @@
-using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using YG;
@@ -12,10 +11,8 @@ public class GroundCollision : MonoBehaviour
 
     public float multiply { get; private set; }
 
-    private async void Awake()
+    private void Awake()
     {
-        while (!YandexGame.SDKEnabled) await UniTask.Delay(100);
-
         int index = SceneManager.GetActiveScene().buildIndex;
         multiply = speedLoss[YandexGame.savesData.GetPlayerLevel(index)[1]];
     }

@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 385648891492737622}
   - component: {fileID: 4799904398980509444}
   - component: {fileID: 7228856124345577622}
-  - component: {fileID: 8629395339772882404}
   - component: {fileID: 4126997931950038974}
+  - component: {fileID: -702350778440067706}
   m_Layer: 0
   m_Name: Snail
   m_TagString: Enemy
@@ -149,18 +149,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8629395339772882404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1915401474074386261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82fabea9680b92b409f9e4c99a8f4372, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4126997931950038974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,3 +164,16 @@ MonoBehaviour:
   jumpForce: 5
   score: 1
   speedLoss: 0.3
+--- !u!114 &-702350778440067706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915401474074386261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9baa17c259c5f24ab9c1666ab193d7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 6

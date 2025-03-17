@@ -1,4 +1,3 @@
-using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -14,10 +13,9 @@ public class LevelData : MonoBehaviour
 
     private Button[] buttons;
 
-    private async void Awake()
+    private void Awake()
     {
         Init();
-        while (!YandexGame.SDKEnabled) await UniTask.DelayFrame(1);
         SetSprite();
         SetButtons();
         if (YandexGame.savesData.lvl2Unlocked) Unlock();

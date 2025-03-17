@@ -19,9 +19,6 @@ public class DistanceManager : MonoBehaviour
     [Inject]
     private GameOver gameOver;
 
-    [Inject]
-    private AudioManager audioManager;
-
     [SerializeField]
     private RectTransform coinTransform;
 
@@ -32,12 +29,15 @@ public class DistanceManager : MonoBehaviour
 
     private TextMeshProUGUI distanceText;
 
+    private AudioManager audioManager;
+
     private int distance, num = 1;
 
     private Vector2 startPosition;
 
-    private void Awake()
-    { 
+    private void Start()
+    {
+        audioManager = AudioManager.Instance;
         distanceText = GetComponent<TextMeshProUGUI>();
         startPosition = coinTransform.position;
     }
@@ -64,7 +64,7 @@ public class DistanceManager : MonoBehaviour
         if (distance / (500 * num) > 0)
         {
             gameOver.delay = true;
-            audioManager.Play("Fly");
+            audioManager.Play("fly", true);
             num++;
             await DOTween.Sequence()
                 .Append(coinTransform.DOAnchorPos(position_1, 1f)
@@ -72,7 +72,7 @@ public class DistanceManager : MonoBehaviour
                 .Append(coinTransform.DOAnchorPos(position_2, 1f)
                     .SetEase(Ease.InOutCirc)
                     .OnComplete(() => {
-                        audioManager.Play("Coin");
+                        audioManager.Play("coin", true);
                         coinTransform.anchoredPosition = startPosition; 
                     }));
             textManager.SetCoin(100);

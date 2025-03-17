@@ -1,13 +1,13 @@
 {
-    "idSave": 1781,
+    "idSave": 1820,
     "isFirstSession": false,
     "language": "en",
     "promptDone": false,
-    "money": 153,
-    "money2": 124,
+    "money": 337,
+    "money2": 87,
     "color": 0,
     "face": 0,
-    "bonusLevel": 2,
+    "bonusLevel": 1,
     "currentLevel": 0,
     "lvl2Unlocked": false,
     "colorUnlocked": [
@@ -21,27 +21,27 @@
         1
     ],
     "enemyLevel": [
-        1,
         0,
         0,
-        1,
-        2,
+        0,
+        0,
+        0,
         0,
         0,
         0
     ],
     "playerLevel": [
         1,
-        0,
         1,
         1,
-        1
-    ],
-    "playerLevel2": [
-        0,
-        0,
-        0,
         0,
         0
+    ],
+    "playerLevel2": [
+        1,
+        0,
+        0,
+        0,
+        1
     ]
 }

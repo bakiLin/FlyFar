@@ -1,4 +1,3 @@
-using Cysharp.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,9 +13,8 @@ public class CoinManager : MonoBehaviour
 
     private int sceneIndex;
 
-    private async void Awake()
+    private void Start()
     {
-        while (!YandexGame.SDKEnabled) await UniTask.DelayFrame(1);
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
         UpdateCoinText();
     }

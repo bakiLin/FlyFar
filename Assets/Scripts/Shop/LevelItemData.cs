@@ -1,4 +1,3 @@
-using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 using YG;
@@ -17,10 +16,8 @@ public class LevelItemData : MonoBehaviour
 
     public int[] cost;
 
-    protected virtual async void Awake()
+    protected virtual void Awake()
     {
-        while (!YandexGame.SDKEnabled) await UniTask.DelayFrame(1);
-
         InitLang();
 
         GetComponent<Button>().onClick.AddListener(() =>
