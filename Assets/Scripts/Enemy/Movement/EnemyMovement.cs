@@ -17,7 +17,7 @@ public class EnemyMovement : MonoBehaviour
 
     private double multiply;
 
-    private void Move(float direction, float speed)
+    public void Move(float direction, float speed)
     {
         multiply = random.NextDouble() * 0.6 + 0.5;
 
@@ -32,18 +32,5 @@ public class EnemyMovement : MonoBehaviour
     {
         if (playerSpeed.speed.Value > 0f) Move(-25f, Mathf.Clamp(playerSpeed.speed.Value, 5f, 25f));
         else Move(25f, 7f);
-
-        playerSpeed.speed.Subscribe(speed => { 
-            if (speed > 5f) Move(-25f, Mathf.Clamp(speed, 5f, 25f));
-            else Move(25f, 7f);
-        }).AddTo(disposable);
     }
-
-    public void Stop()
-    {
-        disposable.Clear();
-        Move(-20f, playerSpeed.speed.Value);
-    }
-
-    private void OnDisable() => disposable.Clear();
 }

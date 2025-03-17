@@ -1,4 +1,3 @@
-using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
@@ -20,10 +19,8 @@ public class SpawnManager : MonoBehaviour
 
     private CancellationTokenSource cts = new CancellationTokenSource();
 
-    private async void Awake()
+    private void Awake()
     {
-        while (!YandexGame.SDKEnabled) await UniTask.DelayFrame(1);
-
         foreach (var spawner in enemySpawners)
         {
             if (YandexGame.savesData.enemyLevel[spawner.id] > 0) spawner.enabled = true;

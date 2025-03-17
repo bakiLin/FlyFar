@@ -15,9 +15,6 @@ public class UIInstaller : MonoInstaller
     [SerializeField]
     private GameOver gameOver;
 
-    [SerializeField]
-    private AudioManager audioManager;
-
     public override void InstallBindings()
     {
         Container.Bind<PowerBar>().FromInstance(powerBar).AsSingle().NonLazy();
@@ -27,7 +24,5 @@ public class UIInstaller : MonoInstaller
         Container.Bind<FlyBar>().FromInstance(flyBar).AsSingle().NonLazy();
 
         Container.Bind<GameOver>().FromInstance(gameOver).AsSingle().NonLazy();
-
-        Container.Bind<AudioManager>().FromInstance(audioManager).AsSingle().NonLazy();
     }
 }

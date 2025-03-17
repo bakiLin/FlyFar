@@ -7,19 +7,26 @@ public class ThemeManager : MonoBehaviour
     private InputScript inputScript;
 
     [Inject]
-    private AudioManager audioManager;
-
-    [Inject]
     private PlayerSpeed playerSpeed;
 
-    [SerializeField]
-    private string themeName, gameOver;
+    private AudioManager audioManager;
+
+    private void Start()
+    {
+        audioManager = AudioManager.Instance;
+    }
 
     private void OnEnable()
     {
-        inputScript.onStart += () => audioManager.Play(themeName);
+        inputScript.onStart += () => audioManager.Play("run", true);
 
-        playerSpeed.onStop += () => audioManager.Stop(themeName);
-        playerSpeed.onStop += () => audioManager.Play(gameOver);
+        playerSpeed.onStop += () => audioManager.Play("run", false);
+        playerSpeed.onStop += () => audioManager.Play("game over", true);
+    }
+
+    private void OnDestroy()
+    {
+        audioManager.Play("run", false);
+        audioManager.Play("game over", false);
     }
 }

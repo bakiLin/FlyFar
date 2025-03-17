@@ -3,7 +3,6 @@ using UnityEngine.UI;
 using DG.Tweening;
 using Zenject;
 using YG;
-using Cysharp.Threading.Tasks;
 using UnityEngine.SceneManagement;
 
 public class PowerBar : MonoBehaviour
@@ -24,11 +23,9 @@ public class PowerBar : MonoBehaviour
 
     private Sequence sequence;
 
-    private async void Awake()
+    private void Awake()
     {
         fill = transform.Find("Fill").GetComponent<Image>();
-
-        while (!YandexGame.SDKEnabled) await UniTask.DelayFrame(1);
 
         sequence = DOTween.Sequence()
             .Append(fill.DOFillAmount(1f, 1f).SetEase(Ease.InCubic))

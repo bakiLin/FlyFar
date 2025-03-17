@@ -1,4 +1,3 @@
-using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using YG;
@@ -12,11 +11,9 @@ public class PlayerGravity : MonoBehaviour
 
     private float multiply;
 
-    private async void Awake()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        while (!YandexGame.SDKEnabled) await UniTask.DelayFrame(1);
-
         int index = SceneManager.GetActiveScene().buildIndex;
         multiply = jumpMultiply[YandexGame.savesData.GetPlayerLevel(index)[2]];
     }

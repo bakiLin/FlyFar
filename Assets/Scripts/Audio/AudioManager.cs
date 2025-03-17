@@ -3,28 +3,28 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    [System.Serializable]
-    public class Sound
-    {
-        public string name;
-
-        public AudioClip clip;
-
-        [Range(0f, 1f)]
-        public float volume;
-
-        [Range(.1f, 3f)]
-        public float pitch;
-
-        public bool loop;
-
-        [HideInInspector]
-        public AudioSource source;
-    }
-
     public Sound[] sounds;
 
+    public static AudioManager Instance;
+
     private void Awake()
+    {
+        Init();
+        AddSoundClip();
+    }
+
+    private void Init()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+            Destroy(gameObject);
+    }
+
+    private void AddSoundClip()
     {
         foreach (var s in sounds)
         {
@@ -33,19 +33,14 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
-            s.source.playOnAwake = false;
         }
     }
 
-    public void Play(string name)
+    public void Play(string name, bool play)
     {
         Sound s = Array.Find(sounds, s => s.name == name);
-        s?.source.Play();
-    }
 
-    public void Stop(string name)
-    {
-        Sound s = Array.Find(sounds, s => s.name == name);
-        s?.source.Stop();
+        if (play) s?.source.Play();
+        else if (s.source.isPlaying) s?.source.Stop();
     }
 }

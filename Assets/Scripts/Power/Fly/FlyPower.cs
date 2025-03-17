@@ -15,9 +15,6 @@ public class FlyPower : MonoBehaviour
     [Inject]
     private PlayerGravity playerGravity;
 
-    [Inject]
-    private AudioManager audioManager;
-
     [SerializeField]
     private GameObject left, right;
 
@@ -27,11 +24,13 @@ public class FlyPower : MonoBehaviour
     [SerializeField]
     private int[] powerNumber;
 
+    private AudioManager audioManager;
+
     public float force, time;
 
     private int num;
 
-    private void Awake()
+    private void Start()
     {
         int level = YandexGame.savesData.GetPlayerLevel(SceneManager.GetActiveScene().buildIndex)[0];
 
@@ -42,13 +41,15 @@ public class FlyPower : MonoBehaviour
             textManager.SetPower(num);
             powerUI.SetActive(true);
         }
+
+        audioManager = AudioManager.Instance;
     }
 
     public async void Fly()
     {
         if (num > 0f)
         {
-            audioManager.Play("Fly");
+            audioManager.Play("wind", true);
 
             num--;
 

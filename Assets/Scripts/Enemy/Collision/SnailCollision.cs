@@ -13,19 +13,21 @@ public class SlimeCollision : EnemyCollision
     [SerializeField]
     private float speedLoss;
 
-    private EnemyMovement enemyMovement;
+    private SnailMovement snailMovement;
 
     protected override void Awake()
     {
         base.Awake();
-        enemyMovement = GetComponent<EnemyMovement>();
+        snailMovement = GetComponent<SnailMovement>();
     }
 
     public override float Collide()
     {
-        if (!playerParticleManager.isFalling) playerSpeed.AddSpeed(-playerSpeed.speed.Value * speedLoss);
-        enemyMovement.Stop();
+        snailMovement.enabled = false;
 
+        if (!playerParticleManager.isFalling) 
+            playerSpeed.AddSpeed(-playerSpeed.speed.Value * speedLoss);
+        
         DOTween.Sequence()
             .Append(transform.DOMoveY(transform.position.y + 1f, 0.25f).SetEase(Ease.OutCubic))
             .Append(transform.DOMoveY(transform.position.y, 0.25f).SetEase(Ease.InQuad));

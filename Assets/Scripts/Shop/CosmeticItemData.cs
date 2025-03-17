@@ -1,4 +1,3 @@
-using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -19,11 +18,9 @@ public class CosmeticItemData : MonoBehaviour
 
     protected ImageManager imageManager;
 
-    private async void Awake()
+    private void Awake()
     {
         imageManager = GetComponentInParent<ImageManager>();
-
-        while (!YandexGame.SDKEnabled) await UniTask.DelayFrame(1);
 
         if (GetType() == typeof(ColorData)) SetBorder(YandexGame.savesData.colorUnlocked);
         else if (GetType() == typeof(FaceData)) SetBorder(YandexGame.savesData.faceUnlocked);

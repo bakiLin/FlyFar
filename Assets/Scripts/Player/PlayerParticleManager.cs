@@ -11,11 +11,10 @@ public class PlayerParticleManager : MonoBehaviour
     [Inject]
     private FlyBar flyBar;
 
-    [Inject]
-    private AudioManager audioManager;
-
     [SerializeField]
     private float speedBarier;
+
+    public bool isFalling { get; private set; }
 
     private ParticleSystem particle;
 
@@ -23,17 +22,18 @@ public class PlayerParticleManager : MonoBehaviour
 
     private CompositeDisposable disposable = new CompositeDisposable();
 
-    public bool isFalling { get; private set; }
+    private AudioManager audioManager;
 
-    private void Awake()
+    private void Start()
     {
+        audioManager = AudioManager.Instance;
         particle = GetComponent<ParticleSystem>();
         rb = transform.parent.GetComponent<Rigidbody2D>();
 
         Observable.EveryUpdate()
             .Where(_ => rb.linearVelocityY < speedBarier && !isFalling)
             .Subscribe(_ => {
-                audioManager.Play("Fall");
+                audioManager.Play("fall", true);
                 isFalling = true;
                 particle.Play();
                 Accelerate().Forget();
@@ -47,7 +47,7 @@ public class PlayerParticleManager : MonoBehaviour
 
     public void StopFalling()
     {
-        audioManager.Stop("Fall");
+        audioManager.Play("fall", false);
         isFalling = false;
         particle.Stop();
         particle.Clear();
