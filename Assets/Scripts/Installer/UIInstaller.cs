@@ -15,6 +15,9 @@ public class UIInstaller : MonoInstaller
     [SerializeField]
     private GameOver gameOver;
 
+    [SerializeField]
+    private DistanceManager distanceManager;
+
     public override void InstallBindings()
     {
         Container.Bind<PowerBar>().FromInstance(powerBar).AsSingle().NonLazy();
@@ -24,5 +27,7 @@ public class UIInstaller : MonoInstaller
         Container.Bind<FlyBar>().FromInstance(flyBar).AsSingle().NonLazy();
 
         Container.Bind<GameOver>().FromInstance(gameOver).AsSingle().NonLazy();
+
+        Container.Bind<DistanceManager>().FromInstance(distanceManager).AsSingle().NonLazy();
     }
 }

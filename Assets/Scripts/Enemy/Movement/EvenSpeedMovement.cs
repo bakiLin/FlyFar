@@ -1,43 +1,35 @@
 using DG.Tweening;
 using UnityEngine;
 using Zenject;
-using Random = System.Random;
 
-public class EnemyMovement : MonoBehaviour
+public class EvenSpeedMovement : MonoBehaviour
 {
     [Inject]
     private PlayerSpeed playerSpeed;
 
+    [SerializeField]
+    private float speed;
+
     public Tween tween;
 
-    private Random random = new Random();
+    private void Awake() => playerSpeed.onStop += Move;
 
-    private void Awake()
-    {
-        playerSpeed.onChange += Move;
-        playerSpeed.onStop += Move;
-    }
+    private void OnEnable() => Move();
 
-    private void OnEnable()
-    {
-        Move();
-    }
-
-    public void Move()
+    private void Move()
     {
         tween.Kill();
 
         if (playerSpeed.speed.Value > playerSpeed.stopSpeed)
         {
-            float randomValue = (float) random.NextDouble() * 0.6f + 0.5f;
-            tween = transform.DOMoveX(-25f, playerSpeed.speed.Value * randomValue)
+            tween = transform.DOMoveX(-25f, speed)
                 .SetSpeedBased()
                 .SetEase(Ease.Linear)
                 .OnComplete(() => { gameObject.SetActive(false); });
         }
         else
         {
-            tween = transform.DOMoveX(25f, 7f)
+            tween = transform.DOMoveX(25f, speed)
                 .SetSpeedBased()
                 .SetEase(Ease.Linear)
                 .OnComplete(() => { gameObject.SetActive(false); });

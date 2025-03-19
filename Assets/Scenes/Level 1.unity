@@ -1410,6 +1410,7 @@ MonoBehaviour:
   playerSpeed: {fileID: 555088465}
   flyPower: {fileID: 555088469}
   playerParticleManager: {fileID: 2113202490}
+  playerCollision: {fileID: 555088466}
 --- !u!1 &221216439
 GameObject:
   m_ObjectHideFlags: 0
@@ -2849,6 +2850,7 @@ MonoBehaviour:
   textManager: {fileID: 1594566754}
   flyBar: {fileID: 1095689955}
   gameOver: {fileID: 5177748031603570345}
+  distanceManager: {fileID: 2114529995}
 --- !u!4 &473542106
 Transform:
   m_ObjectHideFlags: 0
@@ -3565,6 +3567,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed:
     value: 0
+  stopSpeed: 5
 --- !u!114 &555088466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7218,11 +7221,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedLoss:
   - 0.3
-  - 0.28
-  - 0.26
+  - 0.27
   - 0.24
-  - 0.22
-  - 0.2
+  - 0.21
+  - 0.18
+  - 0.15
   force: 6
 --- !u!1 &1160982833
 GameObject:
@@ -7710,7 +7713,7 @@ GameObject:
   - component: {fileID: 1387678254}
   - component: {fileID: 1387678255}
   m_Layer: 0
-  m_Name: Sprite
+  m_Name: Sprite 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7944,50 +7947,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 994925158}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1453176965
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1453176966}
-  - component: {fileID: 1453176967}
-  m_Layer: 0
-  m_Name: Enemy Parent
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1453176966
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1453176965}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1453176967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1453176965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e525d83fff29544bb51c0897db7f519, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1453963376
 GameObject:
   m_ObjectHideFlags: 0
@@ -8296,11 +8255,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1173206893185445781}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 616, y: 50.00006}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 50, y: 50}
-  m_Pivot: {x: 0, y: 1}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1483152314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9819,27 +9778,22 @@ MonoBehaviour:
     tag: mouse
     prefab: {fileID: 8397062312343317016, guid: 4599a1cef8a3c2347bf0ab496a84c2ab, type: 3}
     size: 20
-    parent: {fileID: 1453176966}
   - id: 0
     tag: bee
     prefab: {fileID: 8693390588954621477, guid: a767e6658adcc5841b4a6b74506309c0, type: 3}
     size: 20
-    parent: {fileID: 1453176966}
   - id: 0
     tag: slime
     prefab: {fileID: 5297841520325394218, guid: 52e8da72de165134798535216b9afbd5, type: 3}
     size: 5
-    parent: {fileID: 1453176966}
   - id: 0
     tag: ufo
     prefab: {fileID: 2890490205474945576, guid: bdbcad3bfc2f06d4795beaf04175fb50, type: 3}
     size: 5
-    parent: {fileID: 1453176966}
   - id: 0
     tag: snail
     prefab: {fileID: 1915401474074386261, guid: 906e740ed06369441a9d75a52aec87f4, type: 3}
     size: 10
-    parent: {fileID: 1453176966}
 --- !u!1 &1833055074
 GameObject:
   m_ObjectHideFlags: 0
@@ -16790,8 +16744,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinTransform: {fileID: 1483152313}
-  position_1: {x: 616, y: -300}
-  position_2: {x: 20, y: -20}
+  startPosition: {x: 0, y: 50}
+  movePosition: {x: 0, y: -300}
 --- !u!1 &2144114784
 GameObject:
   m_ObjectHideFlags: 0
@@ -17239,6 +17193,7 @@ GameObject:
   - component: {fileID: 1591818085885205142}
   - component: {fileID: 365683868856842999}
   - component: {fileID: 5177748031603570345}
+  - component: {fileID: 5177748031603570346}
   m_Layer: 5
   m_Name: Game Over (Window)
   m_TagString: Untagged
@@ -18073,14 +18028,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseButton: {fileID: 846533822}
-  levelMultiply:
+  moneyLevel:
   - 1
   - 1.2
   - 1.4
   - 1.6
   - 1.8
   - 2
-  delay: 0
+--- !u!114 &5177748031603570346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724869307306562058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ccd254d9a96464f884b31c3998fa89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinText: {fileID: 4496051696831699393}
+  totalText: {fileID: 7283714973811492156}
+  multiplyText: {fileID: 678868547}
 --- !u!1 &5215972593924681895
 GameObject:
   m_ObjectHideFlags: 0
@@ -18199,7 +18168,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00024414062, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &5971526200179003811
@@ -18873,4 +18842,3 @@ SceneRoots:
   - {fileID: 555088463}
   - {fileID: 97577038}
   - {fileID: 2046055438}
-  - {fileID: 1453176966}

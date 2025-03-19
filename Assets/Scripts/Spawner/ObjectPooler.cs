@@ -11,7 +11,6 @@ public class ObjectPooler : MonoBehaviour
         public string tag;
         public GameObject prefab;
         public int size;
-        public Transform parent;
     }
 
     [Inject]
@@ -33,7 +32,7 @@ public class ObjectPooler : MonoBehaviour
 
             for (int i = 0; i < pool.size; i++)
             {
-                GameObject obj = diContainer.InstantiatePrefab(pool.prefab, pool.parent);
+                GameObject obj = diContainer.InstantiatePrefab(pool.prefab);
                 obj.SetActive(false);
                 objectPool.Enqueue(obj);
             }

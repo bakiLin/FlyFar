@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 1041965771493007587}
   - component: {fileID: 4085901426844687815}
   - component: {fileID: 4535651843633103767}
-  - component: {fileID: 4357706694691255691}
+  - component: {fileID: 4313992561745990767}
+  - component: {fileID: 9182022633153897086}
   - component: {fileID: 2617333670992955517}
   m_Layer: 0
   m_Name: Ghost
@@ -159,7 +160,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4357706694691255691
+--- !u!114 &4313992561745990767
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,10 +169,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 5482892366872172009}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7a6385503ae5b7429c4ce133fe7e338, type: 3}
+  m_Script: {fileID: 11500000, guid: 82fabea9680b92b409f9e4c99a8f4372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+--- !u!114 &9182022633153897086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5482892366872172009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9abc8aa6972152f4bb34da291f558b8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2617333670992955517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,5 +197,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 5
-  score: 1
-  speedLoss: 0.3
+  score: 0
+  speedLoss:
+  - 0.4
+  - 0.35
+  - 0.3
+  - 0.25
+  - 0.2
+  - 0.15

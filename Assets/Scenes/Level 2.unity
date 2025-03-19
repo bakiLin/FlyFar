@@ -2849,6 +2849,7 @@ MonoBehaviour:
   textManager: {fileID: 1594566754}
   flyBar: {fileID: 1095689955}
   gameOver: {fileID: 5177748031603570345}
+  distanceManager: {fileID: 2114529995}
 --- !u!4 &473542106
 Transform:
   m_ObjectHideFlags: 0
@@ -3323,6 +3324,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed:
     value: 0
+  stopSpeed: 5
 --- !u!114 &555088466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7512,50 +7514,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1241391909
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1241391911}
-  - component: {fileID: 1241391910}
-  m_Layer: 0
-  m_Name: Enemy Parent
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1241391910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1241391909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e525d83fff29544bb51c0897db7f519, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1241391911
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1241391909}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1274049933
 GameObject:
   m_ObjectHideFlags: 0
@@ -8278,11 +8236,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1173206893185445781}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 616, y: 50}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 50, y: 50}
-  m_Pivot: {x: 0, y: 1}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1483152314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9801,27 +9759,22 @@ MonoBehaviour:
     tag: spider
     prefab: {fileID: 4371312403536931016, guid: f5d40c5eab0b39b46984a22280b16546, type: 3}
     size: 20
-    parent: {fileID: 1241391911}
   - id: 0
     tag: bat
     prefab: {fileID: 1386310787388309330, guid: ef93f73ac6e2e99419f0f6f40a8d5030, type: 3}
     size: 20
-    parent: {fileID: 1241391911}
   - id: 0
     tag: ghost
     prefab: {fileID: 5482892366872172009, guid: 904987cef8edc5c4cb6393535d61452a, type: 3}
     size: 5
-    parent: {fileID: 1241391911}
   - id: 0
     tag: slime
     prefab: {fileID: 5297841520325394218, guid: 46f15febfce4d8045af4a7017c0ded7b, type: 3}
     size: 5
-    parent: {fileID: 1241391911}
   - id: 0
     tag: cloud
     prefab: {fileID: 6746565035737432398, guid: c5767ce1304215849a10d286d3491511, type: 3}
     size: 5
-    parent: {fileID: 1241391911}
 --- !u!1 &1833055074
 GameObject:
   m_ObjectHideFlags: 0
@@ -16771,8 +16724,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinTransform: {fileID: 1483152313}
-  position_1: {x: 616, y: -300}
-  position_2: {x: 20, y: -20}
+  startPosition: {x: 0, y: 50}
+  movePosition: {x: 0, y: -300}
 --- !u!1 &2144114784
 GameObject:
   m_ObjectHideFlags: 0
@@ -17220,6 +17173,7 @@ GameObject:
   - component: {fileID: 1591818085885205142}
   - component: {fileID: 365683868856842999}
   - component: {fileID: 5177748031603570345}
+  - component: {fileID: 5177748031603570346}
   m_Layer: 5
   m_Name: Game Over (Window)
   m_TagString: Untagged
@@ -18066,14 +18020,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseButton: {fileID: 846533822}
-  levelMultiply:
+  moneyLevel:
   - 1
   - 1.2
   - 1.4
   - 1.6
   - 1.8
   - 2
-  delay: 0
+--- !u!114 &5177748031603570346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724869307306562058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ccd254d9a96464f884b31c3998fa89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinText: {fileID: 4496051696831699393}
+  totalText: {fileID: 7283714973811492156}
+  multiplyText: {fileID: 678868547}
 --- !u!1 &5215972593924681895
 GameObject:
   m_ObjectHideFlags: 0
@@ -18866,4 +18834,3 @@ SceneRoots:
   - {fileID: 555088463}
   - {fileID: 97577038}
   - {fileID: 2028087495}
-  - {fileID: 1241391911}
