@@ -17,19 +17,12 @@ public class InputScript : MonoBehaviour
 
     private KeyboardInputAction keyboardInputAction;
 
-    private void Awake() => keyboardInputAction = new KeyboardInputAction();  
+    private MobileInputAction mobileInputAction;
 
-    private void StopArrow(InputAction.CallbackContext context)
+    private void Awake()
     {
-        keyboardInputAction.Keyboard.PowerBar.started -= StopArrow;
-        if (powerOn) keyboardInputAction.Keyboard.PowerBar.started += (InputAction.CallbackContext context) => flyPower.Fly();
-        onStart?.Invoke();
-    }
-
-    public void SwitchPower(bool state)
-    {
-        if (state) keyboardInputAction.Enable();
-        else keyboardInputAction.Disable();
+        keyboardInputAction = new KeyboardInputAction();
+        mobileInputAction = new MobileInputAction();
     }
 
     private void OnEnable()
@@ -37,7 +30,43 @@ public class InputScript : MonoBehaviour
         keyboardInputAction.Enable();
         keyboardInputAction.Keyboard.PowerBar.started += StopArrow;
         playerSpeed.onStop += keyboardInputAction.Disable;
+
+        mobileInputAction.Enable();
+        mobileInputAction.Touch.Press.started += StopArrow;
+        playerSpeed.onStop += mobileInputAction.Disable;
     }
 
-    private void OnDisable() => keyboardInputAction.Disable();
+    private void OnDisable()
+    {
+        keyboardInputAction.Disable();
+        mobileInputAction.Disable();
+    }
+
+    private void StopArrow(InputAction.CallbackContext context)
+    {
+        keyboardInputAction.Keyboard.PowerBar.started -= StopArrow;
+        mobileInputAction.Touch.Press.started -= StopArrow;
+
+        if (powerOn)
+        {
+            keyboardInputAction.Keyboard.PowerBar.started += (InputAction.CallbackContext context) => flyPower.Fly();
+            mobileInputAction.Touch.Press.started += (InputAction.CallbackContext context) => flyPower.Fly();
+        }
+
+        onStart?.Invoke();
+    }
+
+    public void SwitchPower(bool state)
+    {
+        if (state)
+        {
+            keyboardInputAction.Enable();
+            mobileInputAction.Enable();
+        }
+        else
+        {
+            keyboardInputAction.Disable();
+            mobileInputAction.Disable();
+        }
+    }
 }
