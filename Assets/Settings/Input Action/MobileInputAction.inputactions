@@ -1,0 +1,34 @@
+{
+    "name": "MobileInputAction",
+    "maps": [
+        {
+            "name": "Touch",
+            "id": "4c76eb65-413a-4e53-aa3e-5084ae23ae08",
+            "actions": [
+                {
+                    "name": "Press",
+                    "type": "Button",
+                    "id": "162fb74c-c783-411b-9d02-fd18ea4fa3c2",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "6497ce04-bcbf-421f-b725-be31c51f70dd",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Press",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

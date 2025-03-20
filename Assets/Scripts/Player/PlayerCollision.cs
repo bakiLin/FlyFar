@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
@@ -20,56 +21,36 @@ public class PlayerCollision : MonoBehaviour
     [Inject]
     private PlayerParticleManager playerParticleManager;
 
-    [Inject]
-    private GameOver gameOver;
+    public CompositeDisposable disposable = new CompositeDisposable();
 
-    private CompositeDisposable disposable = new CompositeDisposable();
-
-    private AudioManager audioManager;
-
-    private void Start()
+    private void Awake()
     {
-        audioManager = AudioManager.Instance;
+        inputScript.onStart += () => {
+            GroundCollision();
+            EnemyTrigger();
+        };
+
+        playerSpeed.onStop += disposable.Clear;
     }
 
     private void GroundCollision()
     {
-        GetComponent<Collider2D>()
-            .OnCollisionEnter2DAsObservable()
-            .Where(obj => obj.transform.CompareTag("Ground"))
-            .Subscribe(obj => {
-                GroundCollision groundCollision = obj.transform.GetComponent<GroundCollision>();
-                if (!playerParticleManager.isFalling) playerSpeed.AddSpeed(-playerSpeed.speed.Value * groundCollision.multiply);
-                if (playerSpeed.speed.Value > 5f) playerGravity.Bounce(groundCollision.force);
-                else disposable.Clear();
+        GetComponent<Collider2D>().OnCollisionEnter2DAsObservable().Where(_ => _.transform.CompareTag("Ground"))
+            .Subscribe(_ => {
+                GroundCollision groundCollision = _.transform.GetComponent<GroundCollision>();
+                if (!playerParticleManager.isFalling) playerSpeed.AddSpeed(-playerSpeed.speed.Value * groundCollision.loss);
+                if (playerSpeed.speed.Value > playerSpeed.stopSpeed) playerGravity.Bounce(groundCollision.force);
             }).AddTo(disposable);
     }
 
     private void EnemyTrigger()
     {
-        GetComponent<Collider2D>()
-            .OnTriggerEnter2DAsObservable()
-            .Where(obj => obj.gameObject.CompareTag("Enemy"))
-            .Subscribe(obj => {
-                audioManager.Play("hit", true);
-                gameOver.delay = true;
-                EnemyCollision enemyCollision = obj.GetComponent<EnemyCollision>();
-                playerGravity.Bounce(enemyCollision.Collide());
-                textManager.SetCoin(enemyCollision.Score());
-                if (playerSpeed.speed.Value < 5f) disposable.Clear();
-                gameOver.delay = false;
+        GetComponent<Collider2D>().OnTriggerEnter2DAsObservable().Where(_ => _.gameObject.CompareTag("Enemy"))
+            .Subscribe(_ => {
+                AudioManager.Instance.Play("hit", true);
+                (float force, int coin) = _.transform.GetComponent<EnemyCollision>().Collide();
+                playerGravity.Bounce(force);
+                textManager.SetCoin(coin);
             }).AddTo(disposable);
-    }
-
-    private void OnEnable()
-    {
-        inputScript.onStart += GroundCollision;
-        inputScript.onStart += EnemyTrigger;
-    }
-
-    private void OnDisable()
-    {
-        inputScript.onStart -= GroundCollision;
-        inputScript.onStart -= EnemyTrigger;
     }
 }

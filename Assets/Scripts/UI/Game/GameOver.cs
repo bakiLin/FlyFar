@@ -1,6 +1,5 @@
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using YG;
@@ -14,62 +13,53 @@ public class GameOver : MonoBehaviour
     [Inject]
     private PlayerSpeed playerSpeed;
 
+    [Inject]
+    private DistanceManager distanceManager;
+
     [SerializeField]
     private GameObject pauseButton;
 
     [SerializeField]
-    private float[] levelMultiply;
-
-    [HideInInspector]
-    public bool delay;
+    private float[] moneyLevel;
 
     private RectTransform window;
 
-    private TextMeshProUGUI coinText, coinTotalText, multiplyText;
+    private GameOverText gameOverText;
 
     private int level, money, sceneIndex;
 
     private void Awake()
     {
         window = GetComponent<RectTransform>();
-        coinText = transform.Find("Coin (Text)").GetComponent<TextMeshProUGUI>();
-        coinTotalText = transform.Find("Total (Text)").GetComponent<TextMeshProUGUI>();
-        multiplyText = transform.Find("Multiply (Text)").GetComponent<TextMeshProUGUI>();
+        gameOverText = GetComponent<GameOverText>();
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
+    }
+
+    private void OnEnable()
+    {
+        playerSpeed.onStop += ResultWindow;
     }
 
     private async void ResultWindow()
     {
-        while (delay) await UniTask.DelayFrame(1);
+        while (distanceManager.isAnimating) await UniTask.DelayFrame(10);
 
         pauseButton.SetActive(false);
 
         level = YandexGame.savesData.GetPlayerLevel(sceneIndex)[3];
-        money = Mathf.RoundToInt(textManager.coin * levelMultiply[level]);
-
-        coinText.text = $"{money}";
-
-        if (YandexGame.EnvironmentData.language == "ru") coinTotalText.text = $"Всего: {YandexGame.savesData.GetMoney(sceneIndex) + money}";
-        else coinTotalText.text = $"Total: {YandexGame.savesData.GetMoney(sceneIndex) + money}";
-
-        if (level > 0) multiplyText.text = $"x{levelMultiply[level]}";
+        money = Mathf.RoundToInt(textManager.coin * moneyLevel[level]);
+        gameOverText.SetText(YandexGame.EnvironmentData.language, money, YandexGame.savesData.GetMoney(sceneIndex) + money, moneyLevel[level]);
 
         YandexGame.savesData.SetMoney(sceneIndex, money);
         YandexGame.SaveProgress();
 
-        await window.DOAnchorPosY(-150f, 1f).SetEase(Ease.OutQuart);
+        window.DOAnchorPosY(-150f, 1f).SetEase(Ease.OutQuart);
     }
 
     public void GetReward()
     {
-        coinText.text = $"{money * 2}";
-
-        if (YandexGame.EnvironmentData.language == "ru") coinTotalText.text = $"Всего: {YandexGame.savesData.GetMoney(sceneIndex) + money}";
-        else coinTotalText.text = $"Total: {YandexGame.savesData.GetMoney(sceneIndex) + money}";
-
+        gameOverText.SetText(YandexGame.EnvironmentData.language, money * 2, YandexGame.savesData.GetMoney(sceneIndex) + money, moneyLevel[level]);
         YandexGame.savesData.SetMoney(sceneIndex, money);
         YandexGame.SaveProgress();
     }
-
-    private void OnEnable() => playerSpeed.onStop += ResultWindow;
 }

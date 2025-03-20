@@ -10,24 +10,26 @@ public class EnemyCollision : MonoBehaviour
 
     protected Animator animator;
 
-    protected virtual void Awake()
-    {
-        animator = GetComponent<Animator>();
-    }
+    protected bool isTriggered;
+
+    protected virtual void Awake() => animator = GetComponent<Animator>();
 
     public virtual void Deactivate()
     {
+        isTriggered = false;
         gameObject.SetActive(false);
     }
 
-    public virtual float Collide()
+    public virtual (float, int) Collide()
     {
-        enabled = false;
+        if (!isTriggered)
+        {
+            isTriggered = true;
+            animator?.SetTrigger("Death");
+            return (jumpForce, score);
+        }
 
-        animator.SetTrigger("Death");
+        return (0, 0);
 
-        return jumpForce;
     }
-
-    public int Score() => score;
 }

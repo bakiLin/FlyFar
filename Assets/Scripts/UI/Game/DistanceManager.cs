@@ -16,30 +16,29 @@ public class DistanceManager : MonoBehaviour
     [Inject]
     private TextManager textManager;
 
-    [Inject]
-    private GameOver gameOver;
-
     [SerializeField]
     private RectTransform coinTransform;
 
     [SerializeField]
-    private Vector2 position_1, position_2;
+    private Vector2 startPosition, movePosition;
 
-    private CancellationTokenSource cts = new CancellationTokenSource();
+    public bool isAnimating { get; private set; }
 
     private TextMeshProUGUI distanceText;
 
-    private AudioManager audioManager;
-
     private int distance, num = 1;
 
-    private Vector2 startPosition;
+    private CancellationTokenSource cts = new CancellationTokenSource();
 
-    private void Start()
+    private void Awake()
     {
-        audioManager = AudioManager.Instance;
         distanceText = GetComponent<TextMeshProUGUI>();
-        startPosition = coinTransform.position;
+    }
+
+    private void OnEnable()
+    {
+        inputScript.onStart += () => UpdateDistanceAsync().Forget();
+        playerSpeed.onStop += cts.Cancel;
     }
 
     private async UniTaskVoid UpdateDistanceAsync()
@@ -51,41 +50,28 @@ public class DistanceManager : MonoBehaviour
             if (!cts.IsCancellationRequested)
             {
                 distance += Mathf.RoundToInt(playerSpeed.speed.Value);
-
-                distanceText.text = $"{distance.ToString()} m";
-
-                GainBonusMoney().Forget();
+                distanceText.text = $"{distance} m";
+                if (500 * num / distance < 1) GainBonusMoney().Forget();
             }
         }
     }
 
     private async UniTaskVoid GainBonusMoney()
     {
-        if (distance / (500 * num) > 0)
-        {
-            gameOver.delay = true;
-            audioManager.Play("fly", true);
-            num++;
-            await DOTween.Sequence()
-                .Append(coinTransform.DOAnchorPos(position_1, 1f)
-                    .SetEase(Ease.OutCubic))
-                .Append(coinTransform.DOAnchorPos(position_2, 1f)
-                    .SetEase(Ease.InOutCirc)
-                    .OnComplete(() => {
-                        audioManager.Play("coin", true);
-                        coinTransform.anchoredPosition = startPosition; 
-                    }));
-            textManager.SetCoin(100);
-
-            gameOver.delay = false;
-        }
+        isAnimating = true;
+        num++;
+        AudioManager.Instance.Play("wind", true);
+        await DOTween.Sequence()
+            .Append(coinTransform.DOAnchorPos(movePosition, 1f).SetEase(Ease.OutCubic))
+            .Append(coinTransform.DOAnchorPos(startPosition, 1f).SetEase(Ease.InCubic));
+        AudioManager.Instance.Play("coin", true);
+        coinTransform.anchoredPosition = startPosition;
+        textManager.SetCoin(100);
+        isAnimating = false;
     }
 
-    private void OnEnable()
+    private void OnDestroy()
     {
-        inputScript.onStart += () => UpdateDistanceAsync().Forget();
-        playerSpeed.onStop += cts.Cancel;
+        cts.Cancel();
     }
-
-    private void OnDestroy() => cts.Cancel();
 }

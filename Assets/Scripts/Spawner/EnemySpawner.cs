@@ -22,15 +22,23 @@ public class EnemySpawner : MonoBehaviour
 
     private double delay;
 
+    private Vector3 screenSize;
+
+    private void Awake()
+    {
+        screenSize = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height));
+    }
+
     public async UniTaskVoid SpawnAsync(CancellationToken token)
     {
         while (!token.IsCancellationRequested)
         {
+            while (playerSpeed.speed.Value < playerSpeed.stopSpeed) await UniTask.DelayFrame(1);
             delay = GetRandom(distance[0], distance[1]) / Mathf.Clamp(playerSpeed.speed.Value, 5f, 25f) * 1000;
             await UniTask.Delay((int)delay, cancellationToken: token);
 
-            if (yPosition.Length > 1) objectPooler.Spawn(enemyTag, new Vector3(23f, GetRandom(yPosition[0], yPosition[1])));
-            else objectPooler.Spawn(enemyTag, new Vector3(23f, yPosition[0]));
+            if (yPosition.Length > 1) objectPooler.Spawn(enemyTag, new Vector3(screenSize.x + 2, GetRandom(yPosition[0], yPosition[1])));
+            else objectPooler.Spawn(enemyTag, new Vector3(screenSize.x + 2, yPosition[0]));
         }
     }
 

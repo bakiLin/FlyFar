@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2348526761722197034}
   - component: {fileID: 5252264339997055989}
   - component: {fileID: 8563305122578087991}
-  - component: {fileID: 2949015575351673489}
-  - component: {fileID: 5493442045507361959}
+  - component: {fileID: 86720994026474028}
+  - component: {fileID: 6161951737607029698}
   m_Layer: 0
   m_Name: Cloud
   m_TagString: Enemy
@@ -32,7 +32,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.7, y: 1.7, z: 1.7}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 7517726995238008146}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5252264339997055989
@@ -127,7 +128,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 2.5999997, y: 1.3399999}
   m_Direction: 1
---- !u!114 &2949015575351673489
+--- !u!114 &86720994026474028
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,11 +137,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6746565035737432398}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7a6385503ae5b7429c4ce133fe7e338, type: 3}
+  m_Script: {fileID: 11500000, guid: c907125998a8cec4a9b3acd59e446084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
---- !u!114 &5493442045507361959
+--- !u!114 &6161951737607029698
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,9 +150,41 @@ MonoBehaviour:
   m_GameObject: {fileID: 6746565035737432398}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5296170026e44a54ca0563339d6f4385, type: 3}
+  m_Script: {fileID: 11500000, guid: b0634ef4e11211e4a8528f049de32045, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 0
-  score: 10
+  score: 20
   rideDuration: 3
+  cloud: 1
+--- !u!1 &7439022959544589721
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7517726995238008146}
+  m_Layer: 0
+  m_Name: Ship
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7517726995238008146
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7439022959544589721}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2348526761722197034}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

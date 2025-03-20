@@ -9,11 +9,11 @@ public class GroundCollision : MonoBehaviour
 
     public float force;
 
-    public float multiply { get; private set; }
+    public float loss { get; private set; }
 
     private void Awake()
     {
         int index = SceneManager.GetActiveScene().buildIndex;
-        multiply = speedLoss[YandexGame.savesData.GetPlayerLevel(index)[1]];
+        loss = speedLoss[YandexGame.savesData.GetPlayerLevel(index)[1]];
     }
 }
